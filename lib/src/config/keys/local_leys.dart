@@ -8,9 +8,6 @@ class PrefKeys {
   static const EMAIL = 'EMAIL';
   static const LOCAL_AUTH_EMAIL = 'LOCAL_AUTH_EMAIL';
   static const LOCAL_AUTH_PASSWORD = 'LOCAL_AUTH_PASSWORD';
-  static const IS_SIGNNED_BEFORE = 'IS_SIGNNED_BEFORE';
-  static const USER_INITIATE_TRANSACTION = 'USER_INITIATE_TRANSACTION';
-  static const USER_TRANSACTION_PIN = 'USER_TRANSACTION_PIN';
   static const PASSWORD = 'PASSWORD';
   static const USER_DATA = 'USER_DATA';
   static const USER_ENABLE_2FA = 'USER_ENABLE_2FA';
