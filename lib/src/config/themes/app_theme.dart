@@ -10,11 +10,11 @@ abstract class AppTheme {
         primaryColor: AppColors.primary,
         textTheme: TextTheme(
             bodySmall: TextStyle(
-                fontFamily: "Euclad",
+                fontFamily: 'Euclad',
                 color: AppColors.darkBlue.withOpacity(0.6),
                 fontSize: 12),
             headlineLarge: const TextStyle(
-                fontFamily: "Euclad",
+                fontFamily: 'Euclad',
                 color: AppColors.darkBlue,
                 fontSize: 28)));
   }

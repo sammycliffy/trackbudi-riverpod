@@ -1,7 +1,6 @@
 name: trackbudi_mobile
-description: A new Flutter project.
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
+description: TrackBudi is a logistic application
+
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 0.0.0+1
@@ -9,12 +8,6 @@ version: 0.0.0+1
 environment:
   sdk: ">=2.19.2 <3.0.0"
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
@@ -27,18 +20,43 @@ dependencies:
   #Networking
   retrofit: ^3.3.0
   dio: ^4.0.6
+  jwt_decoder: ^2.0.1
+  dartz: any
+  rxdart: ^0.27.3
 
   #State Management
   riverpod:
+  state_notifier: ^0.7.2+1
 
   #Others
   flutter_hooks: ^0.18.5+1
+  file_picker: ^4.5.1
+  intl:
   get_it: ^7.2.0
   floor: ^1.4.1
   equatable: ^2.0.5
+  injectable: ^1.5.0
+  logger: ^1.4.0
+  camera: ^0.10.3
+  country_calling_code_picker:
+  image_picker: ^0.8.6+1
+  qr_flutter: ^4.0.0
+  local_auth: ^1.1.10
+  permission_handler: ^10.2.0
+  timeago: ^3.3.0
+  formz: ^0.4.1
   oktoast: ^3.3.1
   awesome_dio_interceptor: ^0.0.2+4
   auto_route: ^5.0.4
+  flutter_dotenv: ^5.1.0
+  flutter_secure_storage: ^8.0.0
+  decimal: ^2.2.0
+  json_annotation:
+  freezed_annotation: ^2.0.1
+  money_formatter: ^0.0.3
+  device_info_plus: ^3.1.1
+  package_info_plus: ^1.4.2
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +67,11 @@ dev_dependencies:
   retrofit_generator: ^4.1.2
   floor_generator: ^1.4.1
   build_runner: ^2.3.3
+  flutter_gen: any
+  flutter_gen_runner:
+  freezed: ^2.3.2
+  json_serializable: any
+  injectable_generator: any
 
   flutter_lints: ^2.0.0
 
@@ -66,7 +89,6 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
