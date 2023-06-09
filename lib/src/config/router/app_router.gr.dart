@@ -13,7 +13,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
-import 'package:trackbudi_mobile/src/features/views/onboarding/splash_screen.dart'
+import 'package:trackbudi_mobile/src/features/auth/presentation/views/onboarding/splash_screen.dart'
     as _i1;
 
 class AppRouter extends _i2.RootStackRouter {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../utils/constants/color.dart';
-
+import '../../../../core/shared/resources/colors_tr.dart';
 class TrackBudiButton extends StatelessWidget {
   final String buttonText;
   final Function()? onTap;
