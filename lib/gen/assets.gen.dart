@@ -65,10 +65,99 @@ class $AssetsFontsGen {
       ];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/background-image.png
+  AssetGenImage get backgroundImage =>
+      const AssetGenImage('assets/images/background-image.png');
+
+  /// File path: assets/images/onboarding-one.png
+  AssetGenImage get onboardingOne =>
+      const AssetGenImage('assets/images/onboarding-one.png');
+
+  /// File path: assets/images/onboarding-three.png
+  AssetGenImage get onboardingThree =>
+      const AssetGenImage('assets/images/onboarding-three.png');
+
+  /// File path: assets/images/onboarding-two.png
+  AssetGenImage get onboardingTwo =>
+      const AssetGenImage('assets/images/onboarding-two.png');
+
+  /// File path: assets/images/truck.png
+  AssetGenImage get truck => const AssetGenImage('assets/images/truck.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [backgroundImage, onboardingOne, onboardingThree, onboardingTwo, truck];
+}
+
+class $AssetsSvgsGen {
+  const $AssetsSvgsGen();
+
+  /// File path: assets/svgs/active-profile.svg
+  String get activeProfile => 'assets/svgs/active-profile.svg';
+
+  /// File path: assets/svgs/arrow-back.svg
+  String get arrowBack => 'assets/svgs/arrow-back.svg';
+
+  /// File path: assets/svgs/bottom.png
+  AssetGenImage get bottom => const AssetGenImage('assets/svgs/bottom.png');
+
+  /// File path: assets/svgs/id-card.svg
+  String get idCard => 'assets/svgs/id-card.svg';
+
+  /// File path: assets/svgs/inactive-profile.svg
+  String get inactiveProfile => 'assets/svgs/inactive-profile.svg';
+
+  /// File path: assets/svgs/logo.svg
+  String get logo => 'assets/svgs/logo.svg';
+
+  /// File path: assets/svgs/message.svg
+  String get message => 'assets/svgs/message.svg';
+
+  /// File path: assets/svgs/password-description.svg
+  String get passwordDescription => 'assets/svgs/password-description.svg';
+
+  /// File path: assets/svgs/signup-round-image.svg
+  String get signupRoundImage => 'assets/svgs/signup-round-image.svg';
+
+  /// File path: assets/svgs/splash-background.svg
+  String get splashBackground => 'assets/svgs/splash-background.svg';
+
+  /// File path: assets/svgs/splash-circle.svg
+  String get splashCircle => 'assets/svgs/splash-circle.svg';
+
+  /// File path: assets/svgs/splash-full-background.svg
+  String get splashFullBackground => 'assets/svgs/splash-full-background.svg';
+
+  /// File path: assets/svgs/truck.svg
+  String get truck => 'assets/svgs/truck.svg';
+
+  /// List of all assets
+  List<dynamic> get values => [
+        activeProfile,
+        arrowBack,
+        bottom,
+        idCard,
+        inactiveProfile,
+        logo,
+        message,
+        passwordDescription,
+        signupRoundImage,
+        splashBackground,
+        splashCircle,
+        splashFullBackground,
+        truck
+      ];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
 }
 
 class AssetGenImage {

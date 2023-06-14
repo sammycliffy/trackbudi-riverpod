@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/shared/resources/colors_tr.dart';
+
 class TrackBudiButton extends StatelessWidget {
   final String buttonText;
   final Function()? onTap;
@@ -8,6 +10,7 @@ class TrackBudiButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: 50,
