@@ -99,6 +99,11 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                 label: 'Name of Conpany',
               ),
               heightSpace(2),
+              customText(
+                  text: 'What kind of goods can you move?',
+                  fontSize: 14,
+                  textColor: AppColors.textPrimary),
+              heightSpace(2),
               Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: AppColors.textformGrey),
@@ -109,9 +114,6 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                     onInputChanged: (val) {
                       log(val.toString());
                     }),
-              ),
-              const TrackBudiTextFormField(
-                label: 'Last name',
               ),
               heightSpace(2),
               const TrackBudiTextFormField(
@@ -207,28 +209,42 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
             borderRadius: BorderRadius.circular(8)),
         child: Row(children: [
           vehicleType[index].isChecked
-              ? Container(
-                  width: 20,
-                  height: 20,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: AppColors.primary),
-                  child: const Center(
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: 1),
-                      child: Icon(
-                        Icons.check,
-                        color: AppColors.white,
-                        size: 13,
+              ? GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      vehicleType[index].isChecked = false;
+                    });
+                  },
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: AppColors.primary),
+                    child: const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 1),
+                        child: Icon(
+                          Icons.check,
+                          color: AppColors.white,
+                          size: 13,
+                        ),
                       ),
                     ),
                   ),
                 )
-              : Container(
-                  width: 20,
-                  height: 20,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: AppColors.textformGrey)),
+              : GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      vehicleType[index].isChecked = true;
+                    });
+                  },
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: AppColors.textformGrey)),
+                  ),
                 ),
           widthSpace(3),
           Expanded(
@@ -245,7 +261,12 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                 GestureDetector(
                   child: arithmeticContainer('-'),
                   onTap: () {
-                    vehicleType[index].quantity--;
+                    setState(() {
+                      if (vehicleType[index].quantity > 0) {
+                        vehicleType[index].quantity--;
+                        vehicleType[index].isChecked = true;
+                      }
+                    });
                   },
                 ),
                 customText(
@@ -255,6 +276,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
+                      vehicleType[index].isChecked = true;
                       vehicleType[index].quantity++;
                     });
                   },

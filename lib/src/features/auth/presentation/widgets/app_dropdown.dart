@@ -5,17 +5,21 @@ import '../../../../core/shared/resources/colors_tr.dart';
 import '../../../../core/shared/resources/custom_text.dart';
 
 class TrackBudiDropdown extends StatefulWidget {
-  List<Object>? dropdownList;
-  Function(Object?)? onChange;
-  String label;
-  TrackBudiDropdown(
-      {super.key, required this.dropdownList, required this.label});
+  final List<String>? dropdownList;
+  final Function(Object?)? onChange;
+  final String label;
+  const TrackBudiDropdown(
+      {super.key,
+      required this.dropdownList,
+      required this.label,
+      this.onChange});
 
   @override
   State<TrackBudiDropdown> createState() => _TrackBudiDropdownState();
 }
 
 class _TrackBudiDropdownState extends State<TrackBudiDropdown> {
+  String? dropdownValue;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,8 +29,8 @@ class _TrackBudiDropdownState extends State<TrackBudiDropdown> {
             text: widget.label, fontSize: 14, textColor: AppColors.textPrimary),
         heightSpace(2),
         SizedBox(
-            height: 54,
-            child: DropdownButtonFormField<Object>(
+            height: 57,
+            child: DropdownButtonFormField(
                 value: widget.dropdownList?.first,
                 decoration: InputDecoration(
                     fillColor: Colors.white,

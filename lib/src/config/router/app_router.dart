@@ -9,6 +9,7 @@ import '../../features/auth/presentation/views/main_auth/otp_view.dart';
 import '../../features/auth/presentation/views/main_auth/personal_info.dart';
 import '../../features/auth/presentation/views/main_auth/reset_password.dart';
 import '../../features/auth/presentation/views/main_auth/signup.dart';
+import '../../features/auth/presentation/views/main_auth/vendor_registration.dart';
 import '../../features/auth/presentation/views/onboarding/onboarding.dart';
 import '../../features/auth/presentation/views/onboarding/splash_screen.dart';
 
@@ -35,6 +36,7 @@ import '../../features/auth/presentation/views/onboarding/splash_screen.dart';
   AutoRoute(page: LoginView),
   AutoRoute(page: EmailLoginView),
   AutoRoute(page: ResetPasswordView),
+  AutoRoute(page: VendorRegistration),
   AutoRoute(page: NewPasswordView),
 ])
 class $AppRouter {}

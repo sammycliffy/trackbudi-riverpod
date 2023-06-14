@@ -59,7 +59,13 @@ class AccountSelection extends HookWidget {
             heightSpace(4),
             TrackBudiButton(
               buttonText: 'Continue',
-              onTap: () => context.pushRoute(CompanyRegistration()),
+              onTap: () {
+                if (isLogistics.value) {
+                  context.pushRoute(const CompanyRegistration());
+                  return;
+                }
+                context.pushRoute(const VendorRegistration());
+              },
             )
           ],
         ),

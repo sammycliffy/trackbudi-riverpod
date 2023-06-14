@@ -18,13 +18,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  AssetImage? backgroundImage;
+  Image? truckImage;
+  Image? circle;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.splashBackground),
+            image: backgroundImage!,
             fit: BoxFit.cover,
           ),
         ),
@@ -45,13 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   textColor: AppColors.textPrimary),
             ),
             heightSpace(5),
-            Center(
-              child: Image.asset(
-                AppImages.truck,
-                width: 50,
-                height: 50,
-              ),
-            ),
+            Center(child: truckImage),
           ],
         ),
       ),
@@ -59,8 +56,22 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(backgroundImage!, context);
+    precacheImage(truckImage!.image, context);
+  }
+
+  @override
   void initState() {
     super.initState();
+    backgroundImage = const AssetImage(AppImages.splashBackground);
+    truckImage = Image.asset(
+      AppImages.truck,
+      width: 50,
+      height: 50,
+    );
+
     Timer(const Duration(seconds: 3),
         () => context.pushRoute(const OnboardingScreen()));
   }
