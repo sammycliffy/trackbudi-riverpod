@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
@@ -23,13 +22,17 @@ class ProfileInfo extends HookWidget {
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+          ),
           child: Column(
             children: [
               Row(
                 children: [
-                  SvgPicture.asset(
-                    AppImages.signupRoundImage,
+                  Image.asset(
+                    AppImages.logisticsHeading,
+                    width: 100,
+                    height: 100,
                   ),
                   Flexible(
                     child: Column(
@@ -118,12 +121,16 @@ class ProfileInfo extends HookWidget {
                 children: [
                   bodyText(text: 'Already have an account?'),
                   widthSpace(2),
-                  customText(
-                      text: 'Login',
-                      fontSize: 14,
-                      textColor: AppColors.textPrimary),
+                  GestureDetector(
+                    onTap: () => context.pushRoute(const LoginView()),
+                    child: customText(
+                        text: 'Login',
+                        fontSize: 14,
+                        textColor: AppColors.textPrimary),
+                  )
                 ],
-              )
+              ),
+              heightSpace(5)
             ],
           ),
         ),

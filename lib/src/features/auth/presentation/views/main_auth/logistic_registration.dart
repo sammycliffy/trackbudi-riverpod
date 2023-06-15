@@ -4,8 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
@@ -14,6 +12,7 @@ import '../../../../../core/shared/resources/colors_tr.dart';
 import '../../../../../core/shared/resources/custom_text.dart';
 import '../../../data/model/vehicle_type.dart';
 import '../../widgets/app_app_bar.dart';
+import '../../widgets/app_country_widget.dart';
 import '../../widgets/app_divider.dart';
 import '../../widgets/app_dropdown.dart';
 import '../../widgets/app_textformfield.dart';
@@ -27,6 +26,7 @@ class CompanyRegistration extends StatefulWidget {
 }
 
 class _CompanyRegistrationState extends State<CompanyRegistration> {
+  String countryName = 'Nigeria';
   List<VehicleTypeWidget> vehicleType = [
     VehicleTypeWidget(vehicleType: 'Motor bike', quantity: 3, isChecked: false),
     VehicleTypeWidget(vehicleType: 'Car', quantity: 3, isChecked: false),
@@ -69,14 +69,16 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  SvgPicture.asset(
-                    AppImages.signupRoundImage,
+                  Image.asset(
+                    AppImages.logisticsHeading,
+                    width: 80,
+                    height: 80,
                   ),
                   Flexible(
                     child: Column(
@@ -96,25 +98,15 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
               const AppDivider(),
               heightSpace(6),
               const TrackBudiTextFormField(
-                label: 'Name of Conpany',
+                label: 'Name of Company',
               ),
               heightSpace(2),
               customText(
-                  text: 'What kind of goods can you move?',
+                  text: 'Select country',
                   fontSize: 14,
                   textColor: AppColors.textPrimary),
               heightSpace(2),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.textformGrey),
-                    borderRadius: BorderRadius.circular(8)),
-                child: InternationalPhoneNumberInput(
-                    inputDecoration:
-                        const InputDecoration(enabledBorder: InputBorder.none),
-                    onInputChanged: (val) {
-                      log(val.toString());
-                    }),
-              ),
+              CountryWidget(selectCountry: (val) => log(val.toString())),
               heightSpace(2),
               const TrackBudiTextFormField(
                 label: 'Address',
@@ -168,31 +160,41 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
               ),
               heightSpace(3),
               TrackBudiDropdown(
-                  dropdownList: deliveriesPerMonth,
-                  label: 'Deliveries per month'),
+                dropdownList: deliveriesPerMonth,
+                label: 'Deliveries per month',
+                onChange: (val) => log(val.toString()),
+              ),
               heightSpace(3),
               TrackBudiDropdown(
-                  dropdownList: aboutUs, label: 'How did you hear about us'),
+                dropdownList: aboutUs,
+                label: 'How did you hear about us',
+                onChange: (val) => log(val.toString()),
+              ),
               heightSpace(3),
               const TrackBudiTextFormField(
                 label: 'Enter referral code (Optional)',
               ),
               heightSpace(3),
               TrackBudiButton(
-                  buttonText: 'I accept',
-                  onTap: () => context.pushRoute(const AccountSelection())),
+                buttonText: 'I accept',
+                onTap: () => context.pushRoute(const SettingUp()),
+              ),
               heightSpace(3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   bodyText(text: 'Already have an account?'),
                   widthSpace(2),
-                  customText(
-                      text: 'Login',
-                      fontSize: 14,
-                      textColor: AppColors.textPrimary),
+                  GestureDetector(
+                    onTap: () => context.pushRoute(const LoginView()),
+                    child: customText(
+                        text: 'Login',
+                        fontSize: 14,
+                        textColor: AppColors.textPrimary),
+                  )
                 ],
-              )
+              ),
+              heightSpace(5)
             ],
           ),
         ),

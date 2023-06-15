@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
@@ -25,8 +24,10 @@ class OTPView extends StatelessWidget {
           children: [
             Row(
               children: [
-                SvgPicture.asset(
-                  AppImages.signupRoundImage,
+                Image.asset(
+                  AppImages.verifyHeading,
+                  width: 100,
+                  height: 100,
                 ),
                 Flexible(
                   child: Column(

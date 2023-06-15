@@ -40,6 +40,7 @@ dependencies:
   pinput: ^2.2.31
   camera: ^0.10.3
   intl_phone_number_input: ^0.7.3+1
+  intl_phone_field: ^3.1.0
   country_calling_code_picker:
   image_picker: ^0.8.6+1
   country_picker: ^2.0.20

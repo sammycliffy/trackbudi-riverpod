@@ -25,8 +25,10 @@ class NewPasswordView extends StatelessWidget {
           children: [
             Row(
               children: [
-                SvgPicture.asset(
-                  AppImages.signupRoundImage,
+                Image.asset(
+                  AppImages.resetHeading,
+                  width: 100,
+                  height: 100,
                 ),
                 Flexible(
                   child: Column(

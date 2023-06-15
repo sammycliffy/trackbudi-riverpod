@@ -15,4 +15,9 @@ class AppImages {
   static const String passwordDescription =
       'assets/svgs/password-description.svg';
   static const String truck = 'assets/images/truck.png';
+  static const String dropdown = 'assets/images/dropdown.svg';
+  static const String logisticsHeading = 'assets/images/logistics-image.png';
+  static const String signupHeading = 'assets/images/signup-heading.png';
+  static const String verifyHeading = 'assets/images/verify-heading.png';
+  static const String resetHeading = 'assets/images/reset-password.png';
 }

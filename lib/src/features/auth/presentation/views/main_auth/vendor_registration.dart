@@ -2,8 +2,6 @@ import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
@@ -11,6 +9,7 @@ import '../../../../../core/shared/resources/app_spacer.dart';
 import '../../../../../core/shared/resources/colors_tr.dart';
 import '../../../../../core/shared/resources/custom_text.dart';
 import '../../widgets/app_app_bar.dart';
+import '../../widgets/app_country_widget.dart';
 import '../../widgets/app_divider.dart';
 import '../../widgets/app_dropdown.dart';
 import '../../widgets/app_textformfield.dart';
@@ -60,14 +59,16 @@ class _VendorRegistrationState extends State<VendorRegistration> {
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  SvgPicture.asset(
-                    AppImages.signupRoundImage,
+                  Image.asset(
+                    AppImages.logisticsHeading,
+                    width: 100,
+                    height: 100,
                   ),
                   Flexible(
                     child: Column(
@@ -101,17 +102,7 @@ class _VendorRegistrationState extends State<VendorRegistration> {
                   fontSize: 14,
                   textColor: AppColors.textPrimary),
               heightSpace(2),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.textformGrey),
-                    borderRadius: BorderRadius.circular(8)),
-                child: InternationalPhoneNumberInput(
-                    inputDecoration:
-                        const InputDecoration(enabledBorder: InputBorder.none),
-                    onInputChanged: (val) {
-                      log(val.toString());
-                    }),
-              ),
+              CountryWidget(selectCountry: (val) => log(val.toString())),
               heightSpace(2),
               customText(
                   text: 'Pickup Address',
@@ -196,8 +187,9 @@ class _VendorRegistrationState extends State<VendorRegistration> {
               // ),
               heightSpace(3),
               TrackBudiButton(
-                  buttonText: 'I accept',
-                  onTap: () => context.pushRoute(const AccountSelection())),
+                buttonText: 'I accept',
+                onTap: () => context.pushRoute(const SettingUp()),
+              ),
               heightSpace(3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

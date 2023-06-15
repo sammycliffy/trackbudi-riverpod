@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 
 import '../../features/auth/presentation/views/main_auth/account_selection_page.dart';
-import '../../features/auth/presentation/views/main_auth/company_registration.dart';
 import '../../features/auth/presentation/views/main_auth/email_login.dart';
 import '../../features/auth/presentation/views/main_auth/login_view.dart';
+import '../../features/auth/presentation/views/main_auth/logistic_registration.dart';
 import '../../features/auth/presentation/views/main_auth/new_password.dart';
 import '../../features/auth/presentation/views/main_auth/otp_view.dart';
 import '../../features/auth/presentation/views/main_auth/personal_info.dart';
 import '../../features/auth/presentation/views/main_auth/reset_password.dart';
+import '../../features/auth/presentation/views/main_auth/setting_up.dart';
 import '../../features/auth/presentation/views/main_auth/signup.dart';
 import '../../features/auth/presentation/views/main_auth/vendor_registration.dart';
 import '../../features/auth/presentation/views/onboarding/onboarding.dart';
@@ -38,5 +39,6 @@ import '../../features/auth/presentation/views/onboarding/splash_screen.dart';
   AutoRoute(page: ResetPasswordView),
   AutoRoute(page: VendorRegistration),
   AutoRoute(page: NewPasswordView),
+  AutoRoute(page: SettingUp)
 ])
 class $AppRouter {}

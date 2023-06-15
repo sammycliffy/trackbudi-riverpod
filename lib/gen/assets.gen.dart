@@ -72,6 +72,10 @@ class $AssetsImagesGen {
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background-image.png');
 
+  /// File path: assets/images/logistics-image.png
+  AssetGenImage get logisticsImage =>
+      const AssetGenImage('assets/images/logistics-image.png');
+
   /// File path: assets/images/onboarding-one.png
   AssetGenImage get onboardingOne =>
       const AssetGenImage('assets/images/onboarding-one.png');
@@ -84,12 +88,33 @@ class $AssetsImagesGen {
   AssetGenImage get onboardingTwo =>
       const AssetGenImage('assets/images/onboarding-two.png');
 
+  /// File path: assets/images/reset-password.png
+  AssetGenImage get resetPassword =>
+      const AssetGenImage('assets/images/reset-password.png');
+
+  /// File path: assets/images/signup-heading.png
+  AssetGenImage get signupHeading =>
+      const AssetGenImage('assets/images/signup-heading.png');
+
   /// File path: assets/images/truck.png
   AssetGenImage get truck => const AssetGenImage('assets/images/truck.png');
 
+  /// File path: assets/images/verify-heading.png
+  AssetGenImage get verifyHeading =>
+      const AssetGenImage('assets/images/verify-heading.png');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [backgroundImage, onboardingOne, onboardingThree, onboardingTwo, truck];
+  List<AssetGenImage> get values => [
+        backgroundImage,
+        logisticsImage,
+        onboardingOne,
+        onboardingThree,
+        onboardingTwo,
+        resetPassword,
+        signupHeading,
+        truck,
+        verifyHeading
+      ];
 }
 
 class $AssetsSvgsGen {
@@ -103,6 +128,9 @@ class $AssetsSvgsGen {
 
   /// File path: assets/svgs/bottom.png
   AssetGenImage get bottom => const AssetGenImage('assets/svgs/bottom.png');
+
+  /// File path: assets/svgs/dropdown.svg
+  String get dropdown => 'assets/svgs/dropdown.svg';
 
   /// File path: assets/svgs/id-card.svg
   String get idCard => 'assets/svgs/id-card.svg';
@@ -139,6 +167,7 @@ class $AssetsSvgsGen {
         activeProfile,
         arrowBack,
         bottom,
+        dropdown,
         idCard,
         inactiveProfile,
         logo,

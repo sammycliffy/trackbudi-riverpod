@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
@@ -28,8 +26,10 @@ class LoginView extends StatelessWidget {
           children: [
             Row(
               children: [
-                SvgPicture.asset(
-                  AppImages.signupRoundImage,
+                Image.asset(
+                  AppImages.logisticsHeading,
+                  width: 100,
+                  height: 100,
                 ),
                 Flexible(
                   child: Column(
@@ -55,17 +55,16 @@ class LoginView extends StatelessWidget {
                 fontSize: 14,
                 textColor: AppColors.textPrimary),
             heightSpace(1),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.textformGrey),
-                  borderRadius: BorderRadius.circular(8)),
-              child: InternationalPhoneNumberInput(
-                  locale: 'NG',
-                  inputDecoration:
-                      const InputDecoration(enabledBorder: InputBorder.none),
-                  onInputChanged: (val) {
-                    log(val.toString());
-                  }),
+            heightSpace(1),
+            IntlPhoneField(
+              decoration: const InputDecoration(
+                labelText: 'Phone Number',
+                border: OutlineInputBorder(),
+              ),
+              initialCountryCode: 'NG',
+              onChanged: (phone) {
+                print(phone.completeNumber);
+              },
             ),
             heightSpace(4),
             TrackBudiButton(
