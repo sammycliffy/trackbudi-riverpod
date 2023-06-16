@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:trackbudi_mobile/gen/assets.gen.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
@@ -67,12 +68,12 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     backgroundImage = const AssetImage(AppImages.splashBackground);
     truckImage = Image.asset(
-      AppImages.truck,
+      Assets.images.truck.path,
       width: 50,
       height: 50,
     );
 
     Timer(const Duration(seconds: 3),
-        () => context.pushRoute(const OnboardingScreen()));
+        () => context.router.replace(const OnboardingScreen()));
   }
 }

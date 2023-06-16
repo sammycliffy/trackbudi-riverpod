@@ -10,7 +10,7 @@ List<OnboardingModel> onboardingModel = [
       image: AppImages.onboardingImageTwo,
       title: 'Vendors',
       subTitle:
-          'E-commerce features built just for you. Set up your store and experience a seamless flow from orders to logistics'),
+          'E-commerce features built just for you.Set up your store and experience a seamless flow from orders to logistics'),
   OnboardingModel(
       image: AppImages.onboardingImageThree,
       title: 'Riders',

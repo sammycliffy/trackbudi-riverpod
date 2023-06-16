@@ -59,6 +59,8 @@ class LoginView extends StatelessWidget {
             IntlPhoneField(
               decoration: const InputDecoration(
                 labelText: 'Phone Number',
+              
+                isDense: true,
                 border: OutlineInputBorder(),
               ),
               initialCountryCode: 'NG',

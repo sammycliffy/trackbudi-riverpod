@@ -42,11 +42,3 @@ class UserData with _$UserData {
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
 }
-
-var updateUserPayload = {
-  'firstName': 'kayode',
-  'lastName': 'olaoye',
-  'email': 'kayodeolaoye18@yahoo.com',
-  'password': 'Samuel2007',
-  'confirmPassword': 'Samuel2007'
-};

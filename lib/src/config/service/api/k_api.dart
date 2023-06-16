@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:trackbudi_mobile/src/config/service/api/base_api.dart';
 import '../../db/secure_storage.dart';
 import '../../di/injector.dart';
 import '../../keys/local_leys.dart';
 
-class Api {
+class Api extends BaseApi {
   // dio instance
   static Dio? _dio;
 
@@ -49,7 +50,7 @@ class Api {
     final instance = await _getInstance();
     try {
       final Response response = await instance.get(
-        url,
+        apiUrl + url,
         queryParameters: queryParameters,
         options: options,
         cancelToken: cancelToken,
@@ -74,7 +75,7 @@ class Api {
     final instance = await _getInstance();
     try {
       final response = await instance.post(
-        uri,
+        apiUrl + uri,
         data: data,
         queryParameters: queryParameters,
         options: options,
@@ -101,7 +102,7 @@ class Api {
     final instance = await _getInstance();
     try {
       final Response response = await instance.put(
-        uri,
+        apiUrl + uri,
         data: data,
         queryParameters: queryParameters,
         options: options,
@@ -128,7 +129,7 @@ class Api {
     final instance = await _getInstance();
     try {
       final Response response = await instance.patch(
-        uri,
+        apiUrl + uri,
         data: data,
         queryParameters: queryParameters,
         options: options,
@@ -149,7 +150,7 @@ class Api {
     final instance = await _getInstance();
     try {
       final Response response = await instance.download(
-        url,
+        apiUrl + url,
         savePath,
         onReceiveProgress: progressCallback,
       );
@@ -173,7 +174,7 @@ class Api {
     final instance = await _getInstance();
     try {
       final Response response = await instance.delete(
-        uri,
+        apiUrl + uri,
         data: data,
         queryParameters: queryParameters,
         options: options,

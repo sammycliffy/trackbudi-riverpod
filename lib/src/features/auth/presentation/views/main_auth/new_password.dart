@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../../gen/assets.gen.dart';
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
 import '../../../../../core/shared/resources/app_spacer.dart';
@@ -26,7 +27,7 @@ class NewPasswordView extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  AppImages.resetHeading,
+                  Assets.images.resetPassword.path,
                   width: 100,
                   height: 100,
                 ),

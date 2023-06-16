@@ -25,16 +25,3 @@ class VerifyData with _$VerifyData {
   factory VerifyData.fromJson(Map<String, dynamic> json) =>
       _$VerifyDataFromJson(json);
 }
-
-var verifyOtpPayload = {'phone': '8155794698', 'otp': '8117'};
-var requestOtpPayload = {'countryCode': '+234', 'phone': '8155794698'};
-var loginWithEmailPayload = {
-  'email': 'kaygrammers@gmail.com',
-  'password': 'Samuel2007'
-};
-var initiateResetOtpPayload = {'email': 'kaygrammers@gmail.com'};
-var verifyResetTokenPayload = {'resetOTP': '5126'};
-var resetPasswordPayload = {
-  'email': 'kaygrammers@gmail.com',
-  'password': 'Samuel2000'
-};

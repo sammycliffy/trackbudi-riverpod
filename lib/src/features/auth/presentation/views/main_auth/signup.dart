@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:trackbudi_mobile/src/core/mixin/trackbudi_mixin.dart';
 
 import '../../../../../config/router/app_router.gr.dart';
 import '../../../../../core/shared/resources/app_images.dart';
@@ -10,8 +11,8 @@ import '../../../../../core/shared/resources/custom_text.dart';
 import '../../widgets/app_divider.dart';
 import '../../widgets/trackbudi_button.dart';
 
-class SignupView extends StatelessWidget {
-  const SignupView({super.key});
+class SignupView extends StatelessWidget with TrackBudiValidate {
+  SignupView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,8 @@ class SignupView extends StatelessWidget {
                 textColor: AppColors.textPrimary),
             heightSpace(1),
             IntlPhoneField(
+              inputFormatters: [PhoneNumberFormatter()],
+              validator: (v) => phoneNumberFullValidator(v?.completeNumber),
               decoration: const InputDecoration(
                 labelText: 'Phone Number',
                 border: OutlineInputBorder(),

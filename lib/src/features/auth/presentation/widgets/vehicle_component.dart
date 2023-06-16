@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
-
 import '../../../../core/shared/resources/app_spacer.dart';
 import '../../../../core/shared/resources/colors_tr.dart';
 import '../../../../core/shared/resources/custom_text.dart';

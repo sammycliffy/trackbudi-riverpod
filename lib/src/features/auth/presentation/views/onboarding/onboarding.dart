@@ -17,7 +17,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final PageController _pageController = PageController();
+  final _pageController = PageController();
 
   int currentIndexPage = 0;
 
@@ -51,7 +51,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           heightSpace(4),
                           TrackBudiButton(
                             buttonText: 'Get Started',
-                            onTap: () => context.pushRoute(const SignupView()),
+                            onTap: () => context.router.replace(SignupView()),
                           ),
                         ],
                       ),
@@ -76,9 +76,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
             TextButton(
-                onPressed: nextPage,
+                onPressed: currentIndexPage == 2
+                    ? () => context.router.replace(SignupView())
+                    : nextPage,
                 child: customText(
-                    text: 'Next', fontSize: 14, textColor: AppColors.black))
+                    text: currentIndexPage == 2 ? 'Finish' : 'Next',
+                    fontSize: 14,
+                    textColor: AppColors.black))
           ]),
         ),
       ],

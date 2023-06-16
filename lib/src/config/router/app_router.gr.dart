@@ -58,9 +58,11 @@ class AppRouter extends _i14.RootStackRouter {
       );
     },
     SignupView.name: (routeData) {
+      final args = routeData.argsAs<SignupViewArgs>(
+          orElse: () => const SignupViewArgs());
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i3.SignupView(),
+        child: _i3.SignupView(key: args.key),
       );
     },
     OTPView.name: (routeData) {
@@ -208,14 +210,26 @@ class OnboardingScreen extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.SignupView]
-class SignupView extends _i14.PageRouteInfo<void> {
-  const SignupView()
+class SignupView extends _i14.PageRouteInfo<SignupViewArgs> {
+  SignupView({_i15.Key? key})
       : super(
           SignupView.name,
           path: '/signup-view',
+          args: SignupViewArgs(key: key),
         );
 
   static const String name = 'SignupView';
+}
+
+class SignupViewArgs {
+  const SignupViewArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'SignupViewArgs{key: $key}';
+  }
 }
 
 /// generated route for

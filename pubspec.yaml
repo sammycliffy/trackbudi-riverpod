@@ -25,12 +25,13 @@ dependencies:
   rxdart: ^0.27.3
 
   #State Management
-  riverpod:
-  state_notifier: ^0.7.2+1
+  bloc:
+  flutter_bloc: 
+  provider: 
 
   #Others
   flutter_hooks: ^0.18.5+1
-  file_picker: ^5.3.2
+  file_picker:
   intl:
   get_it: ^7.2.0
   floor: ^1.4.1
@@ -39,6 +40,7 @@ dependencies:
   logger: ^1.4.0
   pinput: ^2.2.31
   camera: ^0.10.3
+  geolocator: ^9.0.2
   intl_phone_number_input: ^0.7.3+1
   intl_phone_field: ^3.1.0
   country_calling_code_picker:
@@ -62,7 +64,6 @@ dependencies:
   flutter_svg: ^1.1.6
   flutter_sizer: ^1.0.4
   dots_indicator: ^3.0.0
-  win32: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

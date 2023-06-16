@@ -188,7 +188,7 @@ class _VendorRegistrationState extends State<VendorRegistration> {
               heightSpace(3),
               TrackBudiButton(
                 buttonText: 'I accept',
-                onTap: () => context.pushRoute(const SettingUp()),
+                onTap: () => context.router.push(const SettingUp()),
               ),
               heightSpace(3),
               Row(
