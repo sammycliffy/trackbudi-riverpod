@@ -14,14 +14,14 @@ class AppColors {
   static const Color textformGrey = Color(0xffdddce1);
   static const Color dividerColor = Color(0xffe7e7e7);
 
-  static OutlineInputBorder errorBorder = const OutlineInputBorder(
+  static OutlineInputBorder errorBorder = OutlineInputBorder(
       borderSide: BorderSide(color: red),
       borderRadius: BorderRadius.all(Radius.circular(5)));
-  static OutlineInputBorder normalBorder = const OutlineInputBorder(
+  static OutlineInputBorder normalBorder = OutlineInputBorder(
       borderSide: BorderSide(color: AppColors.textformGrey),
       borderRadius: BorderRadius.all(Radius.circular(5)));
 
-  static OutlineInputBorder emptyBorder = const OutlineInputBorder(
+  static OutlineInputBorder emptyBorder = OutlineInputBorder(
       borderSide: BorderSide(color: AppColors.textformGrey),
       borderRadius: BorderRadius.all(Radius.circular(5)));
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'auth_cubit.dart';
+part of 'auth_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthState {
+  String get exceptionError => throw _privateConstructorUsedError;
   FormzStatus get loginStatus => throw _privateConstructorUsedError;
   FormzStatus get phoneStatus => throw _privateConstructorUsedError;
   FormzStatus get completeOnboardingStatus =>
@@ -25,65 +26,7 @@ mixin _$AuthState {
   Password get oldPassword => throw _privateConstructorUsedError;
   RePassword get rePassword => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            FormzStatus loginStatus,
-            FormzStatus phoneStatus,
-            FormzStatus completeOnboardingStatus,
-            Email email,
-            Password password,
-            Password oldPassword,
-            RePassword rePassword,
-            PhoneNumber phoneNumber)
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            FormzStatus loginStatus,
-            FormzStatus phoneStatus,
-            FormzStatus completeOnboardingStatus,
-            Email email,
-            Password password,
-            Password oldPassword,
-            RePassword rePassword,
-            PhoneNumber phoneNumber)?
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            FormzStatus loginStatus,
-            FormzStatus phoneStatus,
-            FormzStatus completeOnboardingStatus,
-            Email email,
-            Password password,
-            Password oldPassword,
-            RePassword rePassword,
-            PhoneNumber phoneNumber)?
-        initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  RegisterModel? get registerModel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -96,14 +39,18 @@ abstract class $AuthStateCopyWith<$Res> {
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
   $Res call(
-      {FormzStatus loginStatus,
+      {String exceptionError,
+      FormzStatus loginStatus,
       FormzStatus phoneStatus,
       FormzStatus completeOnboardingStatus,
       Email email,
       Password password,
       Password oldPassword,
       RePassword rePassword,
-      PhoneNumber phoneNumber});
+      PhoneNumber phoneNumber,
+      RegisterModel? registerModel});
+
+  $RegisterModelCopyWith<$Res>? get registerModel;
 }
 
 /// @nodoc
@@ -119,6 +66,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? exceptionError = null,
     Object? loginStatus = null,
     Object? phoneStatus = null,
     Object? completeOnboardingStatus = null,
@@ -127,8 +75,13 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? oldPassword = null,
     Object? rePassword = null,
     Object? phoneNumber = null,
+    Object? registerModel = freezed,
   }) {
     return _then(_value.copyWith(
+      exceptionError: null == exceptionError
+          ? _value.exceptionError
+          : exceptionError // ignore: cast_nullable_to_non_nullable
+              as String,
       loginStatus: null == loginStatus
           ? _value.loginStatus
           : loginStatus // ignore: cast_nullable_to_non_nullable
@@ -161,38 +114,61 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as PhoneNumber,
+      registerModel: freezed == registerModel
+          ? _value.registerModel
+          : registerModel // ignore: cast_nullable_to_non_nullable
+              as RegisterModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RegisterModelCopyWith<$Res>? get registerModel {
+    if (_value.registerModel == null) {
+      return null;
+    }
+
+    return $RegisterModelCopyWith<$Res>(_value.registerModel!, (value) {
+      return _then(_value.copyWith(registerModel: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory _$$_AuthStateCopyWith(
+          _$_AuthState value, $Res Function(_$_AuthState) then) =
+      __$$_AuthStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {FormzStatus loginStatus,
+      {String exceptionError,
+      FormzStatus loginStatus,
       FormzStatus phoneStatus,
       FormzStatus completeOnboardingStatus,
       Email email,
       Password password,
       Password oldPassword,
       RePassword rePassword,
-      PhoneNumber phoneNumber});
+      PhoneNumber phoneNumber,
+      RegisterModel? registerModel});
+
+  @override
+  $RegisterModelCopyWith<$Res>? get registerModel;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_AuthStateCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$_AuthState>
+    implements _$$_AuthStateCopyWith<$Res> {
+  __$$_AuthStateCopyWithImpl(
+      _$_AuthState _value, $Res Function(_$_AuthState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? exceptionError = null,
     Object? loginStatus = null,
     Object? phoneStatus = null,
     Object? completeOnboardingStatus = null,
@@ -201,8 +177,13 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? oldPassword = null,
     Object? rePassword = null,
     Object? phoneNumber = null,
+    Object? registerModel = freezed,
   }) {
-    return _then(_$_Initial(
+    return _then(_$_AuthState(
+      exceptionError: null == exceptionError
+          ? _value.exceptionError
+          : exceptionError // ignore: cast_nullable_to_non_nullable
+              as String,
       loginStatus: null == loginStatus
           ? _value.loginStatus
           : loginStatus // ignore: cast_nullable_to_non_nullable
@@ -235,23 +216,33 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as PhoneNumber,
+      registerModel: freezed == registerModel
+          ? _value.registerModel
+          : registerModel // ignore: cast_nullable_to_non_nullable
+              as RegisterModel?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
-      {this.loginStatus = FormzStatus.pure,
+class _$_AuthState extends _AuthState {
+  _$_AuthState(
+      {this.exceptionError = '',
+      this.loginStatus = FormzStatus.pure,
       this.phoneStatus = FormzStatus.pure,
       this.completeOnboardingStatus = FormzStatus.pure,
       this.email = const Email.pure(),
       this.password = const Password.pure(),
       this.oldPassword = const Password.pure(),
       this.rePassword = const RePassword.pure(),
-      this.phoneNumber = const PhoneNumber.pure()});
+      this.phoneNumber = const PhoneNumber.pure(),
+      this.registerModel})
+      : super._();
 
+  @override
+  @JsonKey()
+  final String exceptionError;
   @override
   @JsonKey()
   final FormzStatus loginStatus;
@@ -276,17 +267,21 @@ class _$_Initial implements _Initial {
   @override
   @JsonKey()
   final PhoneNumber phoneNumber;
+  @override
+  final RegisterModel? registerModel;
 
   @override
   String toString() {
-    return 'AuthState.initial(loginStatus: $loginStatus, phoneStatus: $phoneStatus, completeOnboardingStatus: $completeOnboardingStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber)';
+    return 'AuthState(exceptionError: $exceptionError, loginStatus: $loginStatus, phoneStatus: $phoneStatus, completeOnboardingStatus: $completeOnboardingStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$_AuthState &&
+            (identical(other.exceptionError, exceptionError) ||
+                other.exceptionError == exceptionError) &&
             (identical(other.loginStatus, loginStatus) ||
                 other.loginStatus == loginStatus) &&
             (identical(other.phoneStatus, phoneStatus) ||
@@ -302,12 +297,15 @@ class _$_Initial implements _Initial {
             (identical(other.rePassword, rePassword) ||
                 other.rePassword == rePassword) &&
             (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber));
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.registerModel, registerModel) ||
+                other.registerModel == registerModel));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      exceptionError,
       loginStatus,
       phoneStatus,
       completeOnboardingStatus,
@@ -315,112 +313,32 @@ class _$_Initial implements _Initial {
       password,
       oldPassword,
       rePassword,
-      phoneNumber);
+      phoneNumber,
+      registerModel);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            FormzStatus loginStatus,
-            FormzStatus phoneStatus,
-            FormzStatus completeOnboardingStatus,
-            Email email,
-            Password password,
-            Password oldPassword,
-            RePassword rePassword,
-            PhoneNumber phoneNumber)
-        initial,
-  }) {
-    return initial(loginStatus, phoneStatus, completeOnboardingStatus, email,
-        password, oldPassword, rePassword, phoneNumber);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            FormzStatus loginStatus,
-            FormzStatus phoneStatus,
-            FormzStatus completeOnboardingStatus,
-            Email email,
-            Password password,
-            Password oldPassword,
-            RePassword rePassword,
-            PhoneNumber phoneNumber)?
-        initial,
-  }) {
-    return initial?.call(loginStatus, phoneStatus, completeOnboardingStatus,
-        email, password, oldPassword, rePassword, phoneNumber);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            FormzStatus loginStatus,
-            FormzStatus phoneStatus,
-            FormzStatus completeOnboardingStatus,
-            Email email,
-            Password password,
-            Password oldPassword,
-            RePassword rePassword,
-            PhoneNumber phoneNumber)?
-        initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(loginStatus, phoneStatus, completeOnboardingStatus, email,
-          password, oldPassword, rePassword, phoneNumber);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
+      __$$_AuthStateCopyWithImpl<_$_AuthState>(this, _$identity);
 }
 
-abstract class _Initial implements AuthState {
-  const factory _Initial(
-      {final FormzStatus loginStatus,
+abstract class _AuthState extends AuthState {
+  factory _AuthState(
+      {final String exceptionError,
+      final FormzStatus loginStatus,
       final FormzStatus phoneStatus,
       final FormzStatus completeOnboardingStatus,
       final Email email,
       final Password password,
       final Password oldPassword,
       final RePassword rePassword,
-      final PhoneNumber phoneNumber}) = _$_Initial;
+      final PhoneNumber phoneNumber,
+      final RegisterModel? registerModel}) = _$_AuthState;
+  _AuthState._() : super._();
 
+  @override
+  String get exceptionError;
   @override
   FormzStatus get loginStatus;
   @override
@@ -438,7 +356,9 @@ abstract class _Initial implements AuthState {
   @override
   PhoneNumber get phoneNumber;
   @override
+  RegisterModel? get registerModel;
+  @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }

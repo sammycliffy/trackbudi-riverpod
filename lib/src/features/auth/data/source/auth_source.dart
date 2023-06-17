@@ -13,7 +13,7 @@ import 'package:trackbudi_mobile/src/features/auth/data/model/register_model.dar
 import 'package:trackbudi_mobile/src/features/auth/data/model/verify_reset_token_model.dart';
 import 'package:trackbudi_mobile/src/features/auth/data/source/auth_s.dart';
 
-@Named('giftCardSource')
+@Named('authSource')
 @Injectable(as: AuthService)
 class AuthSource extends AuthService {
   final Api api;

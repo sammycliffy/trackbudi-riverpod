@@ -25,16 +25,15 @@ dependencies:
   rxdart: ^0.27.3
 
   #State Management
-  bloc:
-  flutter_bloc: 
-  provider: 
+  flutter_riverpod: ^1.0.4
+  provider:
 
   #Others
   flutter_hooks: ^0.18.5+1
   file_picker:
   intl:
   get_it: ^7.2.0
-  floor: ^1.4.1
+  # floor: ^1.4.1
   equatable: ^2.0.5
   injectable: ^1.5.0
   logger: ^1.4.0
@@ -71,7 +70,7 @@ dev_dependencies:
   lint: ^2.0.1
   auto_route_generator: ^5.0.3
   retrofit_generator: ^4.1.2
-  floor_generator: ^1.4.1
+  # floor_generator: ^1.4.1
   build_runner: ^2.3.3
   flutter_gen: any
   flutter_gen_runner:
@@ -96,6 +95,7 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/svgs/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

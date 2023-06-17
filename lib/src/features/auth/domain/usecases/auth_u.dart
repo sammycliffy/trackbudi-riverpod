@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
 import 'package:trackbudi_mobile/src/config/db/m.dart';
 import 'package:trackbudi_mobile/src/config/service/api/app_error.dart';
 import 'package:trackbudi_mobile/src/core/usecase.dart';
@@ -11,7 +10,6 @@ import 'package:trackbudi_mobile/src/features/auth/data/model/verify_otp.dart';
 import 'package:trackbudi_mobile/src/features/auth/data/model/verify_reset_token_model.dart';
 import 'package:trackbudi_mobile/src/features/auth/domain/repositories/auth_r.dart';
 
-@lazySingleton
 class PhoneOnobardingUsecase extends UseCase<RegisterModel, Map> {
   final AuthRepository authRepository;
 
@@ -23,7 +21,6 @@ class PhoneOnobardingUsecase extends UseCase<RegisterModel, Map> {
   }
 }
 
-@lazySingleton
 class VerifyOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
   final AuthRepository authRepository;
 
@@ -36,7 +33,17 @@ class VerifyOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
   }
 }
 
-@lazySingleton
+class ResendOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
+  final AuthRepository authRepository;
+
+  ResendOtpUsecase(this.authRepository);
+
+  @override
+  Future<Either<AppError, VerifyOtp>> call(MajorPayload params) async {
+    return await authRepository.resendOtp(userId: params.userId);
+  }
+}
+
 class LoginUsecase extends UseCase<RegisterModel, Map> {
   final AuthRepository authRepository;
 
@@ -48,7 +55,6 @@ class LoginUsecase extends UseCase<RegisterModel, Map> {
   }
 }
 
-@lazySingleton
 class UpdateUserProfileUsecase
     extends UseCase<UpdateUserDetails, MajorPayload> {
   final AuthRepository authRepository;
@@ -66,7 +72,6 @@ class UpdateUserProfileUsecase
   }
 }
 
-@lazySingleton
 class UpdateUserTypeUsecase extends UseCase<UpdateUserDetails, Map> {
   final AuthRepository authRepository;
 
@@ -78,7 +83,6 @@ class UpdateUserTypeUsecase extends UseCase<UpdateUserDetails, Map> {
   }
 }
 
-@lazySingleton
 class CreateVendorUsecase extends UseCase<CreateVendorResponseModel, Map> {
   final AuthRepository authRepository;
 
@@ -90,7 +94,6 @@ class CreateVendorUsecase extends UseCase<CreateVendorResponseModel, Map> {
   }
 }
 
-@lazySingleton
 class CreatelogisticPartnerUsecase
     extends UseCase<CreateLogisticPartnerRespModel, Map> {
   final AuthRepository authRepository;
@@ -103,7 +106,6 @@ class CreatelogisticPartnerUsecase
   }
 }
 
-@lazySingleton
 class UpdateVendorUsecase extends UseCase<CreateVendorResponseModel, Map> {
   final AuthRepository authRepository;
 
@@ -115,7 +117,6 @@ class UpdateVendorUsecase extends UseCase<CreateVendorResponseModel, Map> {
   }
 }
 
-@lazySingleton
 class UpdatelogisticPartnerUsecase
     extends UseCase<CreateLogisticPartnerRespModel, Map> {
   final AuthRepository authRepository;
@@ -128,7 +129,6 @@ class UpdatelogisticPartnerUsecase
   }
 }
 
-@lazySingleton
 class UserLoginRequestOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
   final AuthRepository authRepository;
 
@@ -141,7 +141,6 @@ class UserLoginRequestOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
   }
 }
 
-@lazySingleton
 class UserLoginVerifyOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
   final AuthRepository authRepository;
 
@@ -154,7 +153,6 @@ class UserLoginVerifyOtpUsecase extends UseCase<VerifyOtp, MajorPayload> {
   }
 }
 
-@lazySingleton
 class InitiateResetPasswordUsecase extends UseCase<RegisterModel, Map> {
   final AuthRepository authRepository;
 
@@ -166,7 +164,6 @@ class InitiateResetPasswordUsecase extends UseCase<RegisterModel, Map> {
   }
 }
 
-@lazySingleton
 class VerifyResetPasswordUsecase extends UseCase<VerifyResetTokenModel, Map> {
   final AuthRepository authRepository;
 
@@ -178,7 +175,6 @@ class VerifyResetPasswordUsecase extends UseCase<VerifyResetTokenModel, Map> {
   }
 }
 
-@lazySingleton
 class ResetPasswordUsecase extends UseCase<RegisterModel, Map> {
   final AuthRepository authRepository;
 
