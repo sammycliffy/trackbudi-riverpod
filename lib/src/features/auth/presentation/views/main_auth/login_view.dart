@@ -59,7 +59,6 @@ class LoginView extends StatelessWidget {
             IntlPhoneField(
               decoration: const InputDecoration(
                 labelText: 'Phone Number',
-              
                 isDense: true,
                 border: OutlineInputBorder(),
               ),
@@ -70,8 +69,7 @@ class LoginView extends StatelessWidget {
             ),
             heightSpace(4),
             TrackBudiButton(
-                buttonText: 'Login',
-                onTap: () => context.pushRoute(const OTPView())),
+                buttonText: 'Login', onTap: () => context.pushRoute(OTPView())),
             heightSpace(3),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

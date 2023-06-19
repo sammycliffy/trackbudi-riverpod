@@ -9,14 +9,17 @@ class TrackBudiPhoneField extends StatelessWidget {
   const TrackBudiPhoneField({
     super.key,
     this.validator,
+    this.enabled = true,
     this.onChanged,
   });
   final FutureOr<String?> Function(PhoneNumber?)? validator;
   final Function(PhoneNumber)? onChanged;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      enabled: enabled,
       disableLengthCheck: false,
       validator: validator,
       decoration: const InputDecoration(

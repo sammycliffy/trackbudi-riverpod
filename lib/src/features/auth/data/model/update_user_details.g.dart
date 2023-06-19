@@ -34,12 +34,12 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
     };
 
 _$_UserData _$$_UserDataFromJson(Map<String, dynamic> json) => _$_UserData(
-      id: json['id'] as String?,
+      id: json['_id'] as String?,
       phone: json['phone'] as String?,
       countryCode: json['countryCode'] as String?,
-      phoneVerified: json['phoneVerified'] as String?,
+      phoneVerified: json['phoneVerified'] as bool?,
       role: json['role'] as String?,
-      v: json['v'] as int?,
+      v: json['_v'] as int?,
       email: json['email'] as String?,
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
@@ -49,12 +49,12 @@ _$_UserData _$$_UserDataFromJson(Map<String, dynamic> json) => _$_UserData(
 
 Map<String, dynamic> _$$_UserDataToJson(_$_UserData instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'phone': instance.phone,
       'countryCode': instance.countryCode,
       'phoneVerified': instance.phoneVerified,
       'role': instance.role,
-      'v': instance.v,
+      '_v': instance.v,
       'email': instance.email,
       'firstName': instance.firstName,
       'lastName': instance.lastName,

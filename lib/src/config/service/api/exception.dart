@@ -46,6 +46,8 @@ class DioExceptions implements Exception {
         return error['message'];
       case 404:
         return error['message'];
+      case 409:
+        return error['message'];
       case 500:
         return error['message'] ?? 'Internal server error';
       case 502:

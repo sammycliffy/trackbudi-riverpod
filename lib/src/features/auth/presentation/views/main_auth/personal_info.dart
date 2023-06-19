@@ -1,22 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_app_bar.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_textformfield.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
 
-import '../../../../../config/router/app_router.gr.dart';
-import '../../../../../core/shared/resources/app_images.dart';
-import '../../../../../core/shared/resources/app_spacer.dart';
-import '../../../../../core/shared/resources/colors_tr.dart';
-import '../../../../../core/shared/resources/custom_text.dart';
-import '../../widgets/app_app_bar.dart';
-import '../../widgets/app_divider.dart';
-import '../../widgets/app_textformfield.dart';
-import '../../widgets/trackbudi_button.dart';
-
-class ProfileInfo extends HookWidget {
+class ProfileInfo extends HookConsumerWidget {
   const ProfileInfo({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final hasAgreed = useState<bool>(false);
     return Scaffold(
       appBar: appBar(),
@@ -114,7 +114,7 @@ class ProfileInfo extends HookWidget {
               heightSpace(3),
               TrackBudiButton(
                   buttonText: 'I accept',
-                  onTap: () => context.pushRoute(const AccountSelection())),
+                  onTap: () => context.pushRoute(AccountSelection())),
               heightSpace(3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -122,7 +122,7 @@ class ProfileInfo extends HookWidget {
                   bodyText(text: 'Already have an account?'),
                   widthSpace(2),
                   GestureDetector(
-                    onTap: () => context.pushRoute(const LoginView()),
+                    onTap: () => context.pushRoute(LoginView()),
                     child: customText(
                         text: 'Login',
                         fontSize: 14,

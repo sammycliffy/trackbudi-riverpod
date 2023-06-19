@@ -65,7 +65,7 @@ class EmailLoginView extends StatelessWidget {
             heightSpace(4),
             TrackBudiButton(
                 buttonText: 'Login',
-                onTap: () => context.pushRoute(const OTPView())),
+                onTap: () => context.pushRoute( OTPView())),
             heightSpace(3),
           ],
         ),

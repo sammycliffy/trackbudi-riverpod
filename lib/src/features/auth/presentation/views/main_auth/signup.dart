@@ -1,7 +1,9 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trackbudi_mobile/src/config/di/provider.dart';
 import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
 import 'package:trackbudi_mobile/src/core/mixin/trackbudi_mixin.dart';
@@ -9,10 +11,11 @@ import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/trackbudi_txtfield.dart';
+import 'package:trackbudi_mobile/src/features/auth/auth_vm/onboard/auth_event.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
-import 'package:trackbudi_mobile/src/features/auth/vm/auth_event.dart';
 
 class SignupView extends ConsumerWidget with TrackBudiValidate {
   SignupView({super.key});
@@ -20,6 +23,15 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(authNotifier.select((vaue) => vaue));
+
+    ref.listen(authNotifier, (previousState, newState) {
+      if (newState.phoneStatus.isSubmissionFailure) {
+        ToastResp.toastMsgError(resp: newState.exceptionError);
+      } else if (newState.phoneStatus.isSubmissionSuccess) {
+        context.router.push(OTPView());
+      }
+    });
+
     return AbsorbPointer(
       absorbing: state.phoneStatus.isSubmissionInProgress,
       child: Scaffold(
@@ -61,9 +73,11 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
                   textColor: AppColors.textPrimary),
               heightSpace(1),
               TrackBudiPhoneField(
+                enabled: !state.phoneStatus.isSubmissionInProgress,
                 onChanged: (phone) => ref
                     .read(authNotifier.notifier)
-                    .mapEventsToState(PhoneEvent(value: phone.number)),
+                    .mapEventsToState(PhoneEvent(
+                        value: phone.number, countryCode: phone.countryCode)),
                 validator: (v) => phoneNumberFullValidator(v?.completeNumber),
               ),
               heightSpace(4),
@@ -74,9 +88,7 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
                   onTap: state.displaySignUpButton
                       ? () => ref
                           .read(authNotifier.notifier)
-                          .mapEventsToState(RegisterPhone(
-                              // countryCode:
-                              ))
+                          .mapEventsToState(RegisterPhone())
                       : () {}),
               heightSpace(3),
               Row(

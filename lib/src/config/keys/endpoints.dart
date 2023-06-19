@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 class _Auth {
-  final register = 'users/register';
+  final register = 'user/register';
   final update_type = 'user/update-type';
   final signIn = 'user/login';
   final logout = 'user/logout';

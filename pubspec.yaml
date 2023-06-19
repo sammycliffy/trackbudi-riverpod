@@ -27,6 +27,7 @@ dependencies:
   #State Management
   flutter_riverpod: ^1.0.4
   provider:
+  hooks_riverpod:
 
   #Others
   flutter_hooks: ^0.18.5+1
@@ -50,7 +51,6 @@ dependencies:
   permission_handler: ^10.2.0
   timeago: ^3.3.0
   formz: ^0.4.1
-  oktoast: ^3.3.1
   dropdown_search: ^5.0.6
   awesome_dio_interceptor: ^0.0.2+4
   auto_route: ^5.0.4
@@ -63,6 +63,8 @@ dependencies:
   flutter_svg: ^1.1.6
   flutter_sizer: ^1.0.4
   dots_indicator: ^3.0.0
+  fluttertoast: ^8.2.2
+  pin_code_fields: ^7.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

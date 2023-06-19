@@ -353,11 +353,13 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserData {
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get countryCode => throw _privateConstructorUsedError;
-  String? get phoneVerified => throw _privateConstructorUsedError;
+  bool? get phoneVerified => throw _privateConstructorUsedError;
   String? get role => throw _privateConstructorUsedError;
+  @JsonKey(name: '_v')
   int? get v => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
@@ -377,12 +379,12 @@ abstract class $UserDataCopyWith<$Res> {
       _$UserDataCopyWithImpl<$Res, UserData>;
   @useResult
   $Res call(
-      {String? id,
+      {@JsonKey(name: '_id') String? id,
       String? phone,
       String? countryCode,
-      String? phoneVerified,
+      bool? phoneVerified,
       String? role,
-      int? v,
+      @JsonKey(name: '_v') int? v,
       String? email,
       String? firstName,
       String? lastName,
@@ -431,7 +433,7 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
       phoneVerified: freezed == phoneVerified
           ? _value.phoneVerified
           : phoneVerified // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
@@ -472,12 +474,12 @@ abstract class _$$_UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id,
+      {@JsonKey(name: '_id') String? id,
       String? phone,
       String? countryCode,
-      String? phoneVerified,
+      bool? phoneVerified,
       String? role,
-      int? v,
+      @JsonKey(name: '_v') int? v,
       String? email,
       String? firstName,
       String? lastName,
@@ -524,7 +526,7 @@ class __$$_UserDataCopyWithImpl<$Res>
       phoneVerified: freezed == phoneVerified
           ? _value.phoneVerified
           : phoneVerified // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
@@ -561,12 +563,12 @@ class __$$_UserDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserData implements _UserData {
   const _$_UserData(
-      {this.id,
+      {@JsonKey(name: '_id') this.id,
       this.phone,
       this.countryCode,
       this.phoneVerified,
       this.role,
-      this.v,
+      @JsonKey(name: '_v') this.v,
       this.email,
       this.firstName,
       this.lastName,
@@ -577,16 +579,18 @@ class _$_UserData implements _UserData {
       _$$_UserDataFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String? id;
   @override
   final String? phone;
   @override
   final String? countryCode;
   @override
-  final String? phoneVerified;
+  final bool? phoneVerified;
   @override
   final String? role;
   @override
+  @JsonKey(name: '_v')
   final int? v;
   @override
   final String? email;
@@ -660,12 +664,12 @@ class _$_UserData implements _UserData {
 
 abstract class _UserData implements UserData {
   const factory _UserData(
-      {final String? id,
+      {@JsonKey(name: '_id') final String? id,
       final String? phone,
       final String? countryCode,
-      final String? phoneVerified,
+      final bool? phoneVerified,
       final String? role,
-      final int? v,
+      @JsonKey(name: '_v') final int? v,
       final String? email,
       final String? firstName,
       final String? lastName,
@@ -675,16 +679,18 @@ abstract class _UserData implements UserData {
   factory _UserData.fromJson(Map<String, dynamic> json) = _$_UserData.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String? get id;
   @override
   String? get phone;
   @override
   String? get countryCode;
   @override
-  String? get phoneVerified;
+  bool? get phoneVerified;
   @override
   String? get role;
   @override
+  @JsonKey(name: '_v')
   int? get v;
   @override
   String? get email;

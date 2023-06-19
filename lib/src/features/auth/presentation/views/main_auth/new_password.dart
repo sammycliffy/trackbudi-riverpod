@@ -1,16 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../../../../gen/assets.gen.dart';
-import '../../../../../config/router/app_router.gr.dart';
-import '../../../../../core/shared/resources/app_images.dart';
-import '../../../../../core/shared/resources/app_spacer.dart';
-import '../../../../../core/shared/resources/colors_tr.dart';
-import '../../../../../core/shared/resources/custom_text.dart';
-import '../../widgets/app_divider.dart';
-import '../../widgets/app_textformfield.dart';
-import '../../widgets/trackbudi_button.dart';
+import 'package:trackbudi_mobile/gen/assets.gen.dart';
+import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_textformfield.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
 
 class NewPasswordView extends StatelessWidget {
   const NewPasswordView({super.key});
@@ -61,7 +60,7 @@ class NewPasswordView extends StatelessWidget {
             heightSpace(3),
             TrackBudiButton(
                 buttonText: 'Reset password',
-                onTap: () => context.pushRoute(const OTPView())),
+                onTap: () => context.pushRoute( OTPView())),
             heightSpace(3),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

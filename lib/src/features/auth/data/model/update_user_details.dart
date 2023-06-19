@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'update_user_details.freezed.dart';
 part 'update_user_details.g.dart';
@@ -26,12 +28,12 @@ class Data with _$Data {
 @freezed
 class UserData with _$UserData {
   const factory UserData({
-    String? id,
+    @JsonKey(name: '_id') String? id,
     String? phone,
     String? countryCode,
-    String? phoneVerified,
+    bool? phoneVerified,
     String? role,
-    int? v,
+    @JsonKey(name: '_v') int? v,
     String? email,
     String? firstName,
     String? lastName,

@@ -23,6 +23,9 @@ abstract class AppModule {
   @lazySingleton
   NavigationService get navigationService => NavigationService();
 
+  // @lazySingleton
+  // AppRouter get router => AppRouter();
+
   ///------auth--------
   @lazySingleton
   AuthSource get authSource => AuthSource(api: apiService);
