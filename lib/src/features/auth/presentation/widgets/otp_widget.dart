@@ -8,9 +8,11 @@ class PinView extends StatelessWidget {
   const PinView({
     super.key,
     required this.onChanged,
+    this.controller,
   });
 
   final Function(String) onChanged;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class PinView extends StatelessWidget {
         appContext: context,
         length: 4,
         onChanged: onChanged,
+        controller: controller,
         keyboardType: TextInputType.number,
         pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,

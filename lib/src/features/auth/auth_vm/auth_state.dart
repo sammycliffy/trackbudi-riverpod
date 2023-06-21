@@ -19,12 +19,18 @@ part 'auth_state.freezed.dart';
 class AuthState with _$AuthState {
   factory AuthState({
     @Default(Name.pure()) Name otpVal,
+    @Default(Name.pure()) Name fname,
+    @Default(Name.pure()) Name lname,
+    TextEditingController? pinController,
     @Default('') String exceptionError,
     @Default('') String countryCode,
+    @Default(false) bool isTermAndConditionVal,
     @Default(FormzStatus.pure) FormzStatus loginStatus,
     @Default(FormzStatus.pure) FormzStatus phoneStatus,
     @Default(FormzStatus.pure) FormzStatus verifyOtpStatus,
-    @Default(FormzStatus.pure) FormzStatus resendOtpStatus,
+    @Default(FormzStatus.pure) FormzStatus InitiateforgotPasswordSatus,
+    @Default(FormzStatus.pure) FormzStatus forgotPasswordSatus,
+    @Default(FormzStatus.pure) FormzStatus updateUserTypeStatus,
     @Default(FormzStatus.pure) FormzStatus completeOnboardingStatus,
     @Default(FormzStatus.pure) FormzStatus updateProfileStatus,
     @Default(Email.pure()) Email email,
@@ -33,6 +39,7 @@ class AuthState with _$AuthState {
     @Default(RePassword.pure()) RePassword rePassword,
     @Default(PhoneNumber.pure()) PhoneNumber phoneNumber,
     RegisterModel? registerModel,
+    UpdateUserDetails? updatedUserDetails,
     UserData? userPhoneOnboardingModel,
     VerifyOtp? verifyOtpModel,
     VerifyResetTokenModel? verifyResetTokenModel,
@@ -44,15 +51,11 @@ class AuthState with _$AuthState {
   }) = _AuthState;
 
   const AuthState._();
-
+  bool get isPasswordsMatch => password.value == rePassword.value;
   bool get displaySignUpButton => phoneStatus.isValidated;
   bool get displayVerifyOtpButton => verifyOtpStatus.isValidated;
-}
-
-class AuthVm extends ValueNotifier<AuthState> {
-  AuthVm(super.value);
-
-  changePhone() {
-    notifyListeners();
-  }
+  bool get displayUpdateProfileButton =>
+      updateProfileStatus.isValidated &&
+      isTermAndConditionVal == true &&
+      isPasswordsMatch;
 }

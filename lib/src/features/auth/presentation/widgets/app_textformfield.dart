@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/shared/resources/app_spacer.dart';
-import '../../../../core/shared/resources/colors_tr.dart';
-import '../../../../core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 
 class TrackBudiTextFormField extends StatefulWidget {
   final TextEditingController? textEditingController;
@@ -11,11 +10,15 @@ class TrackBudiTextFormField extends StatefulWidget {
   final Widget? prefixIcon;
   final bool isPassword;
   final String? Function(String?)? validator;
+  final String? error;
+  final ValueChanged<String>? onChanged;
   final TextInputType keyboardType;
   const TrackBudiTextFormField(
       {super.key,
       this.label,
+      this.onChanged,
       this.hintText,
+      this.error,
       this.prefixIcon,
       this.keyboardType = TextInputType.text,
       this.textEditingController,
@@ -39,24 +42,25 @@ class _TrackBudiTextFormFieldState extends State<TrackBudiTextFormField> {
             fontSize: 14,
             textColor: AppColors.textPrimary),
         heightSpace(2),
-        SizedBox(
-          height: 55,
-          child: TextFormField(
-            keyboardType: widget.keyboardType,
-            controller: widget.textEditingController,
-            obscureText: isPasswordShow ? false : widget.isPassword,
-            validator: widget.validator,
-            decoration: InputDecoration(
-                suffixIcon: showPasswordIcon(widget.isPassword),
-                hintText: widget.hintText,
-                prefixIcon: widget.prefixIcon,
-                fillColor: AppColors.white,
-                filled: true,
-                enabledBorder: AppColors.normalBorder,
-                errorBorder: AppColors.errorBorder,
-                focusedBorder: AppColors.normalBorder,
-                focusedErrorBorder: AppColors.normalBorder),
-          ),
+        TextFormField(
+          onChanged: widget.onChanged,
+          keyboardType: widget.keyboardType,
+          controller: widget.textEditingController,
+          obscureText: isPasswordShow ? false : widget.isPassword,
+          validator: widget.validator,
+          decoration: InputDecoration(
+              errorText: widget.error,
+              contentPadding: EdgeInsets.zero,
+              errorStyle: TextStyle(fontSize: 10),
+              suffixIcon: showPasswordIcon(widget.isPassword),
+              hintText: widget.hintText,
+              prefixIcon: widget.prefixIcon,
+              fillColor: AppColors.white,
+              filled: true,
+              enabledBorder: AppColors.normalBorder,
+              errorBorder: AppColors.errorBorder,
+              focusedBorder: AppColors.normalBorder,
+              focusedErrorBorder: AppColors.normalBorder),
         ),
       ],
     );

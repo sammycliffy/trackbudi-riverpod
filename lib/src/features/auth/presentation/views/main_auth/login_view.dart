@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
 
-import '../../../../../config/router/app_router.gr.dart';
-import '../../../../../core/shared/resources/app_images.dart';
-import '../../../../../core/shared/resources/app_spacer.dart';
-import '../../../../../core/shared/resources/colors_tr.dart';
-import '../../../../../core/shared/resources/custom_text.dart';
-import '../../widgets/app_divider.dart';
-import '../../widgets/trackbudi_button.dart';
+
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

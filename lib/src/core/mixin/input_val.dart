@@ -1,6 +1,8 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:formz/formz.dart';
 
-enum EmailValidationError { invalid }
+enum EmailValidationError { invalid, Required }
 
 class Email extends FormzInput<String, EmailValidationError> {
   const Email.pure() : super.pure('');
@@ -13,7 +15,7 @@ class Email extends FormzInput<String, EmailValidationError> {
   @override
   EmailValidationError? validator(String value) {
     if (value.isEmpty) {
-      return null;
+      return EmailValidationError.Required;
     }
     return _emailRegExp.hasMatch(value) && value.length < 30
         ? null
@@ -32,7 +34,7 @@ extension Explanation on EmailValidationError {
   }
 }
 
-enum NameError { empty }
+enum NameError { Required }
 
 class Name extends FormzInput<String, NameError> {
   const Name.pure() : super.pure('');
@@ -40,6 +42,6 @@ class Name extends FormzInput<String, NameError> {
 
   @override
   NameError? validator(String value) {
-    return value.isNotEmpty == true ? null : NameError.empty;
+    return value.isNotEmpty == true ? null : NameError.Required;
   }
 }

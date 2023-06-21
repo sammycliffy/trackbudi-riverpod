@@ -1,6 +1,8 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:formz/formz.dart';
 
-enum PasswordValidationError { invalid, empty }
+enum PasswordValidationError { invalid, Required }
 
 class Password extends FormzInput<String, PasswordValidationError> {
   const Password.pure() : super.pure('');
@@ -11,7 +13,7 @@ class Password extends FormzInput<String, PasswordValidationError> {
   @override
   PasswordValidationError? validator(String value) {
     if (value.isEmpty) {
-      return PasswordValidationError.empty;
+      return PasswordValidationError.Required;
     }
     return _passwordRegExp.hasMatch(value) && value.length < 10
         ? null

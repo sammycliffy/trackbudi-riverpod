@@ -13,7 +13,7 @@ import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/trackbudi_txtfield.dart';
-import 'package:trackbudi_mobile/src/features/auth/auth_vm/onboard/auth_event.dart';
+import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
 
@@ -25,10 +25,12 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
     final state = ref.watch(authNotifier.select((vaue) => vaue));
 
     ref.listen(authNotifier, (previousState, newState) {
-      if (newState.phoneStatus.isSubmissionFailure) {
-        ToastResp.toastMsgError(resp: newState.exceptionError);
-      } else if (newState.phoneStatus.isSubmissionSuccess) {
-        context.router.push(OTPView());
+      if (previousState?.phoneStatus != newState.phoneStatus) {
+        if (newState.phoneStatus.isSubmissionFailure) {
+          ToastResp.toastMsgError(resp: newState.exceptionError);
+        } else if (newState.phoneStatus.isSubmissionSuccess) {
+          context.router.push(OTPView());
+        }
       }
     });
 

@@ -8,9 +8,9 @@ import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 
 class ToastResp {
   static final NavigationService navigationService = NavigationService();
-  static Future<bool?> toastMsgInfo(String resp) {
+  static Future<bool?> toastMsgInfo({String? resp}) {
     return Fluttertoast.showToast(
-        msg: resp,
+        msg: resp.toString(),
         backgroundColor: AppColors.darkBlue,
         textColor: Colors.white,
         fontSize: 9.sp);
@@ -24,9 +24,9 @@ class ToastResp {
         fontSize: 9.sp);
   }
 
-  static Future<bool?> toastMsgSuccess(String resp) {
+  static Future<bool?> toastMsgSuccess({String? resp}) {
     return Fluttertoast.showToast(
-        msg: resp,
+        msg: resp.toString(),
         backgroundColor: AppColors.green,
         textColor: Colors.white,
         fontSize: 9.sp);

@@ -17,12 +17,20 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AuthState {
   Name get otpVal => throw _privateConstructorUsedError;
+  Name get fname => throw _privateConstructorUsedError;
+  Name get lname => throw _privateConstructorUsedError;
+  TextEditingController? get pinController =>
+      throw _privateConstructorUsedError;
   String get exceptionError => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
+  bool get isTermAndConditionVal => throw _privateConstructorUsedError;
   FormzStatus get loginStatus => throw _privateConstructorUsedError;
   FormzStatus get phoneStatus => throw _privateConstructorUsedError;
   FormzStatus get verifyOtpStatus => throw _privateConstructorUsedError;
-  FormzStatus get resendOtpStatus => throw _privateConstructorUsedError;
+  FormzStatus get InitiateforgotPasswordSatus =>
+      throw _privateConstructorUsedError;
+  FormzStatus get forgotPasswordSatus => throw _privateConstructorUsedError;
+  FormzStatus get updateUserTypeStatus => throw _privateConstructorUsedError;
   FormzStatus get completeOnboardingStatus =>
       throw _privateConstructorUsedError;
   FormzStatus get updateProfileStatus => throw _privateConstructorUsedError;
@@ -32,6 +40,8 @@ mixin _$AuthState {
   RePassword get rePassword => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   RegisterModel? get registerModel => throw _privateConstructorUsedError;
+  UpdateUserDetails? get updatedUserDetails =>
+      throw _privateConstructorUsedError;
   UserData? get userPhoneOnboardingModel => throw _privateConstructorUsedError;
   VerifyOtp? get verifyOtpModel => throw _privateConstructorUsedError;
   VerifyResetTokenModel? get verifyResetTokenModel =>
@@ -57,12 +67,18 @@ abstract class $AuthStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Name otpVal,
+      Name fname,
+      Name lname,
+      TextEditingController? pinController,
       String exceptionError,
       String countryCode,
+      bool isTermAndConditionVal,
       FormzStatus loginStatus,
       FormzStatus phoneStatus,
       FormzStatus verifyOtpStatus,
-      FormzStatus resendOtpStatus,
+      FormzStatus InitiateforgotPasswordSatus,
+      FormzStatus forgotPasswordSatus,
+      FormzStatus updateUserTypeStatus,
       FormzStatus completeOnboardingStatus,
       FormzStatus updateProfileStatus,
       Email email,
@@ -71,6 +87,7 @@ abstract class $AuthStateCopyWith<$Res> {
       RePassword rePassword,
       PhoneNumber phoneNumber,
       RegisterModel? registerModel,
+      UpdateUserDetails? updatedUserDetails,
       UserData? userPhoneOnboardingModel,
       VerifyOtp? verifyOtpModel,
       VerifyResetTokenModel? verifyResetTokenModel,
@@ -81,6 +98,7 @@ abstract class $AuthStateCopyWith<$Res> {
       UserType? userTypeEnum});
 
   $RegisterModelCopyWith<$Res>? get registerModel;
+  $UpdateUserDetailsCopyWith<$Res>? get updatedUserDetails;
   $UserDataCopyWith<$Res>? get userPhoneOnboardingModel;
   $VerifyOtpCopyWith<$Res>? get verifyOtpModel;
   $VerifyResetTokenModelCopyWith<$Res>? get verifyResetTokenModel;
@@ -103,12 +121,18 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? otpVal = null,
+    Object? fname = null,
+    Object? lname = null,
+    Object? pinController = freezed,
     Object? exceptionError = null,
     Object? countryCode = null,
+    Object? isTermAndConditionVal = null,
     Object? loginStatus = null,
     Object? phoneStatus = null,
     Object? verifyOtpStatus = null,
-    Object? resendOtpStatus = null,
+    Object? InitiateforgotPasswordSatus = null,
+    Object? forgotPasswordSatus = null,
+    Object? updateUserTypeStatus = null,
     Object? completeOnboardingStatus = null,
     Object? updateProfileStatus = null,
     Object? email = null,
@@ -117,6 +141,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? rePassword = null,
     Object? phoneNumber = null,
     Object? registerModel = freezed,
+    Object? updatedUserDetails = freezed,
     Object? userPhoneOnboardingModel = freezed,
     Object? verifyOtpModel = freezed,
     Object? verifyResetTokenModel = freezed,
@@ -131,6 +156,18 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.otpVal
           : otpVal // ignore: cast_nullable_to_non_nullable
               as Name,
+      fname: null == fname
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as Name,
+      lname: null == lname
+          ? _value.lname
+          : lname // ignore: cast_nullable_to_non_nullable
+              as Name,
+      pinController: freezed == pinController
+          ? _value.pinController
+          : pinController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
       exceptionError: null == exceptionError
           ? _value.exceptionError
           : exceptionError // ignore: cast_nullable_to_non_nullable
@@ -139,6 +176,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String,
+      isTermAndConditionVal: null == isTermAndConditionVal
+          ? _value.isTermAndConditionVal
+          : isTermAndConditionVal // ignore: cast_nullable_to_non_nullable
+              as bool,
       loginStatus: null == loginStatus
           ? _value.loginStatus
           : loginStatus // ignore: cast_nullable_to_non_nullable
@@ -151,9 +192,17 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.verifyOtpStatus
           : verifyOtpStatus // ignore: cast_nullable_to_non_nullable
               as FormzStatus,
-      resendOtpStatus: null == resendOtpStatus
-          ? _value.resendOtpStatus
-          : resendOtpStatus // ignore: cast_nullable_to_non_nullable
+      InitiateforgotPasswordSatus: null == InitiateforgotPasswordSatus
+          ? _value.InitiateforgotPasswordSatus
+          : InitiateforgotPasswordSatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      forgotPasswordSatus: null == forgotPasswordSatus
+          ? _value.forgotPasswordSatus
+          : forgotPasswordSatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      updateUserTypeStatus: null == updateUserTypeStatus
+          ? _value.updateUserTypeStatus
+          : updateUserTypeStatus // ignore: cast_nullable_to_non_nullable
               as FormzStatus,
       completeOnboardingStatus: null == completeOnboardingStatus
           ? _value.completeOnboardingStatus
@@ -187,6 +236,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.registerModel
           : registerModel // ignore: cast_nullable_to_non_nullable
               as RegisterModel?,
+      updatedUserDetails: freezed == updatedUserDetails
+          ? _value.updatedUserDetails
+          : updatedUserDetails // ignore: cast_nullable_to_non_nullable
+              as UpdateUserDetails?,
       userPhoneOnboardingModel: freezed == userPhoneOnboardingModel
           ? _value.userPhoneOnboardingModel
           : userPhoneOnboardingModel // ignore: cast_nullable_to_non_nullable
@@ -231,6 +284,19 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 
     return $RegisterModelCopyWith<$Res>(_value.registerModel!, (value) {
       return _then(_value.copyWith(registerModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UpdateUserDetailsCopyWith<$Res>? get updatedUserDetails {
+    if (_value.updatedUserDetails == null) {
+      return null;
+    }
+
+    return $UpdateUserDetailsCopyWith<$Res>(_value.updatedUserDetails!,
+        (value) {
+      return _then(_value.copyWith(updatedUserDetails: value) as $Val);
     });
   }
 
@@ -309,12 +375,18 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Name otpVal,
+      Name fname,
+      Name lname,
+      TextEditingController? pinController,
       String exceptionError,
       String countryCode,
+      bool isTermAndConditionVal,
       FormzStatus loginStatus,
       FormzStatus phoneStatus,
       FormzStatus verifyOtpStatus,
-      FormzStatus resendOtpStatus,
+      FormzStatus InitiateforgotPasswordSatus,
+      FormzStatus forgotPasswordSatus,
+      FormzStatus updateUserTypeStatus,
       FormzStatus completeOnboardingStatus,
       FormzStatus updateProfileStatus,
       Email email,
@@ -323,6 +395,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       RePassword rePassword,
       PhoneNumber phoneNumber,
       RegisterModel? registerModel,
+      UpdateUserDetails? updatedUserDetails,
       UserData? userPhoneOnboardingModel,
       VerifyOtp? verifyOtpModel,
       VerifyResetTokenModel? verifyResetTokenModel,
@@ -334,6 +407,8 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $RegisterModelCopyWith<$Res>? get registerModel;
+  @override
+  $UpdateUserDetailsCopyWith<$Res>? get updatedUserDetails;
   @override
   $UserDataCopyWith<$Res>? get userPhoneOnboardingModel;
   @override
@@ -359,12 +434,18 @@ class __$$_AuthStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? otpVal = null,
+    Object? fname = null,
+    Object? lname = null,
+    Object? pinController = freezed,
     Object? exceptionError = null,
     Object? countryCode = null,
+    Object? isTermAndConditionVal = null,
     Object? loginStatus = null,
     Object? phoneStatus = null,
     Object? verifyOtpStatus = null,
-    Object? resendOtpStatus = null,
+    Object? InitiateforgotPasswordSatus = null,
+    Object? forgotPasswordSatus = null,
+    Object? updateUserTypeStatus = null,
     Object? completeOnboardingStatus = null,
     Object? updateProfileStatus = null,
     Object? email = null,
@@ -373,6 +454,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? rePassword = null,
     Object? phoneNumber = null,
     Object? registerModel = freezed,
+    Object? updatedUserDetails = freezed,
     Object? userPhoneOnboardingModel = freezed,
     Object? verifyOtpModel = freezed,
     Object? verifyResetTokenModel = freezed,
@@ -387,6 +469,18 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.otpVal
           : otpVal // ignore: cast_nullable_to_non_nullable
               as Name,
+      fname: null == fname
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as Name,
+      lname: null == lname
+          ? _value.lname
+          : lname // ignore: cast_nullable_to_non_nullable
+              as Name,
+      pinController: freezed == pinController
+          ? _value.pinController
+          : pinController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
       exceptionError: null == exceptionError
           ? _value.exceptionError
           : exceptionError // ignore: cast_nullable_to_non_nullable
@@ -395,6 +489,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String,
+      isTermAndConditionVal: null == isTermAndConditionVal
+          ? _value.isTermAndConditionVal
+          : isTermAndConditionVal // ignore: cast_nullable_to_non_nullable
+              as bool,
       loginStatus: null == loginStatus
           ? _value.loginStatus
           : loginStatus // ignore: cast_nullable_to_non_nullable
@@ -407,9 +505,17 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.verifyOtpStatus
           : verifyOtpStatus // ignore: cast_nullable_to_non_nullable
               as FormzStatus,
-      resendOtpStatus: null == resendOtpStatus
-          ? _value.resendOtpStatus
-          : resendOtpStatus // ignore: cast_nullable_to_non_nullable
+      InitiateforgotPasswordSatus: null == InitiateforgotPasswordSatus
+          ? _value.InitiateforgotPasswordSatus
+          : InitiateforgotPasswordSatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      forgotPasswordSatus: null == forgotPasswordSatus
+          ? _value.forgotPasswordSatus
+          : forgotPasswordSatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      updateUserTypeStatus: null == updateUserTypeStatus
+          ? _value.updateUserTypeStatus
+          : updateUserTypeStatus // ignore: cast_nullable_to_non_nullable
               as FormzStatus,
       completeOnboardingStatus: null == completeOnboardingStatus
           ? _value.completeOnboardingStatus
@@ -443,6 +549,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.registerModel
           : registerModel // ignore: cast_nullable_to_non_nullable
               as RegisterModel?,
+      updatedUserDetails: freezed == updatedUserDetails
+          ? _value.updatedUserDetails
+          : updatedUserDetails // ignore: cast_nullable_to_non_nullable
+              as UpdateUserDetails?,
       userPhoneOnboardingModel: freezed == userPhoneOnboardingModel
           ? _value.userPhoneOnboardingModel
           : userPhoneOnboardingModel // ignore: cast_nullable_to_non_nullable
@@ -484,12 +594,18 @@ class __$$_AuthStateCopyWithImpl<$Res>
 class _$_AuthState extends _AuthState {
   _$_AuthState(
       {this.otpVal = const Name.pure(),
+      this.fname = const Name.pure(),
+      this.lname = const Name.pure(),
+      this.pinController,
       this.exceptionError = '',
       this.countryCode = '',
+      this.isTermAndConditionVal = false,
       this.loginStatus = FormzStatus.pure,
       this.phoneStatus = FormzStatus.pure,
       this.verifyOtpStatus = FormzStatus.pure,
-      this.resendOtpStatus = FormzStatus.pure,
+      this.InitiateforgotPasswordSatus = FormzStatus.pure,
+      this.forgotPasswordSatus = FormzStatus.pure,
+      this.updateUserTypeStatus = FormzStatus.pure,
       this.completeOnboardingStatus = FormzStatus.pure,
       this.updateProfileStatus = FormzStatus.pure,
       this.email = const Email.pure(),
@@ -498,6 +614,7 @@ class _$_AuthState extends _AuthState {
       this.rePassword = const RePassword.pure(),
       this.phoneNumber = const PhoneNumber.pure(),
       this.registerModel,
+      this.updatedUserDetails,
       this.userPhoneOnboardingModel,
       this.verifyOtpModel,
       this.verifyResetTokenModel,
@@ -513,10 +630,21 @@ class _$_AuthState extends _AuthState {
   final Name otpVal;
   @override
   @JsonKey()
+  final Name fname;
+  @override
+  @JsonKey()
+  final Name lname;
+  @override
+  final TextEditingController? pinController;
+  @override
+  @JsonKey()
   final String exceptionError;
   @override
   @JsonKey()
   final String countryCode;
+  @override
+  @JsonKey()
+  final bool isTermAndConditionVal;
   @override
   @JsonKey()
   final FormzStatus loginStatus;
@@ -528,7 +656,13 @@ class _$_AuthState extends _AuthState {
   final FormzStatus verifyOtpStatus;
   @override
   @JsonKey()
-  final FormzStatus resendOtpStatus;
+  final FormzStatus InitiateforgotPasswordSatus;
+  @override
+  @JsonKey()
+  final FormzStatus forgotPasswordSatus;
+  @override
+  @JsonKey()
+  final FormzStatus updateUserTypeStatus;
   @override
   @JsonKey()
   final FormzStatus completeOnboardingStatus;
@@ -553,6 +687,8 @@ class _$_AuthState extends _AuthState {
   @override
   final RegisterModel? registerModel;
   @override
+  final UpdateUserDetails? updatedUserDetails;
+  @override
   final UserData? userPhoneOnboardingModel;
   @override
   final VerifyOtp? verifyOtpModel;
@@ -571,7 +707,7 @@ class _$_AuthState extends _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(otpVal: $otpVal, exceptionError: $exceptionError, countryCode: $countryCode, loginStatus: $loginStatus, phoneStatus: $phoneStatus, verifyOtpStatus: $verifyOtpStatus, resendOtpStatus: $resendOtpStatus, completeOnboardingStatus: $completeOnboardingStatus, updateProfileStatus: $updateProfileStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel, userPhoneOnboardingModel: $userPhoneOnboardingModel, verifyOtpModel: $verifyOtpModel, verifyResetTokenModel: $verifyResetTokenModel, createLogisticPartnerRespModel: $createLogisticPartnerRespModel, createVendorResponseModel: $createVendorResponseModel, loginType: $loginType, otpRequestOrResendTypeEnum: $otpRequestOrResendTypeEnum, userTypeEnum: $userTypeEnum)';
+    return 'AuthState(otpVal: $otpVal, fname: $fname, lname: $lname, pinController: $pinController, exceptionError: $exceptionError, countryCode: $countryCode, isTermAndConditionVal: $isTermAndConditionVal, loginStatus: $loginStatus, phoneStatus: $phoneStatus, verifyOtpStatus: $verifyOtpStatus, InitiateforgotPasswordSatus: $InitiateforgotPasswordSatus, forgotPasswordSatus: $forgotPasswordSatus, updateUserTypeStatus: $updateUserTypeStatus, completeOnboardingStatus: $completeOnboardingStatus, updateProfileStatus: $updateProfileStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel, updatedUserDetails: $updatedUserDetails, userPhoneOnboardingModel: $userPhoneOnboardingModel, verifyOtpModel: $verifyOtpModel, verifyResetTokenModel: $verifyResetTokenModel, createLogisticPartnerRespModel: $createLogisticPartnerRespModel, createVendorResponseModel: $createVendorResponseModel, loginType: $loginType, otpRequestOrResendTypeEnum: $otpRequestOrResendTypeEnum, userTypeEnum: $userTypeEnum)';
   }
 
   @override
@@ -580,18 +716,29 @@ class _$_AuthState extends _AuthState {
         (other.runtimeType == runtimeType &&
             other is _$_AuthState &&
             (identical(other.otpVal, otpVal) || other.otpVal == otpVal) &&
+            (identical(other.fname, fname) || other.fname == fname) &&
+            (identical(other.lname, lname) || other.lname == lname) &&
+            (identical(other.pinController, pinController) ||
+                other.pinController == pinController) &&
             (identical(other.exceptionError, exceptionError) ||
                 other.exceptionError == exceptionError) &&
             (identical(other.countryCode, countryCode) ||
                 other.countryCode == countryCode) &&
+            (identical(other.isTermAndConditionVal, isTermAndConditionVal) ||
+                other.isTermAndConditionVal == isTermAndConditionVal) &&
             (identical(other.loginStatus, loginStatus) ||
                 other.loginStatus == loginStatus) &&
             (identical(other.phoneStatus, phoneStatus) ||
                 other.phoneStatus == phoneStatus) &&
             (identical(other.verifyOtpStatus, verifyOtpStatus) ||
                 other.verifyOtpStatus == verifyOtpStatus) &&
-            (identical(other.resendOtpStatus, resendOtpStatus) ||
-                other.resendOtpStatus == resendOtpStatus) &&
+            (identical(other.InitiateforgotPasswordSatus, InitiateforgotPasswordSatus) ||
+                other.InitiateforgotPasswordSatus ==
+                    InitiateforgotPasswordSatus) &&
+            (identical(other.forgotPasswordSatus, forgotPasswordSatus) ||
+                other.forgotPasswordSatus == forgotPasswordSatus) &&
+            (identical(other.updateUserTypeStatus, updateUserTypeStatus) ||
+                other.updateUserTypeStatus == updateUserTypeStatus) &&
             (identical(other.completeOnboardingStatus, completeOnboardingStatus) ||
                 other.completeOnboardingStatus == completeOnboardingStatus) &&
             (identical(other.updateProfileStatus, updateProfileStatus) ||
@@ -607,23 +754,23 @@ class _$_AuthState extends _AuthState {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.registerModel, registerModel) ||
                 other.registerModel == registerModel) &&
-            (identical(other.userPhoneOnboardingModel, userPhoneOnboardingModel) ||
+            (identical(other.updatedUserDetails, updatedUserDetails) ||
+                other.updatedUserDetails == updatedUserDetails) &&
+            (identical(
+                    other.userPhoneOnboardingModel, userPhoneOnboardingModel) ||
                 other.userPhoneOnboardingModel == userPhoneOnboardingModel) &&
             (identical(other.verifyOtpModel, verifyOtpModel) ||
                 other.verifyOtpModel == verifyOtpModel) &&
             (identical(other.verifyResetTokenModel, verifyResetTokenModel) ||
                 other.verifyResetTokenModel == verifyResetTokenModel) &&
-            (identical(other.createLogisticPartnerRespModel,
-                    createLogisticPartnerRespModel) ||
+            (identical(other.createLogisticPartnerRespModel, createLogisticPartnerRespModel) ||
                 other.createLogisticPartnerRespModel ==
                     createLogisticPartnerRespModel) &&
-            (identical(other.createVendorResponseModel,
-                    createVendorResponseModel) ||
+            (identical(other.createVendorResponseModel, createVendorResponseModel) ||
                 other.createVendorResponseModel == createVendorResponseModel) &&
             (identical(other.loginType, loginType) ||
                 other.loginType == loginType) &&
-            (identical(other.otpRequestOrResendTypeEnum,
-                    otpRequestOrResendTypeEnum) ||
+            (identical(other.otpRequestOrResendTypeEnum, otpRequestOrResendTypeEnum) ||
                 other.otpRequestOrResendTypeEnum ==
                     otpRequestOrResendTypeEnum) &&
             (identical(other.userTypeEnum, userTypeEnum) ||
@@ -634,12 +781,18 @@ class _$_AuthState extends _AuthState {
   int get hashCode => Object.hashAll([
         runtimeType,
         otpVal,
+        fname,
+        lname,
+        pinController,
         exceptionError,
         countryCode,
+        isTermAndConditionVal,
         loginStatus,
         phoneStatus,
         verifyOtpStatus,
-        resendOtpStatus,
+        InitiateforgotPasswordSatus,
+        forgotPasswordSatus,
+        updateUserTypeStatus,
         completeOnboardingStatus,
         updateProfileStatus,
         email,
@@ -648,6 +801,7 @@ class _$_AuthState extends _AuthState {
         rePassword,
         phoneNumber,
         registerModel,
+        updatedUserDetails,
         userPhoneOnboardingModel,
         verifyOtpModel,
         verifyResetTokenModel,
@@ -668,12 +822,18 @@ class _$_AuthState extends _AuthState {
 abstract class _AuthState extends AuthState {
   factory _AuthState(
       {final Name otpVal,
+      final Name fname,
+      final Name lname,
+      final TextEditingController? pinController,
       final String exceptionError,
       final String countryCode,
+      final bool isTermAndConditionVal,
       final FormzStatus loginStatus,
       final FormzStatus phoneStatus,
       final FormzStatus verifyOtpStatus,
-      final FormzStatus resendOtpStatus,
+      final FormzStatus InitiateforgotPasswordSatus,
+      final FormzStatus forgotPasswordSatus,
+      final FormzStatus updateUserTypeStatus,
       final FormzStatus completeOnboardingStatus,
       final FormzStatus updateProfileStatus,
       final Email email,
@@ -682,6 +842,7 @@ abstract class _AuthState extends AuthState {
       final RePassword rePassword,
       final PhoneNumber phoneNumber,
       final RegisterModel? registerModel,
+      final UpdateUserDetails? updatedUserDetails,
       final UserData? userPhoneOnboardingModel,
       final VerifyOtp? verifyOtpModel,
       final VerifyResetTokenModel? verifyResetTokenModel,
@@ -695,9 +856,17 @@ abstract class _AuthState extends AuthState {
   @override
   Name get otpVal;
   @override
+  Name get fname;
+  @override
+  Name get lname;
+  @override
+  TextEditingController? get pinController;
+  @override
   String get exceptionError;
   @override
   String get countryCode;
+  @override
+  bool get isTermAndConditionVal;
   @override
   FormzStatus get loginStatus;
   @override
@@ -705,7 +874,11 @@ abstract class _AuthState extends AuthState {
   @override
   FormzStatus get verifyOtpStatus;
   @override
-  FormzStatus get resendOtpStatus;
+  FormzStatus get InitiateforgotPasswordSatus;
+  @override
+  FormzStatus get forgotPasswordSatus;
+  @override
+  FormzStatus get updateUserTypeStatus;
   @override
   FormzStatus get completeOnboardingStatus;
   @override
@@ -722,6 +895,8 @@ abstract class _AuthState extends AuthState {
   PhoneNumber get phoneNumber;
   @override
   RegisterModel? get registerModel;
+  @override
+  UpdateUserDetails? get updatedUserDetails;
   @override
   UserData? get userPhoneOnboardingModel;
   @override
