@@ -25,7 +25,7 @@ class AuthSource extends AuthService {
     var payload = {'countryCode': countryCode, 'phone': phone};
     try {
       Response response =
-          await api.post('${auth.user}/request-otp', data: payload);
+          await api.post('${auth.user}request-otp', data: payload);
       Logger().w('api-resp==> ${response.data}');
       final r = VerifyOtp.fromJson(response.data);
       return r;
@@ -110,7 +110,7 @@ class AuthSource extends AuthService {
     };
     try {
       Response response =
-          await api.put('${auth.user}update' + userId, data: payload);
+          await api.put('${auth.user}update/' + userId, data: payload);
       Logger().w('api-resp==> ${response.data}');
       final r = UpdateUserDetails.fromJson(response.data);
       return r;

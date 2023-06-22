@@ -16,9 +16,10 @@ import 'package:trackbudi_mobile/src/core/mixin/password_val.dart';
 import 'package:trackbudi_mobile/src/core/mixin/phone_val.dart';
 import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
 import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_state.dart';
-import 'package:trackbudi_mobile/src/features/auth/data/model/register_model.dart';
+import 'package:trackbudi_mobile/src/features/auth/data/model/vehicle_type.dart';
 import 'package:trackbudi_mobile/src/features/auth/data/model/verify_otp.dart';
 import 'package:trackbudi_mobile/src/features/auth/domain/usecases/auth_u.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/custom_vendor_widget.dart';
 
 class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier({
@@ -37,7 +38,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
     required this.verifyResetPasswordUsecase,
     required this.resetPasswordUsecase,
     required this.phoneOnobardingUsecase,
-  }) : super(AuthState());
+  }) : super(AuthState()) {
+    getRandyListData();
+  }
 
   final PhoneOnobardingUsecase phoneOnobardingUsecase;
   final VerifyOtpUsecase verifyOtpUsecase;
@@ -56,6 +59,261 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   final ResetPasswordUsecase resetPasswordUsecase;
   final secureStore = si<SecureStore>();
+
+  addMapToList(List<CustomVendorPickAddressWidget> cvvTxt,
+      CustomVendorPickAddressWidget c) {
+    cvvTxt = List.from(cvvTxt)..add(c);
+    log('list :$cvvTxt');
+    state = state.copyWith(widgetList: cvvTxt);
+    log('state.widgetList: ${state.widgetList}');
+  }
+
+  void businessName(String value) {
+    final businessName = Name.dirty(value);
+    state = state.copyWith(
+      businessName: businessName,
+      vendorStatus: Formz.validate([
+        businessName,
+        state.selectedCountry,
+        state.address,
+        state.landmark,
+      ]),
+    );
+  }
+
+  void vendorPickupAdressF(String value) {
+    final address = Name.dirty(value);
+    state = state.copyWith(
+      address: address,
+      vendorStatus: Formz.validate([
+        state.businessName,
+        state.selectedCountry,
+        address,
+        state.landmark,
+      ]),
+    );
+  }
+
+  void vendorLandmark(String value) {
+    final landmark = Name.dirty(value);
+    state = state.copyWith(
+      landmark: landmark,
+      vendorStatus: Formz.validate([
+        state.businessName,
+        state.selectedCountry,
+        state.address,
+        landmark,
+      ]),
+    );
+  }
+
+  howdidYouHearboutUs(String? v) async {
+    state = state.copyWith(howDidYouHearboutUS: v);
+  }
+
+  selectedCategory(String v) async {
+    state = state.copyWith(selectedCategoryTxtStr: v);
+    log('state-selectedCategoryTxtStr :${state.selectedCategoryTxtStr}');
+  }
+
+  deliveryPerMonthFunc(String v) async {
+    state = state.copyWith(deliveryMethodStr: v);
+    log('state-del :${state.deliveryMethodStr}');
+  }
+
+  kindOfGoodsFunc(List<String> v) async {
+//listOfKindOfGoodsModel
+    state = state.copyWith(listOfKindOfGoodsModel: v);
+    log('kindOfgoods${state.listOfKindOfGoodsModel}');
+  }
+
+  void nameOfCompany(String value) {
+    final companyName = Name.dirty(value);
+    state = state.copyWith(
+      nameOfCompany: companyName,
+      LogisticStatus: Formz.validate([
+        companyName,
+        state.selectedCountry,
+        state.address,
+        state.landmark,
+        state.website
+      ]),
+    );
+  }
+
+  void selectedVendorCountry(String value) {
+    final selectedCountry = Name.dirty(value);
+    state = state.copyWith(
+      selectedCountry: selectedCountry,
+      vendorStatus: Formz.validate([
+        state.nameOfCompany,
+        selectedCountry,
+        state.address,
+        state.landmark,
+      ]),
+    );
+
+    log('sss--:${state.selectedCountry.value}');
+  }
+
+  void selectedCountry(String value) {
+    final selectedCountry = Name.dirty(value);
+    state = state.copyWith(
+      selectedCountry: selectedCountry,
+      LogisticStatus: Formz.validate([
+        state.nameOfCompany,
+        selectedCountry,
+        state.address,
+        state.landmark,
+      ]),
+    );
+
+    log('sss--:${state.selectedCountry.value}');
+  }
+
+  void addressChanged(String value) {
+    final address = Name.dirty(value);
+    state = state.copyWith(
+      address: address,
+      LogisticStatus: Formz.validate([
+        state.nameOfCompany,
+        state.selectedCountry,
+        address,
+        state.landmark,
+      ]),
+    );
+  }
+
+  void landmark(String value) {
+    final landmark = Name.dirty(value);
+    state = state.copyWith(
+      landmark: landmark,
+      LogisticStatus: Formz.validate([
+        state.nameOfCompany,
+        state.selectedCountry,
+        state.address,
+        landmark,
+      ]),
+    );
+  }
+
+  void website(String value) {
+    final websiteDta = Name.dirty(value);
+    state = state.copyWith(website: websiteDta);
+  }
+
+  getRandyListData() async {
+    state = state.copyWith(
+        widgetList: widgetList,
+        listOfpickupAddressModel: pickupAddress,
+        categoryList: category,
+        listOfvehicleType: vehicleType,
+        listOfdeliveriesPerMonthModel: deliveriesPerMonth,
+        listOfaboutUsModel: aboutUs);
+  }
+
+  removedata(List<VehicleTypeWidget>? list, VehicleTypeWidget d) {
+    list = List.from(list!)
+      ..removeWhere((element) => element.vehicle == d.vehicle);
+    state = state.copyWith(listOfvehicleType: list);
+    log('state.list: ${state.listOfvehicleType}');
+  }
+
+  convertListToMap(List<VehicleTypeWidget> v) {
+    return v.map((a) => a.toMap()).toList();
+  }
+
+  convertListToMapI(List<PickupAddressModel> p) {
+    return p.map((pp) => pp.toMap()).toList();
+  }
+
+  breakdownF(List<VehicleTypeWidget> data) {
+    List<VehicleTypeWidget> commonMaps = [];
+
+    for (var map1 in data) {
+      for (var map2 in state.listOfvehicleType) {
+        if (map1 == map2) {
+          commonMaps.add(map1);
+          break;
+        }
+      }
+    }
+    log('commonMaps:: $commonMaps');
+    state = state.copyWith(
+      listOfvehicleType: commonMaps,
+      breakdown: commonMaps.map((e) {
+        return {'vehicle': e.vehicle, 'quantity': e.quantity};
+      }).reduce((value, element) => value..addAll(element)),
+    );
+    log('breakdown:: ${state.breakdown.toString()}');
+  }
+
+  incrementVehicleFunc(String? vehicleType) {
+    state = state.copyWith(
+      listOfvehicleType: state.listOfvehicleType
+          .map((element) => element.vehicle == vehicleType
+              ? element.copyWith(quantity: element.quantity! + 1)
+              : element)
+          .toList(),
+    );
+  }
+
+  decrementVehicleFunc(String? vehicleType) {
+    state = state.copyWith(
+        listOfvehicleType: state.listOfvehicleType.map((element) {
+      log('element.vehicleType:::  ${element.vehicle}');
+      log('vehicleType::: $vehicleType');
+      return element.vehicle == vehicleType
+          ? element.copyWith(quantity: element.quantity! - 1)
+          : element;
+    }).toList());
+  }
+
+  void forgotPasswordEmailChanged(String value) {
+    final email = Email.dirty(value);
+    state = state.copyWith(
+      email: email,
+      forgotPasswordSatus: Formz.validate([email, state.password]),
+    );
+  }
+
+  void forgotPasswordTextChanged(String value) {
+    final password = Password.dirty(value);
+    state = state.copyWith(
+      password: password,
+      forgotPasswordSatus: Formz.validate([state.email, password]),
+    );
+  }
+
+  void iniatietResetEmailChanged(String value) {
+    final email = Email.dirty(value);
+    state = state.copyWith(
+      email: email,
+      InitiateforgotPasswordSatus: Formz.validate([email]),
+    );
+  }
+
+  void loginEmailChanged(String value) {
+    final email = Email.dirty(value);
+    state = state.copyWith(
+      email: email,
+      loginStatus: Formz.validate([email, state.password]),
+    );
+  }
+
+  void loginPasswordChanged(String value) {
+    final password = Password.dirty(value);
+    state = state.copyWith(
+      password: password,
+      loginStatus: Formz.validate([state.email, password]),
+    );
+  }
+
+  void userTypeChangeF(UserType value) {
+    state = state.copyWith(
+        userTypeEnum: value, updateUserTypeStatus: FormzStatus.valid);
+  }
+
   onChangeOtpVal(String otpVal) async {
     final otpValAbstract = Name.dirty(otpVal);
     if (otpVal.length == 4) {
@@ -163,24 +421,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
           log('userPhoneOnboardingModel : ${state.userPhoneOnboardingModel}');
         });
       },
-      login: (LoginEvent value) async {
-        Either<AppError, RegisterModel>? resp;
-        switch (state.loginType) {
-          case LoginType.phone:
-            var payload = {
-              'countryCode': state.countryCode,
-              'phone': state.phoneNumber.value
-            };
-            resp = await loginUsecase(payload);
-            break;
-
-          case LoginType.email:
-            break;
-          default:
-            null;
-        }
-        resp?.fold((l) {}, (r) {});
-      },
       verifyOrrequestOrResendPhoneOtp:
           (RequestOrResendPhoneOtpEvent requestOrResendPhoneOtpEvent) async {
         state = state.copyWith(
@@ -192,9 +432,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
         switch (state.otpRequestOrResendTypeEnum) {
           case OtpRequestOrResendType.request:
-            resp = await userLoginRequestOtpUsecase(MajorPayload(
-                countryCode: state.countryCode,
-                phone: state.phoneNumber.value));
+            resp = await userLoginVerifyOtpUsecase(MajorPayload(
+                otp: state.otpVal.value, phone: state.phoneNumber.value));
             break;
 
           case OtpRequestOrResendType.resend:
@@ -225,7 +464,12 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state = state.copyWith(
             updateProfileStatus: FormzStatus.submissionInProgress);
 
-        final resp = await updateUserProfileUsecase(MajorPayload());
+        final resp = await updateUserProfileUsecase(MajorPayload(
+            email: state.email.value,
+            firstName: state.fname.value,
+            lastName: state.lname.value,
+            password: state.password.value,
+            userId: state.userPhoneOnboardingModel?.id));
 
         resp.fold((l) {
           state = state.copyWith(
@@ -270,12 +514,74 @@ class AuthNotifier extends StateNotifier<AuthState> {
         });
       },
       createOrUpdateLogisticPatner: (CreateOrUpdateLogisticPatnerEvent
-          createOrUpdateLogisticPatnerEvent) {},
-      createOrUpdateVendor: (CreateOrUpdateVendorEvent value) {},
+          createOrUpdateLogisticPatnerEvent) async {
+        state = state.copyWith(
+            convertListToMap: convertListToMap(state.listOfvehicleType));
+
+        log('convertListToMap::: $convertListToMap');
+        var payload = {
+          'companyName': state.nameOfCompany.value,
+          'country': state.selectedCountry.value,
+          'address': state.address.value,
+          'landmark': state.landmark.value,
+          'website': state.website.value,
+          'vehicleTypes': state.convertListToMap,
+          'goodsType': state.listOfKindOfGoodsModel,
+          'deliveriesPerMonth': state.deliveryMethodStr,
+          'howDidYouHear': state.howDidYouHearboutUS,
+          'referralCode': 'optional'
+        };
+        state =
+            state.copyWith(LogisticStatus: FormzStatus.submissionInProgress);
+
+        final resp = await createlogisticPartnerUsecase(payload);
+
+        resp.fold((l) {
+          state = state.copyWith(
+              LogisticStatus: FormzStatus.submissionFailure,
+              exceptionError: l.message);
+        }, (r) {
+          state = state.copyWith(
+              LogisticStatus: FormzStatus.submissionSuccess,
+              createLogisticPartnerRespModel: r);
+          log('createLogisticPartnerRespModel : ${state.createLogisticPartnerRespModel}');
+        });
+      },
+      createOrUpdateVendor: (CreateOrUpdateVendorEvent value) async {
+        //createVendorUsecase
+
+        state = state.copyWith(
+            convertListToMap:
+                convertListToMapI(state.listOfpickupAddressModel));
+
+        log('convertListToMap::: $convertListToMapI');
+        var payload = {
+          'businessName': state.businessName.value,
+          'category': state.selectedCategoryTxtStr,
+          'address': state.address.value,
+          'landmark': state.landmark.value,
+          'pickupAddresses': state.convertListToMap,
+        };
+        state = state.copyWith(vendorStatus: FormzStatus.submissionInProgress);
+
+        final resp = await createVendorUsecase(payload);
+
+        resp.fold((l) {
+          state = state.copyWith(
+              vendorStatus: FormzStatus.submissionFailure,
+              exceptionError: l.message);
+        }, (r) {
+          state = state.copyWith(
+              vendorStatus: FormzStatus.submissionSuccess,
+              createVendorResponseModel: r);
+          log('createVendorResponseModel : ${state.createVendorResponseModel}');
+        });
+      },
       initiateForgotPassword:
           (InitiateForgotPasswordEvent initiateForgotPasswordEvent) async {
         var payload = {'email': state.email.value};
         state = state.copyWith(
+            otpRequestOrResendTypeEnum: OtpRequestOrResendType.resetPasswordOtp,
             InitiateforgotPasswordSatus: FormzStatus.submissionInProgress);
 
         final resp = await initiateResetPasswordUsecase(payload);
@@ -332,6 +638,42 @@ class AuthNotifier extends StateNotifier<AuthState> {
               forgotPasswordSatus: FormzStatus.submissionSuccess,
               registerModel: r);
           log('registerModel : ${state.registerModel}');
+        });
+      },
+      loginWithEmail: (LoginWithEmailEvent value) async {
+        state = state.copyWith(loginStatus: FormzStatus.submissionInProgress);
+        var payload = {
+          'email': state.email.value,
+          'password': state.password.value
+        };
+        final resp = await loginUsecase(payload);
+
+        resp.fold((l) {
+          state = state.copyWith(
+              loginStatus: FormzStatus.submissionFailure,
+              exceptionError: l.message);
+        }, (r) {
+          state = state.copyWith(
+              loginStatus: FormzStatus.submissionSuccess, registerModel: r);
+          log('registerModel : ${state.registerModel}');
+        });
+      },
+      loginWithPhone: (LoginWithPhoneEvent value) async {
+        state = state.copyWith(
+            loginType: value.loginType,
+            otpRequestOrResendTypeEnum: OtpRequestOrResendType.request,
+            phoneStatus: FormzStatus.submissionInProgress);
+        final resp = await userLoginRequestOtpUsecase(MajorPayload(
+            countryCode: state.countryCode, phone: state.phoneNumber.value));
+
+        resp.fold((l) {
+          state = state.copyWith(
+              phoneStatus: FormzStatus.submissionFailure,
+              exceptionError: l.message);
+        }, (r) {
+          state = state.copyWith(
+              phoneStatus: FormzStatus.submissionSuccess, verifyOtpModel: r);
+          log('verifyOtpModel : ${state.verifyOtpModel}');
         });
       },
     );

@@ -16,11 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthState {
+  Name get businessName => throw _privateConstructorUsedError;
+  Name get nameOfCompany => throw _privateConstructorUsedError;
+  Name get selectedCountry => throw _privateConstructorUsedError;
+  Name get address => throw _privateConstructorUsedError;
+  Name get landmark => throw _privateConstructorUsedError;
+  Name get website => throw _privateConstructorUsedError;
   Name get otpVal => throw _privateConstructorUsedError;
   Name get fname => throw _privateConstructorUsedError;
   Name get lname => throw _privateConstructorUsedError;
-  TextEditingController? get pinController =>
-      throw _privateConstructorUsedError;
+  Name get pinController => throw _privateConstructorUsedError;
   String get exceptionError => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
   bool get isTermAndConditionVal => throw _privateConstructorUsedError;
@@ -34,6 +39,8 @@ mixin _$AuthState {
   FormzStatus get completeOnboardingStatus =>
       throw _privateConstructorUsedError;
   FormzStatus get updateProfileStatus => throw _privateConstructorUsedError;
+  FormzStatus get LogisticStatus => throw _privateConstructorUsedError;
+  FormzStatus get vendorStatus => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   Password get oldPassword => throw _privateConstructorUsedError;
@@ -48,12 +55,32 @@ mixin _$AuthState {
       throw _privateConstructorUsedError;
   CreateLogisticPartnerRespModel? get createLogisticPartnerRespModel =>
       throw _privateConstructorUsedError;
+  List<VehicleTypeWidget> get listOfvehicleType =>
+      throw _privateConstructorUsedError;
+  List<String> get listOfdeliveriesPerMonthModel =>
+      throw _privateConstructorUsedError;
+  List<String> get listOfaboutUsModel => throw _privateConstructorUsedError;
+  List<String> get listOfKindOfGoodsModel => throw _privateConstructorUsedError;
+  List<String> get categoryList => throw _privateConstructorUsedError;
+  List<PickupAddressModel> get listOfpickupAddressModel =>
+      throw _privateConstructorUsedError;
+  List<CustomVendorPickAddressWidget> get widgetList =>
+      throw _privateConstructorUsedError;
+  List<Map<String, dynamic>> get listOfpickupAddressMappedModel =>
+      throw _privateConstructorUsedError;
+  List<dynamic> get combinatedListModel => throw _privateConstructorUsedError;
+  Map<String?, dynamic>? get breakdown => throw _privateConstructorUsedError;
+  String? get howDidYouHearboutUS => throw _privateConstructorUsedError;
+  String? get deliveryMethodStr => throw _privateConstructorUsedError;
+  String? get selectedCategoryTxtStr => throw _privateConstructorUsedError;
   CreateVendorResponseModel? get createVendorResponseModel =>
       throw _privateConstructorUsedError;
   LoginType? get loginType => throw _privateConstructorUsedError;
   OtpRequestOrResendType? get otpRequestOrResendTypeEnum =>
       throw _privateConstructorUsedError;
   UserType? get userTypeEnum => throw _privateConstructorUsedError;
+  List<Map<String, dynamic>> get convertListToMap =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -66,10 +93,16 @@ abstract class $AuthStateCopyWith<$Res> {
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
   $Res call(
-      {Name otpVal,
+      {Name businessName,
+      Name nameOfCompany,
+      Name selectedCountry,
+      Name address,
+      Name landmark,
+      Name website,
+      Name otpVal,
       Name fname,
       Name lname,
-      TextEditingController? pinController,
+      Name pinController,
       String exceptionError,
       String countryCode,
       bool isTermAndConditionVal,
@@ -81,6 +114,8 @@ abstract class $AuthStateCopyWith<$Res> {
       FormzStatus updateUserTypeStatus,
       FormzStatus completeOnboardingStatus,
       FormzStatus updateProfileStatus,
+      FormzStatus LogisticStatus,
+      FormzStatus vendorStatus,
       Email email,
       Password password,
       Password oldPassword,
@@ -92,10 +127,24 @@ abstract class $AuthStateCopyWith<$Res> {
       VerifyOtp? verifyOtpModel,
       VerifyResetTokenModel? verifyResetTokenModel,
       CreateLogisticPartnerRespModel? createLogisticPartnerRespModel,
+      List<VehicleTypeWidget> listOfvehicleType,
+      List<String> listOfdeliveriesPerMonthModel,
+      List<String> listOfaboutUsModel,
+      List<String> listOfKindOfGoodsModel,
+      List<String> categoryList,
+      List<PickupAddressModel> listOfpickupAddressModel,
+      List<CustomVendorPickAddressWidget> widgetList,
+      List<Map<String, dynamic>> listOfpickupAddressMappedModel,
+      List<dynamic> combinatedListModel,
+      Map<String?, dynamic>? breakdown,
+      String? howDidYouHearboutUS,
+      String? deliveryMethodStr,
+      String? selectedCategoryTxtStr,
       CreateVendorResponseModel? createVendorResponseModel,
       LoginType? loginType,
       OtpRequestOrResendType? otpRequestOrResendTypeEnum,
-      UserType? userTypeEnum});
+      UserType? userTypeEnum,
+      List<Map<String, dynamic>> convertListToMap});
 
   $RegisterModelCopyWith<$Res>? get registerModel;
   $UpdateUserDetailsCopyWith<$Res>? get updatedUserDetails;
@@ -120,10 +169,16 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? businessName = null,
+    Object? nameOfCompany = null,
+    Object? selectedCountry = null,
+    Object? address = null,
+    Object? landmark = null,
+    Object? website = null,
     Object? otpVal = null,
     Object? fname = null,
     Object? lname = null,
-    Object? pinController = freezed,
+    Object? pinController = null,
     Object? exceptionError = null,
     Object? countryCode = null,
     Object? isTermAndConditionVal = null,
@@ -135,6 +190,8 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? updateUserTypeStatus = null,
     Object? completeOnboardingStatus = null,
     Object? updateProfileStatus = null,
+    Object? LogisticStatus = null,
+    Object? vendorStatus = null,
     Object? email = null,
     Object? password = null,
     Object? oldPassword = null,
@@ -146,12 +203,50 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? verifyOtpModel = freezed,
     Object? verifyResetTokenModel = freezed,
     Object? createLogisticPartnerRespModel = freezed,
+    Object? listOfvehicleType = null,
+    Object? listOfdeliveriesPerMonthModel = null,
+    Object? listOfaboutUsModel = null,
+    Object? listOfKindOfGoodsModel = null,
+    Object? categoryList = null,
+    Object? listOfpickupAddressModel = null,
+    Object? widgetList = null,
+    Object? listOfpickupAddressMappedModel = null,
+    Object? combinatedListModel = null,
+    Object? breakdown = freezed,
+    Object? howDidYouHearboutUS = freezed,
+    Object? deliveryMethodStr = freezed,
+    Object? selectedCategoryTxtStr = freezed,
     Object? createVendorResponseModel = freezed,
     Object? loginType = freezed,
     Object? otpRequestOrResendTypeEnum = freezed,
     Object? userTypeEnum = freezed,
+    Object? convertListToMap = null,
   }) {
     return _then(_value.copyWith(
+      businessName: null == businessName
+          ? _value.businessName
+          : businessName // ignore: cast_nullable_to_non_nullable
+              as Name,
+      nameOfCompany: null == nameOfCompany
+          ? _value.nameOfCompany
+          : nameOfCompany // ignore: cast_nullable_to_non_nullable
+              as Name,
+      selectedCountry: null == selectedCountry
+          ? _value.selectedCountry
+          : selectedCountry // ignore: cast_nullable_to_non_nullable
+              as Name,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Name,
+      landmark: null == landmark
+          ? _value.landmark
+          : landmark // ignore: cast_nullable_to_non_nullable
+              as Name,
+      website: null == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as Name,
       otpVal: null == otpVal
           ? _value.otpVal
           : otpVal // ignore: cast_nullable_to_non_nullable
@@ -164,10 +259,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.lname
           : lname // ignore: cast_nullable_to_non_nullable
               as Name,
-      pinController: freezed == pinController
+      pinController: null == pinController
           ? _value.pinController
           : pinController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
+              as Name,
       exceptionError: null == exceptionError
           ? _value.exceptionError
           : exceptionError // ignore: cast_nullable_to_non_nullable
@@ -211,6 +306,14 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       updateProfileStatus: null == updateProfileStatus
           ? _value.updateProfileStatus
           : updateProfileStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      LogisticStatus: null == LogisticStatus
+          ? _value.LogisticStatus
+          : LogisticStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      vendorStatus: null == vendorStatus
+          ? _value.vendorStatus
+          : vendorStatus // ignore: cast_nullable_to_non_nullable
               as FormzStatus,
       email: null == email
           ? _value.email
@@ -256,6 +359,58 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.createLogisticPartnerRespModel
           : createLogisticPartnerRespModel // ignore: cast_nullable_to_non_nullable
               as CreateLogisticPartnerRespModel?,
+      listOfvehicleType: null == listOfvehicleType
+          ? _value.listOfvehicleType
+          : listOfvehicleType // ignore: cast_nullable_to_non_nullable
+              as List<VehicleTypeWidget>,
+      listOfdeliveriesPerMonthModel: null == listOfdeliveriesPerMonthModel
+          ? _value.listOfdeliveriesPerMonthModel
+          : listOfdeliveriesPerMonthModel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfaboutUsModel: null == listOfaboutUsModel
+          ? _value.listOfaboutUsModel
+          : listOfaboutUsModel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfKindOfGoodsModel: null == listOfKindOfGoodsModel
+          ? _value.listOfKindOfGoodsModel
+          : listOfKindOfGoodsModel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      categoryList: null == categoryList
+          ? _value.categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfpickupAddressModel: null == listOfpickupAddressModel
+          ? _value.listOfpickupAddressModel
+          : listOfpickupAddressModel // ignore: cast_nullable_to_non_nullable
+              as List<PickupAddressModel>,
+      widgetList: null == widgetList
+          ? _value.widgetList
+          : widgetList // ignore: cast_nullable_to_non_nullable
+              as List<CustomVendorPickAddressWidget>,
+      listOfpickupAddressMappedModel: null == listOfpickupAddressMappedModel
+          ? _value.listOfpickupAddressMappedModel
+          : listOfpickupAddressMappedModel // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
+      combinatedListModel: null == combinatedListModel
+          ? _value.combinatedListModel
+          : combinatedListModel // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+      breakdown: freezed == breakdown
+          ? _value.breakdown
+          : breakdown // ignore: cast_nullable_to_non_nullable
+              as Map<String?, dynamic>?,
+      howDidYouHearboutUS: freezed == howDidYouHearboutUS
+          ? _value.howDidYouHearboutUS
+          : howDidYouHearboutUS // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveryMethodStr: freezed == deliveryMethodStr
+          ? _value.deliveryMethodStr
+          : deliveryMethodStr // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedCategoryTxtStr: freezed == selectedCategoryTxtStr
+          ? _value.selectedCategoryTxtStr
+          : selectedCategoryTxtStr // ignore: cast_nullable_to_non_nullable
+              as String?,
       createVendorResponseModel: freezed == createVendorResponseModel
           ? _value.createVendorResponseModel
           : createVendorResponseModel // ignore: cast_nullable_to_non_nullable
@@ -272,6 +427,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.userTypeEnum
           : userTypeEnum // ignore: cast_nullable_to_non_nullable
               as UserType?,
+      convertListToMap: null == convertListToMap
+          ? _value.convertListToMap
+          : convertListToMap // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
     ) as $Val);
   }
 
@@ -374,10 +533,16 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Name otpVal,
+      {Name businessName,
+      Name nameOfCompany,
+      Name selectedCountry,
+      Name address,
+      Name landmark,
+      Name website,
+      Name otpVal,
       Name fname,
       Name lname,
-      TextEditingController? pinController,
+      Name pinController,
       String exceptionError,
       String countryCode,
       bool isTermAndConditionVal,
@@ -389,6 +554,8 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       FormzStatus updateUserTypeStatus,
       FormzStatus completeOnboardingStatus,
       FormzStatus updateProfileStatus,
+      FormzStatus LogisticStatus,
+      FormzStatus vendorStatus,
       Email email,
       Password password,
       Password oldPassword,
@@ -400,10 +567,24 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       VerifyOtp? verifyOtpModel,
       VerifyResetTokenModel? verifyResetTokenModel,
       CreateLogisticPartnerRespModel? createLogisticPartnerRespModel,
+      List<VehicleTypeWidget> listOfvehicleType,
+      List<String> listOfdeliveriesPerMonthModel,
+      List<String> listOfaboutUsModel,
+      List<String> listOfKindOfGoodsModel,
+      List<String> categoryList,
+      List<PickupAddressModel> listOfpickupAddressModel,
+      List<CustomVendorPickAddressWidget> widgetList,
+      List<Map<String, dynamic>> listOfpickupAddressMappedModel,
+      List<dynamic> combinatedListModel,
+      Map<String?, dynamic>? breakdown,
+      String? howDidYouHearboutUS,
+      String? deliveryMethodStr,
+      String? selectedCategoryTxtStr,
       CreateVendorResponseModel? createVendorResponseModel,
       LoginType? loginType,
       OtpRequestOrResendType? otpRequestOrResendTypeEnum,
-      UserType? userTypeEnum});
+      UserType? userTypeEnum,
+      List<Map<String, dynamic>> convertListToMap});
 
   @override
   $RegisterModelCopyWith<$Res>? get registerModel;
@@ -433,10 +614,16 @@ class __$$_AuthStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? businessName = null,
+    Object? nameOfCompany = null,
+    Object? selectedCountry = null,
+    Object? address = null,
+    Object? landmark = null,
+    Object? website = null,
     Object? otpVal = null,
     Object? fname = null,
     Object? lname = null,
-    Object? pinController = freezed,
+    Object? pinController = null,
     Object? exceptionError = null,
     Object? countryCode = null,
     Object? isTermAndConditionVal = null,
@@ -448,6 +635,8 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? updateUserTypeStatus = null,
     Object? completeOnboardingStatus = null,
     Object? updateProfileStatus = null,
+    Object? LogisticStatus = null,
+    Object? vendorStatus = null,
     Object? email = null,
     Object? password = null,
     Object? oldPassword = null,
@@ -459,12 +648,50 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? verifyOtpModel = freezed,
     Object? verifyResetTokenModel = freezed,
     Object? createLogisticPartnerRespModel = freezed,
+    Object? listOfvehicleType = null,
+    Object? listOfdeliveriesPerMonthModel = null,
+    Object? listOfaboutUsModel = null,
+    Object? listOfKindOfGoodsModel = null,
+    Object? categoryList = null,
+    Object? listOfpickupAddressModel = null,
+    Object? widgetList = null,
+    Object? listOfpickupAddressMappedModel = null,
+    Object? combinatedListModel = null,
+    Object? breakdown = freezed,
+    Object? howDidYouHearboutUS = freezed,
+    Object? deliveryMethodStr = freezed,
+    Object? selectedCategoryTxtStr = freezed,
     Object? createVendorResponseModel = freezed,
     Object? loginType = freezed,
     Object? otpRequestOrResendTypeEnum = freezed,
     Object? userTypeEnum = freezed,
+    Object? convertListToMap = null,
   }) {
     return _then(_$_AuthState(
+      businessName: null == businessName
+          ? _value.businessName
+          : businessName // ignore: cast_nullable_to_non_nullable
+              as Name,
+      nameOfCompany: null == nameOfCompany
+          ? _value.nameOfCompany
+          : nameOfCompany // ignore: cast_nullable_to_non_nullable
+              as Name,
+      selectedCountry: null == selectedCountry
+          ? _value.selectedCountry
+          : selectedCountry // ignore: cast_nullable_to_non_nullable
+              as Name,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as Name,
+      landmark: null == landmark
+          ? _value.landmark
+          : landmark // ignore: cast_nullable_to_non_nullable
+              as Name,
+      website: null == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as Name,
       otpVal: null == otpVal
           ? _value.otpVal
           : otpVal // ignore: cast_nullable_to_non_nullable
@@ -477,10 +704,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.lname
           : lname // ignore: cast_nullable_to_non_nullable
               as Name,
-      pinController: freezed == pinController
+      pinController: null == pinController
           ? _value.pinController
           : pinController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController?,
+              as Name,
       exceptionError: null == exceptionError
           ? _value.exceptionError
           : exceptionError // ignore: cast_nullable_to_non_nullable
@@ -524,6 +751,14 @@ class __$$_AuthStateCopyWithImpl<$Res>
       updateProfileStatus: null == updateProfileStatus
           ? _value.updateProfileStatus
           : updateProfileStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      LogisticStatus: null == LogisticStatus
+          ? _value.LogisticStatus
+          : LogisticStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      vendorStatus: null == vendorStatus
+          ? _value.vendorStatus
+          : vendorStatus // ignore: cast_nullable_to_non_nullable
               as FormzStatus,
       email: null == email
           ? _value.email
@@ -569,6 +804,58 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.createLogisticPartnerRespModel
           : createLogisticPartnerRespModel // ignore: cast_nullable_to_non_nullable
               as CreateLogisticPartnerRespModel?,
+      listOfvehicleType: null == listOfvehicleType
+          ? _value._listOfvehicleType
+          : listOfvehicleType // ignore: cast_nullable_to_non_nullable
+              as List<VehicleTypeWidget>,
+      listOfdeliveriesPerMonthModel: null == listOfdeliveriesPerMonthModel
+          ? _value._listOfdeliveriesPerMonthModel
+          : listOfdeliveriesPerMonthModel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfaboutUsModel: null == listOfaboutUsModel
+          ? _value._listOfaboutUsModel
+          : listOfaboutUsModel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfKindOfGoodsModel: null == listOfKindOfGoodsModel
+          ? _value._listOfKindOfGoodsModel
+          : listOfKindOfGoodsModel // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      categoryList: null == categoryList
+          ? _value._categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      listOfpickupAddressModel: null == listOfpickupAddressModel
+          ? _value._listOfpickupAddressModel
+          : listOfpickupAddressModel // ignore: cast_nullable_to_non_nullable
+              as List<PickupAddressModel>,
+      widgetList: null == widgetList
+          ? _value._widgetList
+          : widgetList // ignore: cast_nullable_to_non_nullable
+              as List<CustomVendorPickAddressWidget>,
+      listOfpickupAddressMappedModel: null == listOfpickupAddressMappedModel
+          ? _value._listOfpickupAddressMappedModel
+          : listOfpickupAddressMappedModel // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
+      combinatedListModel: null == combinatedListModel
+          ? _value._combinatedListModel
+          : combinatedListModel // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+      breakdown: freezed == breakdown
+          ? _value._breakdown
+          : breakdown // ignore: cast_nullable_to_non_nullable
+              as Map<String?, dynamic>?,
+      howDidYouHearboutUS: freezed == howDidYouHearboutUS
+          ? _value.howDidYouHearboutUS
+          : howDidYouHearboutUS // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveryMethodStr: freezed == deliveryMethodStr
+          ? _value.deliveryMethodStr
+          : deliveryMethodStr // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedCategoryTxtStr: freezed == selectedCategoryTxtStr
+          ? _value.selectedCategoryTxtStr
+          : selectedCategoryTxtStr // ignore: cast_nullable_to_non_nullable
+              as String?,
       createVendorResponseModel: freezed == createVendorResponseModel
           ? _value.createVendorResponseModel
           : createVendorResponseModel // ignore: cast_nullable_to_non_nullable
@@ -585,6 +872,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.userTypeEnum
           : userTypeEnum // ignore: cast_nullable_to_non_nullable
               as UserType?,
+      convertListToMap: null == convertListToMap
+          ? _value._convertListToMap
+          : convertListToMap // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
     ));
   }
 }
@@ -593,10 +884,16 @@ class __$$_AuthStateCopyWithImpl<$Res>
 
 class _$_AuthState extends _AuthState {
   _$_AuthState(
-      {this.otpVal = const Name.pure(),
+      {this.businessName = const Name.pure(),
+      this.nameOfCompany = const Name.pure(),
+      this.selectedCountry = const Name.pure(),
+      this.address = const Name.pure(),
+      this.landmark = const Name.pure(),
+      this.website = const Name.pure(),
+      this.otpVal = const Name.pure(),
       this.fname = const Name.pure(),
       this.lname = const Name.pure(),
-      this.pinController,
+      this.pinController = const Name.pure(),
       this.exceptionError = '',
       this.countryCode = '',
       this.isTermAndConditionVal = false,
@@ -608,6 +905,8 @@ class _$_AuthState extends _AuthState {
       this.updateUserTypeStatus = FormzStatus.pure,
       this.completeOnboardingStatus = FormzStatus.pure,
       this.updateProfileStatus = FormzStatus.pure,
+      this.LogisticStatus = FormzStatus.pure,
+      this.vendorStatus = FormzStatus.pure,
       this.email = const Email.pure(),
       this.password = const Password.pure(),
       this.oldPassword = const Password.pure(),
@@ -619,12 +918,56 @@ class _$_AuthState extends _AuthState {
       this.verifyOtpModel,
       this.verifyResetTokenModel,
       this.createLogisticPartnerRespModel,
+      final List<VehicleTypeWidget> listOfvehicleType = const [],
+      final List<String> listOfdeliveriesPerMonthModel = const [],
+      final List<String> listOfaboutUsModel = const [],
+      final List<String> listOfKindOfGoodsModel = const [],
+      final List<String> categoryList = const [],
+      final List<PickupAddressModel> listOfpickupAddressModel = const [],
+      final List<CustomVendorPickAddressWidget> widgetList = const [],
+      final List<Map<String, dynamic>> listOfpickupAddressMappedModel =
+          const [],
+      final List<dynamic> combinatedListModel = const [],
+      final Map<String?, dynamic>? breakdown,
+      this.howDidYouHearboutUS,
+      this.deliveryMethodStr,
+      this.selectedCategoryTxtStr,
       this.createVendorResponseModel,
       this.loginType,
       this.otpRequestOrResendTypeEnum,
-      this.userTypeEnum})
-      : super._();
+      this.userTypeEnum,
+      final List<Map<String, dynamic>> convertListToMap = const []})
+      : _listOfvehicleType = listOfvehicleType,
+        _listOfdeliveriesPerMonthModel = listOfdeliveriesPerMonthModel,
+        _listOfaboutUsModel = listOfaboutUsModel,
+        _listOfKindOfGoodsModel = listOfKindOfGoodsModel,
+        _categoryList = categoryList,
+        _listOfpickupAddressModel = listOfpickupAddressModel,
+        _widgetList = widgetList,
+        _listOfpickupAddressMappedModel = listOfpickupAddressMappedModel,
+        _combinatedListModel = combinatedListModel,
+        _breakdown = breakdown,
+        _convertListToMap = convertListToMap,
+        super._();
 
+  @override
+  @JsonKey()
+  final Name businessName;
+  @override
+  @JsonKey()
+  final Name nameOfCompany;
+  @override
+  @JsonKey()
+  final Name selectedCountry;
+  @override
+  @JsonKey()
+  final Name address;
+  @override
+  @JsonKey()
+  final Name landmark;
+  @override
+  @JsonKey()
+  final Name website;
   @override
   @JsonKey()
   final Name otpVal;
@@ -635,7 +978,8 @@ class _$_AuthState extends _AuthState {
   @JsonKey()
   final Name lname;
   @override
-  final TextEditingController? pinController;
+  @JsonKey()
+  final Name pinController;
   @override
   @JsonKey()
   final String exceptionError;
@@ -671,6 +1015,12 @@ class _$_AuthState extends _AuthState {
   final FormzStatus updateProfileStatus;
   @override
   @JsonKey()
+  final FormzStatus LogisticStatus;
+  @override
+  @JsonKey()
+  final FormzStatus vendorStatus;
+  @override
+  @JsonKey()
   final Email email;
   @override
   @JsonKey()
@@ -696,6 +1046,110 @@ class _$_AuthState extends _AuthState {
   final VerifyResetTokenModel? verifyResetTokenModel;
   @override
   final CreateLogisticPartnerRespModel? createLogisticPartnerRespModel;
+  final List<VehicleTypeWidget> _listOfvehicleType;
+  @override
+  @JsonKey()
+  List<VehicleTypeWidget> get listOfvehicleType {
+    if (_listOfvehicleType is EqualUnmodifiableListView)
+      return _listOfvehicleType;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfvehicleType);
+  }
+
+  final List<String> _listOfdeliveriesPerMonthModel;
+  @override
+  @JsonKey()
+  List<String> get listOfdeliveriesPerMonthModel {
+    if (_listOfdeliveriesPerMonthModel is EqualUnmodifiableListView)
+      return _listOfdeliveriesPerMonthModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfdeliveriesPerMonthModel);
+  }
+
+  final List<String> _listOfaboutUsModel;
+  @override
+  @JsonKey()
+  List<String> get listOfaboutUsModel {
+    if (_listOfaboutUsModel is EqualUnmodifiableListView)
+      return _listOfaboutUsModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfaboutUsModel);
+  }
+
+  final List<String> _listOfKindOfGoodsModel;
+  @override
+  @JsonKey()
+  List<String> get listOfKindOfGoodsModel {
+    if (_listOfKindOfGoodsModel is EqualUnmodifiableListView)
+      return _listOfKindOfGoodsModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfKindOfGoodsModel);
+  }
+
+  final List<String> _categoryList;
+  @override
+  @JsonKey()
+  List<String> get categoryList {
+    if (_categoryList is EqualUnmodifiableListView) return _categoryList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categoryList);
+  }
+
+  final List<PickupAddressModel> _listOfpickupAddressModel;
+  @override
+  @JsonKey()
+  List<PickupAddressModel> get listOfpickupAddressModel {
+    if (_listOfpickupAddressModel is EqualUnmodifiableListView)
+      return _listOfpickupAddressModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfpickupAddressModel);
+  }
+
+  final List<CustomVendorPickAddressWidget> _widgetList;
+  @override
+  @JsonKey()
+  List<CustomVendorPickAddressWidget> get widgetList {
+    if (_widgetList is EqualUnmodifiableListView) return _widgetList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_widgetList);
+  }
+
+  final List<Map<String, dynamic>> _listOfpickupAddressMappedModel;
+  @override
+  @JsonKey()
+  List<Map<String, dynamic>> get listOfpickupAddressMappedModel {
+    if (_listOfpickupAddressMappedModel is EqualUnmodifiableListView)
+      return _listOfpickupAddressMappedModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listOfpickupAddressMappedModel);
+  }
+
+  final List<dynamic> _combinatedListModel;
+  @override
+  @JsonKey()
+  List<dynamic> get combinatedListModel {
+    if (_combinatedListModel is EqualUnmodifiableListView)
+      return _combinatedListModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_combinatedListModel);
+  }
+
+  final Map<String?, dynamic>? _breakdown;
+  @override
+  Map<String?, dynamic>? get breakdown {
+    final value = _breakdown;
+    if (value == null) return null;
+    if (_breakdown is EqualUnmodifiableMapView) return _breakdown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  final String? howDidYouHearboutUS;
+  @override
+  final String? deliveryMethodStr;
+  @override
+  final String? selectedCategoryTxtStr;
   @override
   final CreateVendorResponseModel? createVendorResponseModel;
   @override
@@ -704,10 +1158,19 @@ class _$_AuthState extends _AuthState {
   final OtpRequestOrResendType? otpRequestOrResendTypeEnum;
   @override
   final UserType? userTypeEnum;
+  final List<Map<String, dynamic>> _convertListToMap;
+  @override
+  @JsonKey()
+  List<Map<String, dynamic>> get convertListToMap {
+    if (_convertListToMap is EqualUnmodifiableListView)
+      return _convertListToMap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_convertListToMap);
+  }
 
   @override
   String toString() {
-    return 'AuthState(otpVal: $otpVal, fname: $fname, lname: $lname, pinController: $pinController, exceptionError: $exceptionError, countryCode: $countryCode, isTermAndConditionVal: $isTermAndConditionVal, loginStatus: $loginStatus, phoneStatus: $phoneStatus, verifyOtpStatus: $verifyOtpStatus, InitiateforgotPasswordSatus: $InitiateforgotPasswordSatus, forgotPasswordSatus: $forgotPasswordSatus, updateUserTypeStatus: $updateUserTypeStatus, completeOnboardingStatus: $completeOnboardingStatus, updateProfileStatus: $updateProfileStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel, updatedUserDetails: $updatedUserDetails, userPhoneOnboardingModel: $userPhoneOnboardingModel, verifyOtpModel: $verifyOtpModel, verifyResetTokenModel: $verifyResetTokenModel, createLogisticPartnerRespModel: $createLogisticPartnerRespModel, createVendorResponseModel: $createVendorResponseModel, loginType: $loginType, otpRequestOrResendTypeEnum: $otpRequestOrResendTypeEnum, userTypeEnum: $userTypeEnum)';
+    return 'AuthState(businessName: $businessName, nameOfCompany: $nameOfCompany, selectedCountry: $selectedCountry, address: $address, landmark: $landmark, website: $website, otpVal: $otpVal, fname: $fname, lname: $lname, pinController: $pinController, exceptionError: $exceptionError, countryCode: $countryCode, isTermAndConditionVal: $isTermAndConditionVal, loginStatus: $loginStatus, phoneStatus: $phoneStatus, verifyOtpStatus: $verifyOtpStatus, InitiateforgotPasswordSatus: $InitiateforgotPasswordSatus, forgotPasswordSatus: $forgotPasswordSatus, updateUserTypeStatus: $updateUserTypeStatus, completeOnboardingStatus: $completeOnboardingStatus, updateProfileStatus: $updateProfileStatus, LogisticStatus: $LogisticStatus, vendorStatus: $vendorStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel, updatedUserDetails: $updatedUserDetails, userPhoneOnboardingModel: $userPhoneOnboardingModel, verifyOtpModel: $verifyOtpModel, verifyResetTokenModel: $verifyResetTokenModel, createLogisticPartnerRespModel: $createLogisticPartnerRespModel, listOfvehicleType: $listOfvehicleType, listOfdeliveriesPerMonthModel: $listOfdeliveriesPerMonthModel, listOfaboutUsModel: $listOfaboutUsModel, listOfKindOfGoodsModel: $listOfKindOfGoodsModel, categoryList: $categoryList, listOfpickupAddressModel: $listOfpickupAddressModel, widgetList: $widgetList, listOfpickupAddressMappedModel: $listOfpickupAddressMappedModel, combinatedListModel: $combinatedListModel, breakdown: $breakdown, howDidYouHearboutUS: $howDidYouHearboutUS, deliveryMethodStr: $deliveryMethodStr, selectedCategoryTxtStr: $selectedCategoryTxtStr, createVendorResponseModel: $createVendorResponseModel, loginType: $loginType, otpRequestOrResendTypeEnum: $otpRequestOrResendTypeEnum, userTypeEnum: $userTypeEnum, convertListToMap: $convertListToMap)';
   }
 
   @override
@@ -715,6 +1178,16 @@ class _$_AuthState extends _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthState &&
+            (identical(other.businessName, businessName) ||
+                other.businessName == businessName) &&
+            (identical(other.nameOfCompany, nameOfCompany) ||
+                other.nameOfCompany == nameOfCompany) &&
+            (identical(other.selectedCountry, selectedCountry) ||
+                other.selectedCountry == selectedCountry) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.landmark, landmark) ||
+                other.landmark == landmark) &&
+            (identical(other.website, website) || other.website == website) &&
             (identical(other.otpVal, otpVal) || other.otpVal == otpVal) &&
             (identical(other.fname, fname) || other.fname == fname) &&
             (identical(other.lname, lname) || other.lname == lname) &&
@@ -743,6 +1216,10 @@ class _$_AuthState extends _AuthState {
                 other.completeOnboardingStatus == completeOnboardingStatus) &&
             (identical(other.updateProfileStatus, updateProfileStatus) ||
                 other.updateProfileStatus == updateProfileStatus) &&
+            (identical(other.LogisticStatus, LogisticStatus) ||
+                other.LogisticStatus == LogisticStatus) &&
+            (identical(other.vendorStatus, vendorStatus) ||
+                other.vendorStatus == vendorStatus) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
@@ -756,8 +1233,7 @@ class _$_AuthState extends _AuthState {
                 other.registerModel == registerModel) &&
             (identical(other.updatedUserDetails, updatedUserDetails) ||
                 other.updatedUserDetails == updatedUserDetails) &&
-            (identical(
-                    other.userPhoneOnboardingModel, userPhoneOnboardingModel) ||
+            (identical(other.userPhoneOnboardingModel, userPhoneOnboardingModel) ||
                 other.userPhoneOnboardingModel == userPhoneOnboardingModel) &&
             (identical(other.verifyOtpModel, verifyOtpModel) ||
                 other.verifyOtpModel == verifyOtpModel) &&
@@ -766,20 +1242,38 @@ class _$_AuthState extends _AuthState {
             (identical(other.createLogisticPartnerRespModel, createLogisticPartnerRespModel) ||
                 other.createLogisticPartnerRespModel ==
                     createLogisticPartnerRespModel) &&
-            (identical(other.createVendorResponseModel, createVendorResponseModel) ||
-                other.createVendorResponseModel == createVendorResponseModel) &&
-            (identical(other.loginType, loginType) ||
-                other.loginType == loginType) &&
-            (identical(other.otpRequestOrResendTypeEnum, otpRequestOrResendTypeEnum) ||
-                other.otpRequestOrResendTypeEnum ==
-                    otpRequestOrResendTypeEnum) &&
-            (identical(other.userTypeEnum, userTypeEnum) ||
-                other.userTypeEnum == userTypeEnum));
+            const DeepCollectionEquality()
+                .equals(other._listOfvehicleType, _listOfvehicleType) &&
+            const DeepCollectionEquality().equals(
+                other._listOfdeliveriesPerMonthModel,
+                _listOfdeliveriesPerMonthModel) &&
+            const DeepCollectionEquality().equals(other._listOfaboutUsModel, _listOfaboutUsModel) &&
+            const DeepCollectionEquality().equals(other._listOfKindOfGoodsModel, _listOfKindOfGoodsModel) &&
+            const DeepCollectionEquality().equals(other._categoryList, _categoryList) &&
+            const DeepCollectionEquality().equals(other._listOfpickupAddressModel, _listOfpickupAddressModel) &&
+            const DeepCollectionEquality().equals(other._widgetList, _widgetList) &&
+            const DeepCollectionEquality().equals(other._listOfpickupAddressMappedModel, _listOfpickupAddressMappedModel) &&
+            const DeepCollectionEquality().equals(other._combinatedListModel, _combinatedListModel) &&
+            const DeepCollectionEquality().equals(other._breakdown, _breakdown) &&
+            (identical(other.howDidYouHearboutUS, howDidYouHearboutUS) || other.howDidYouHearboutUS == howDidYouHearboutUS) &&
+            (identical(other.deliveryMethodStr, deliveryMethodStr) || other.deliveryMethodStr == deliveryMethodStr) &&
+            (identical(other.selectedCategoryTxtStr, selectedCategoryTxtStr) || other.selectedCategoryTxtStr == selectedCategoryTxtStr) &&
+            (identical(other.createVendorResponseModel, createVendorResponseModel) || other.createVendorResponseModel == createVendorResponseModel) &&
+            (identical(other.loginType, loginType) || other.loginType == loginType) &&
+            (identical(other.otpRequestOrResendTypeEnum, otpRequestOrResendTypeEnum) || other.otpRequestOrResendTypeEnum == otpRequestOrResendTypeEnum) &&
+            (identical(other.userTypeEnum, userTypeEnum) || other.userTypeEnum == userTypeEnum) &&
+            const DeepCollectionEquality().equals(other._convertListToMap, _convertListToMap));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
+        businessName,
+        nameOfCompany,
+        selectedCountry,
+        address,
+        landmark,
+        website,
         otpVal,
         fname,
         lname,
@@ -795,6 +1289,8 @@ class _$_AuthState extends _AuthState {
         updateUserTypeStatus,
         completeOnboardingStatus,
         updateProfileStatus,
+        LogisticStatus,
+        vendorStatus,
         email,
         password,
         oldPassword,
@@ -806,10 +1302,24 @@ class _$_AuthState extends _AuthState {
         verifyOtpModel,
         verifyResetTokenModel,
         createLogisticPartnerRespModel,
+        const DeepCollectionEquality().hash(_listOfvehicleType),
+        const DeepCollectionEquality().hash(_listOfdeliveriesPerMonthModel),
+        const DeepCollectionEquality().hash(_listOfaboutUsModel),
+        const DeepCollectionEquality().hash(_listOfKindOfGoodsModel),
+        const DeepCollectionEquality().hash(_categoryList),
+        const DeepCollectionEquality().hash(_listOfpickupAddressModel),
+        const DeepCollectionEquality().hash(_widgetList),
+        const DeepCollectionEquality().hash(_listOfpickupAddressMappedModel),
+        const DeepCollectionEquality().hash(_combinatedListModel),
+        const DeepCollectionEquality().hash(_breakdown),
+        howDidYouHearboutUS,
+        deliveryMethodStr,
+        selectedCategoryTxtStr,
         createVendorResponseModel,
         loginType,
         otpRequestOrResendTypeEnum,
-        userTypeEnum
+        userTypeEnum,
+        const DeepCollectionEquality().hash(_convertListToMap)
       ]);
 
   @JsonKey(ignore: true)
@@ -821,10 +1331,16 @@ class _$_AuthState extends _AuthState {
 
 abstract class _AuthState extends AuthState {
   factory _AuthState(
-      {final Name otpVal,
+      {final Name businessName,
+      final Name nameOfCompany,
+      final Name selectedCountry,
+      final Name address,
+      final Name landmark,
+      final Name website,
+      final Name otpVal,
       final Name fname,
       final Name lname,
-      final TextEditingController? pinController,
+      final Name pinController,
       final String exceptionError,
       final String countryCode,
       final bool isTermAndConditionVal,
@@ -836,6 +1352,8 @@ abstract class _AuthState extends AuthState {
       final FormzStatus updateUserTypeStatus,
       final FormzStatus completeOnboardingStatus,
       final FormzStatus updateProfileStatus,
+      final FormzStatus LogisticStatus,
+      final FormzStatus vendorStatus,
       final Email email,
       final Password password,
       final Password oldPassword,
@@ -847,12 +1365,38 @@ abstract class _AuthState extends AuthState {
       final VerifyOtp? verifyOtpModel,
       final VerifyResetTokenModel? verifyResetTokenModel,
       final CreateLogisticPartnerRespModel? createLogisticPartnerRespModel,
+      final List<VehicleTypeWidget> listOfvehicleType,
+      final List<String> listOfdeliveriesPerMonthModel,
+      final List<String> listOfaboutUsModel,
+      final List<String> listOfKindOfGoodsModel,
+      final List<String> categoryList,
+      final List<PickupAddressModel> listOfpickupAddressModel,
+      final List<CustomVendorPickAddressWidget> widgetList,
+      final List<Map<String, dynamic>> listOfpickupAddressMappedModel,
+      final List<dynamic> combinatedListModel,
+      final Map<String?, dynamic>? breakdown,
+      final String? howDidYouHearboutUS,
+      final String? deliveryMethodStr,
+      final String? selectedCategoryTxtStr,
       final CreateVendorResponseModel? createVendorResponseModel,
       final LoginType? loginType,
       final OtpRequestOrResendType? otpRequestOrResendTypeEnum,
-      final UserType? userTypeEnum}) = _$_AuthState;
+      final UserType? userTypeEnum,
+      final List<Map<String, dynamic>> convertListToMap}) = _$_AuthState;
   _AuthState._() : super._();
 
+  @override
+  Name get businessName;
+  @override
+  Name get nameOfCompany;
+  @override
+  Name get selectedCountry;
+  @override
+  Name get address;
+  @override
+  Name get landmark;
+  @override
+  Name get website;
   @override
   Name get otpVal;
   @override
@@ -860,7 +1404,7 @@ abstract class _AuthState extends AuthState {
   @override
   Name get lname;
   @override
-  TextEditingController? get pinController;
+  Name get pinController;
   @override
   String get exceptionError;
   @override
@@ -884,6 +1428,10 @@ abstract class _AuthState extends AuthState {
   @override
   FormzStatus get updateProfileStatus;
   @override
+  FormzStatus get LogisticStatus;
+  @override
+  FormzStatus get vendorStatus;
+  @override
   Email get email;
   @override
   Password get password;
@@ -906,6 +1454,32 @@ abstract class _AuthState extends AuthState {
   @override
   CreateLogisticPartnerRespModel? get createLogisticPartnerRespModel;
   @override
+  List<VehicleTypeWidget> get listOfvehicleType;
+  @override
+  List<String> get listOfdeliveriesPerMonthModel;
+  @override
+  List<String> get listOfaboutUsModel;
+  @override
+  List<String> get listOfKindOfGoodsModel;
+  @override
+  List<String> get categoryList;
+  @override
+  List<PickupAddressModel> get listOfpickupAddressModel;
+  @override
+  List<CustomVendorPickAddressWidget> get widgetList;
+  @override
+  List<Map<String, dynamic>> get listOfpickupAddressMappedModel;
+  @override
+  List<dynamic> get combinatedListModel;
+  @override
+  Map<String?, dynamic>? get breakdown;
+  @override
+  String? get howDidYouHearboutUS;
+  @override
+  String? get deliveryMethodStr;
+  @override
+  String? get selectedCategoryTxtStr;
+  @override
   CreateVendorResponseModel? get createVendorResponseModel;
   @override
   LoginType? get loginType;
@@ -913,6 +1487,8 @@ abstract class _AuthState extends AuthState {
   OtpRequestOrResendType? get otpRequestOrResendTypeEnum;
   @override
   UserType? get userTypeEnum;
+  @override
+  List<Map<String, dynamic>> get convertListToMap;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

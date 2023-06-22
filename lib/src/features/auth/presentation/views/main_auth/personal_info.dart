@@ -9,6 +9,7 @@ import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
+import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_app_bar.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_textformfield.dart';
@@ -125,7 +126,11 @@ class ProfileInfo extends ConsumerWidget {
                   disable: !state.displayUpdateProfileButton,
                   isLoading: state.updateProfileStatus.isSubmissionInProgress,
                   buttonText: 'I accept',
-                  onTap: state.displayUpdateProfileButton ? () {} : () {}),
+                  onTap: state.displayUpdateProfileButton
+                      ? () => ref
+                          .read(authNotifier.notifier)
+                          .mapEventsToState(UpdateUserProfileEvent())
+                      : () {}),
               heightSpace(3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

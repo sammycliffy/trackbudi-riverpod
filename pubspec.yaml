@@ -6,7 +6,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 0.0.0+1
 
 environment:
-  sdk: ">=2.19.2 <3.0.0"
+  sdk: ">=2.18.1 <3.0.0"
 
 dependencies:
   flutter:
@@ -30,7 +30,7 @@ dependencies:
   hooks_riverpod:
 
   #Others
-  flutter_hooks: ^0.18.5+1
+  flutter_hooks: 
   file_picker:
   intl:
   get_it: ^7.2.0
@@ -38,33 +38,32 @@ dependencies:
   equatable: ^2.0.5
   injectable: ^1.5.0
   logger: ^1.4.0
-  pinput: ^2.2.31
   camera: ^0.10.3
   geolocator: ^9.0.2
-  intl_phone_number_input: ^0.7.3+1
-  intl_phone_field: ^3.1.0
+  intl_phone_number_input: 
+  intl_phone_field: 
   country_calling_code_picker:
-  image_picker: ^0.8.6+1
-  country_picker: ^2.0.20
+  image_picker:
+  country_picker: 
   qr_flutter: ^4.0.0
   local_auth: ^1.1.10
   permission_handler: ^10.2.0
   timeago: ^3.3.0
   formz: ^0.4.1
   dropdown_search: ^5.0.6
-  awesome_dio_interceptor: ^0.0.2+4
+  awesome_dio_interceptor: 
   auto_route: ^5.0.4
   flutter_dotenv: ^5.1.0
-  flutter_secure_storage: ^8.0.0
+  flutter_secure_storage: 
   decimal: ^2.2.0
   json_annotation:
   freezed_annotation: ^2.0.1
   money_formatter: ^0.0.3
   flutter_svg: ^1.1.6
-  flutter_sizer: ^1.0.4
+  flutter_sizer: 
   dots_indicator: ^3.0.0
   fluttertoast: ^8.2.2
-  pin_code_fields: ^7.4.0
+  pin_code_fields: 
 dev_dependencies:
   flutter_test:
     sdk: flutter

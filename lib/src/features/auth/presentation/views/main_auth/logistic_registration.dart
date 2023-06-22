@@ -1,292 +1,262 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:formz/formz.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:trackbudi_mobile/src/config/di/provider.dart';
+import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
+import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_app_bar.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_country_widget.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_dropdown.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_textformfield.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/vehicle_widget.dart';
 
-import '../../../../../config/router/app_router.gr.dart';
-import '../../../../../core/shared/resources/app_images.dart';
-import '../../../../../core/shared/resources/app_spacer.dart';
-import '../../../../../core/shared/resources/colors_tr.dart';
-import '../../../../../core/shared/resources/custom_text.dart';
-import '../../../data/model/vehicle_type.dart';
-import '../../widgets/app_app_bar.dart';
-import '../../widgets/app_country_widget.dart';
-import '../../widgets/app_divider.dart';
-import '../../widgets/app_dropdown.dart';
-import '../../widgets/app_textformfield.dart';
-import '../../widgets/trackbudi_button.dart';
+final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+    GlobalKey<RefreshIndicatorState>();
 
-class CompanyRegistration extends StatefulWidget {
+class CompanyRegistration extends HookConsumerWidget {
   const CompanyRegistration({super.key});
 
   @override
-  State<CompanyRegistration> createState() => _CompanyRegistrationState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isCurrent = useState<int>(0);
+    // int currenInd;
+    final state = ref.watch(authNotifier.select((vaue) => vaue));
 
-class _CompanyRegistrationState extends State<CompanyRegistration> {
-  String countryName = 'Nigeria';
-  List<VehicleTypeWidget> vehicleType = [
-    VehicleTypeWidget(vehicleType: 'Motor bike', quantity: 3, isChecked: false),
-    VehicleTypeWidget(vehicleType: 'Car', quantity: 3, isChecked: false),
-    VehicleTypeWidget(vehicleType: 'Truck', quantity: 3, isChecked: false),
-  ];
+    ref.listen(authNotifier, (previousState, newState) {
+      if (previousState?.LogisticStatus != newState.LogisticStatus) {
+        if (newState.LogisticStatus.isSubmissionFailure) {
+          ToastResp.toastMsgError(resp: newState.exceptionError);
+        } else if (newState.LogisticStatus.isSubmissionSuccess) {
+          context.router.replace(SettingUp());
+        }
+      }
+    });
 
-  List<String> deliveriesPerMonth = [
-    '0 - 100',
-    '100 - 1000',
-    '1000 - 10000',
-    '10000',
-    'Just getting started'
-  ];
-
-  List<String> aboutUs = [
-    'Word of mouth',
-    'Instagram',
-    'Twitter',
-    'Google Search',
-  ];
-
-  arithmeticContainer(String symbol) {
-    return Container(
-      width: 20,
-      height: 20,
-      decoration: BoxDecoration(
-          border: Border.all(color: AppColors.textGrey),
-          shape: BoxShape.circle,
-          color: AppColors.white),
-      child: Center(
-        child: Padding(
-            padding: const EdgeInsets.only(bottom: 1), child: Text(symbol)),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Image.asset(
-                    AppImages.logisticsHeading,
-                    width: 80,
-                    height: 80,
-                  ),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        customText(
-                            text: 'Company information',
-                            fontSize: 14,
-                            textColor: AppColors.textPrimary),
-                        heightSpace(1),
-                        bodyText(text: 'We want to know more about you')
-                      ],
+      body: RefreshWid(
+        refreshIndicatorKey: _refreshIndicatorKey,
+        onRefresh: () => ref.read(authNotifier.notifier).getRandyListData(),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      AppImages.logisticsHeading,
+                      width: 80,
+                      height: 80,
                     ),
-                  )
-                ],
-              ),
-              const AppDivider(),
-              heightSpace(6),
-              const TrackBudiTextFormField(
-                label: 'Name of Company',
-              ),
-              heightSpace(2),
-              customText(
-                  text: 'Select country',
-                  fontSize: 14,
-                  textColor: AppColors.textPrimary),
-              heightSpace(2),
-              CountryWidget(selectCountry: (val) => log(val.toString())),
-              heightSpace(2),
-              const TrackBudiTextFormField(
-                label: 'Address',
-              ),
-              heightSpace(2),
-              const TrackBudiTextFormField(
-                label: 'Landmark',
-              ),
-              heightSpace(2),
-              const TrackBudiTextFormField(
-                label: 'Website',
-                hintText: 'Optional',
-              ),
-              heightSpace(3),
-              customText(
-                  text: 'Vehicle type',
-                  fontSize: 14,
-                  textColor: AppColors.textPrimary),
-              heightSpace(2),
-              Column(
-                children: vehicleType
-                    .asMap()
-                    .map((index, element) => MapEntry(
-                        index,
-                        Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: _vehicleComponent(index))))
-                    .values
-                    .toList(),
-              ),
-              heightSpace(3),
-              customText(
-                  text: 'What kind of goods can you move?',
-                  fontSize: 14,
-                  textColor: AppColors.textPrimary),
-              heightSpace(3),
-              DropdownSearch<String>.multiSelection(
-                items: const [
-                  'Documents, Files, Books or Stationary',
-                  'Small appliances',
-                  'Large Electronics, Luggages or Furniture',
-                  'Frozen items, Perishables, or Prepared food delivery',
-                  'Clothing, Accessories or Baby Products'
-                ],
-                popupProps: const PopupPropsMultiSelection.menu(
-                  showSelectedItems: true,
-                  // disabledItemFn: (String s) => s.startsWith('I'),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          customText(
+                              text: 'Company information',
+                              fontSize: 14,
+                              textColor: AppColors.textPrimary),
+                          heightSpace(1),
+                          bodyText(text: 'We want to know more about you')
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-                onChanged: print,
-                selectedItems: const ['Documents, Files, Books or Stationary'],
-              ),
-              heightSpace(3),
-              TrackBudiDropdown(
-                dropdownList: deliveriesPerMonth,
-                label: 'Deliveries per month',
-                onChange: (val) => log(val.toString()),
-              ),
-              heightSpace(3),
-              TrackBudiDropdown(
-                dropdownList: aboutUs,
-                label: 'How did you hear about us',
-                onChange: (val) => log(val.toString()),
-              ),
-              heightSpace(3),
-              const TrackBudiTextFormField(
-                label: 'Enter referral code (Optional)',
-              ),
-              heightSpace(3),
-              TrackBudiButton(
-                buttonText: 'I accept',
-                onTap: () => context.pushRoute(const SettingUp()),
-              ),
-              heightSpace(3),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  bodyText(text: 'Already have an account?'),
-                  widthSpace(2),
-                  GestureDetector(
-                    onTap: () => context.pushRoute(const LoginView()),
-                    child: customText(
-                        text: 'Login',
-                        fontSize: 14,
-                        textColor: AppColors.textPrimary),
-                  )
-                ],
-              ),
-              heightSpace(5)
-            ],
+                const AppDivider(),
+                heightSpace(6),
+                TrackBudiTextFormField(
+                  label: 'Name of Company',
+                  error: state.nameOfCompany.error?.name,
+                  onChanged: (p0) =>
+                      ref.read(authNotifier.notifier).nameOfCompany(p0),
+                ),
+                heightSpace(2),
+                customText(
+                    text: 'Select country',
+                    fontSize: 11,
+                    textColor: AppColors.textPrimary),
+                heightSpace(2),
+                CountryWidget(
+                    selectCountry: (val) => ref
+                        .read(authNotifier.notifier)
+                        .selectedCountry(val.toString())),
+                heightSpace(2),
+                TrackBudiTextFormField(
+                  label: 'Address',
+                  error: state.address.error?.name,
+                  onChanged: (p0) =>
+                      ref.read(authNotifier.notifier).addressChanged(p0),
+                ),
+                heightSpace(2),
+                TrackBudiTextFormField(
+                  label: 'Landmark',
+                  error: state.landmark.error?.name,
+                  onChanged: (p0) =>
+                      ref.read(authNotifier.notifier).landmark(p0),
+                ),
+                heightSpace(2),
+                TrackBudiTextFormField(
+                  label: 'Website',
+                  onChanged: (p0) =>
+                      ref.read(authNotifier.notifier).website(p0),
+                  hintText: 'Optional',
+                ),
+                heightSpace(3),
+                customText(
+                    text: 'Vehicle type',
+                    fontSize: 11,
+                    textColor: AppColors.textPrimary),
+                heightSpace(2),
+                Column(
+                  children: state.listOfvehicleType
+                      .asMap()
+                      .map((index, element) => MapEntry(
+                            index,
+                            Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 5),
+                                child: Dismissible(
+                                  background: Container(
+                                    color: Colors.red,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 15),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.delete,
+                                            color: AppColors.white,
+                                          ),
+                                          widthSpace(20),
+                                          customText(
+                                              text: 'Remove',
+                                              fontSize: 11,
+                                              textColor: AppColors.white),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  onDismissed: (DismissDirection direction) =>
+                                      ref
+                                          .read(authNotifier.notifier)
+                                          .removedata(
+                                              state.listOfvehicleType, element),
+                                  key: UniqueKey(),
+                                  child: vehicleComponent(
+                                    uncheck: () => isCurrent.value = index,
+                                    isSelected:
+                                        isCurrent.value == index ? true : false,
+                                    label: element.vehicle,
+                                    increaseValue: () => ref
+                                        .read(authNotifier.notifier)
+                                        .incrementVehicleFunc(element.vehicle),
+                                    quantity: element.quantity.toString(),
+                                    decreaseValue: element.quantity == 0
+                                        ? () {}
+                                        : () => ref
+                                            .read(authNotifier.notifier)
+                                            .decrementVehicleFunc(
+                                                element.vehicle),
+                                  ),
+                                )),
+                          ))
+                      .values
+                      .toList(),
+                ),
+                heightSpace(3),
+                customText(
+                    text: 'What kind of goods can you move?',
+                    fontSize: 11,
+                    textColor: AppColors.textPrimary),
+                heightSpace(3),
+                DropdownSearch<String>.multiSelection(
+                  items: const [
+                    'Documents, Files, Books or Stationary',
+                    'Small appliances',
+                    'Large Electronics, Luggages or Furniture',
+                    'Frozen items, Perishables, or Prepared food delivery',
+                    'Clothing, Accessories or Baby Products'
+                  ],
+                  popupProps: const PopupPropsMultiSelection.menu(
+                    showSelectedItems: true,
+
+                    // disabledItemFn: (String s) => s.startsWith('I'),
+                  ),
+                  onChanged: (v) =>
+                      ref.read(authNotifier.notifier).kindOfGoodsFunc(v),
+                  selectedItems: const [
+                    'Documents, Files, Books or Stationary'
+                  ],
+                ),
+                heightSpace(3),
+                TrackBudiDropdown(
+                  dropdownList: state.listOfdeliveriesPerMonthModel,
+                  label: 'Deliveries per month',
+                  onChange: (val) => ref
+                      .read(authNotifier.notifier)
+                      .deliveryPerMonthFunc(val.toString()),
+                ),
+                heightSpace(3),
+                TrackBudiDropdown(
+                  dropdownList: state.listOfaboutUsModel,
+                  label: 'How did you hear about us',
+                  onChange: (val) => ref
+                      .read(authNotifier.notifier)
+                      .howdidYouHearboutUs(val.toString()),
+                ),
+                heightSpace(3),
+                const TrackBudiTextFormField(
+                  label: 'Enter referral code (Optional)',
+                ),
+                heightSpace(3),
+                TrackBudiButton(
+                    buttonText: 'I accept',
+                    // onTap: () => context.pushRoute(SettingUp()),
+
+                    disable: !state.displayLogisticButton,
+                    isLoading: state.LogisticStatus.isSubmissionInProgress,
+                    onTap: state.displayLogisticButton
+                        ? () {
+                            ref.read(authNotifier.notifier).mapEventsToState(
+                                CreateOrUpdateLogisticPatnerEvent());
+                          }
+                        : () {}),
+                heightSpace(3),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    bodyText(text: 'Already have an account?'),
+                    widthSpace(2),
+                    GestureDetector(
+                      onTap: () => context.pushRoute(LoginView()),
+                      child: customText(
+                          text: 'Login',
+                          fontSize: 14,
+                          textColor: AppColors.textPrimary),
+                    )
+                  ],
+                ),
+                heightSpace(5)
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-
-  _vehicleComponent(int index) => Container(
-        padding: const EdgeInsets.only(left: 20),
-        width: double.infinity,
-        height: 7.5.h,
-        decoration: BoxDecoration(
-            border: Border.all(color: AppColors.textformGrey),
-            borderRadius: BorderRadius.circular(8)),
-        child: Row(children: [
-          vehicleType[index].isChecked
-              ? GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      vehicleType[index].isChecked = false;
-                    });
-                  },
-                  child: Container(
-                    width: 20,
-                    height: 20,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: AppColors.primary),
-                    child: const Center(
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 1),
-                        child: Icon(
-                          Icons.check,
-                          color: AppColors.white,
-                          size: 13,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              : GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      vehicleType[index].isChecked = true;
-                    });
-                  },
-                  child: Container(
-                    width: 20,
-                    height: 20,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: AppColors.textformGrey)),
-                  ),
-                ),
-          widthSpace(3),
-          Expanded(
-            child: customText(
-                text: vehicleType[index].vehicleType,
-                fontSize: 14,
-                textColor: AppColors.textPrimary),
-          ),
-          SizedBox(
-            width: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                GestureDetector(
-                  child: arithmeticContainer('-'),
-                  onTap: () {
-                    setState(() {
-                      if (vehicleType[index].quantity > 0) {
-                        vehicleType[index].quantity--;
-                        vehicleType[index].isChecked = true;
-                      }
-                    });
-                  },
-                ),
-                customText(
-                    text: vehicleType[index].quantity.toString(),
-                    fontSize: 14,
-                    textColor: AppColors.textPrimary),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      vehicleType[index].isChecked = true;
-                      vehicleType[index].quantity++;
-                    });
-                  },
-                  child: arithmeticContainer('+'),
-                )
-              ],
-            ),
-          )
-        ]),
-      );
 }

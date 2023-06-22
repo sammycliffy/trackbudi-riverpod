@@ -27,7 +27,8 @@ mixin _$AuthEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -43,7 +44,8 @@ mixin _$AuthEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -59,7 +61,8 @@ mixin _$AuthEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -78,7 +81,8 @@ mixin _$AuthEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -98,7 +102,8 @@ mixin _$AuthEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -117,7 +122,8 @@ mixin _$AuthEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -226,7 +232,8 @@ class _$PhoneEvent implements PhoneEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -245,7 +252,8 @@ class _$PhoneEvent implements PhoneEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -264,7 +272,8 @@ class _$PhoneEvent implements PhoneEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -289,7 +298,8 @@ class _$PhoneEvent implements PhoneEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -312,7 +322,8 @@ class _$PhoneEvent implements PhoneEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -334,7 +345,8 @@ class _$PhoneEvent implements PhoneEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -439,7 +451,8 @@ class _$RequestOrResendPhoneOtpEvent implements RequestOrResendPhoneOtpEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -458,7 +471,8 @@ class _$RequestOrResendPhoneOtpEvent implements RequestOrResendPhoneOtpEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -477,7 +491,8 @@ class _$RequestOrResendPhoneOtpEvent implements RequestOrResendPhoneOtpEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -502,7 +517,8 @@ class _$RequestOrResendPhoneOtpEvent implements RequestOrResendPhoneOtpEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -525,7 +541,8 @@ class _$RequestOrResendPhoneOtpEvent implements RequestOrResendPhoneOtpEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -547,7 +564,8 @@ class _$RequestOrResendPhoneOtpEvent implements RequestOrResendPhoneOtpEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -619,7 +637,8 @@ class _$UpdateUserProfileEvent implements UpdateUserProfileEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -638,7 +657,8 @@ class _$UpdateUserProfileEvent implements UpdateUserProfileEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -657,7 +677,8 @@ class _$UpdateUserProfileEvent implements UpdateUserProfileEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -682,7 +703,8 @@ class _$UpdateUserProfileEvent implements UpdateUserProfileEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -705,7 +727,8 @@ class _$UpdateUserProfileEvent implements UpdateUserProfileEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -727,7 +750,8 @@ class _$UpdateUserProfileEvent implements UpdateUserProfileEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -820,7 +844,8 @@ class _$UpdateUserTypeEvent implements UpdateUserTypeEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -839,7 +864,8 @@ class _$UpdateUserTypeEvent implements UpdateUserTypeEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -858,7 +884,8 @@ class _$UpdateUserTypeEvent implements UpdateUserTypeEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -883,7 +910,8 @@ class _$UpdateUserTypeEvent implements UpdateUserTypeEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -906,7 +934,8 @@ class _$UpdateUserTypeEvent implements UpdateUserTypeEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -928,7 +957,8 @@ class _$UpdateUserTypeEvent implements UpdateUserTypeEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -999,7 +1029,8 @@ class _$RegisterPhone implements RegisterPhone {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -1018,7 +1049,8 @@ class _$RegisterPhone implements RegisterPhone {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -1037,7 +1069,8 @@ class _$RegisterPhone implements RegisterPhone {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -1062,7 +1095,8 @@ class _$RegisterPhone implements RegisterPhone {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -1085,7 +1119,8 @@ class _$RegisterPhone implements RegisterPhone {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -1107,7 +1142,8 @@ class _$RegisterPhone implements RegisterPhone {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -1174,7 +1210,8 @@ class _$CreateOrUpdateVendorEvent implements CreateOrUpdateVendorEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -1193,7 +1230,8 @@ class _$CreateOrUpdateVendorEvent implements CreateOrUpdateVendorEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -1212,7 +1250,8 @@ class _$CreateOrUpdateVendorEvent implements CreateOrUpdateVendorEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -1237,7 +1276,8 @@ class _$CreateOrUpdateVendorEvent implements CreateOrUpdateVendorEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -1260,7 +1300,8 @@ class _$CreateOrUpdateVendorEvent implements CreateOrUpdateVendorEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -1282,7 +1323,8 @@ class _$CreateOrUpdateVendorEvent implements CreateOrUpdateVendorEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -1351,7 +1393,8 @@ class _$CreateOrUpdateLogisticPatnerEvent
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -1370,7 +1413,8 @@ class _$CreateOrUpdateLogisticPatnerEvent
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -1389,7 +1433,8 @@ class _$CreateOrUpdateLogisticPatnerEvent
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -1414,7 +1459,8 @@ class _$CreateOrUpdateLogisticPatnerEvent
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -1437,7 +1483,8 @@ class _$CreateOrUpdateLogisticPatnerEvent
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -1459,7 +1506,8 @@ class _$CreateOrUpdateLogisticPatnerEvent
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -1479,20 +1527,20 @@ abstract class CreateOrUpdateLogisticPatnerEvent implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$LoginEventCopyWith<$Res> {
-  factory _$$LoginEventCopyWith(
-          _$LoginEvent value, $Res Function(_$LoginEvent) then) =
-      __$$LoginEventCopyWithImpl<$Res>;
+abstract class _$$LoginWithPhoneEventCopyWith<$Res> {
+  factory _$$LoginWithPhoneEventCopyWith(_$LoginWithPhoneEvent value,
+          $Res Function(_$LoginWithPhoneEvent) then) =
+      __$$LoginWithPhoneEventCopyWithImpl<$Res>;
   @useResult
   $Res call({LoginType? loginType});
 }
 
 /// @nodoc
-class __$$LoginEventCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$LoginEvent>
-    implements _$$LoginEventCopyWith<$Res> {
-  __$$LoginEventCopyWithImpl(
-      _$LoginEvent _value, $Res Function(_$LoginEvent) _then)
+class __$$LoginWithPhoneEventCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LoginWithPhoneEvent>
+    implements _$$LoginWithPhoneEventCopyWith<$Res> {
+  __$$LoginWithPhoneEventCopyWithImpl(
+      _$LoginWithPhoneEvent _value, $Res Function(_$LoginWithPhoneEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1500,7 +1548,7 @@ class __$$LoginEventCopyWithImpl<$Res>
   $Res call({
     Object? loginType = freezed,
   }) {
-    return _then(_$LoginEvent(
+    return _then(_$LoginWithPhoneEvent(
       loginType: freezed == loginType
           ? _value.loginType
           : loginType // ignore: cast_nullable_to_non_nullable
@@ -1511,22 +1559,22 @@ class __$$LoginEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginEvent implements LoginEvent {
-  const _$LoginEvent({required this.loginType});
+class _$LoginWithPhoneEvent implements LoginWithPhoneEvent {
+  const _$LoginWithPhoneEvent({required this.loginType});
 
   @override
   final LoginType? loginType;
 
   @override
   String toString() {
-    return 'AuthEvent.login(loginType: $loginType)';
+    return 'AuthEvent.loginWithPhone(loginType: $loginType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginEvent &&
+            other is _$LoginWithPhoneEvent &&
             (identical(other.loginType, loginType) ||
                 other.loginType == loginType));
   }
@@ -1537,8 +1585,9 @@ class _$LoginEvent implements LoginEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginEventCopyWith<_$LoginEvent> get copyWith =>
-      __$$LoginEventCopyWithImpl<_$LoginEvent>(this, _$identity);
+  _$$LoginWithPhoneEventCopyWith<_$LoginWithPhoneEvent> get copyWith =>
+      __$$LoginWithPhoneEventCopyWithImpl<_$LoginWithPhoneEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1552,12 +1601,13 @@ class _$LoginEvent implements LoginEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
   }) {
-    return login(loginType);
+    return loginWithPhone(loginType);
   }
 
   @override
@@ -1571,12 +1621,13 @@ class _$LoginEvent implements LoginEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
   }) {
-    return login?.call(loginType);
+    return loginWithPhone?.call(loginType);
   }
 
   @override
@@ -1590,14 +1641,15 @@ class _$LoginEvent implements LoginEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
     required TResult orElse(),
   }) {
-    if (login != null) {
-      return login(loginType);
+    if (loginWithPhone != null) {
+      return loginWithPhone(loginType);
     }
     return orElse();
   }
@@ -1615,7 +1667,8 @@ class _$LoginEvent implements LoginEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -1623,7 +1676,7 @@ class _$LoginEvent implements LoginEvent {
         verifyResetTokenToCompleteForgotPassword,
     required TResult Function(CompleteForgotPasswordEvent value) forgotPassword,
   }) {
-    return login(this);
+    return loginWithPhone(this);
   }
 
   @override
@@ -1638,14 +1691,15 @@ class _$LoginEvent implements LoginEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
     TResult? Function(CompleteForgotPasswordEvent value)? forgotPassword,
   }) {
-    return login?.call(this);
+    return loginWithPhone?.call(this);
   }
 
   @override
@@ -1660,27 +1714,241 @@ class _$LoginEvent implements LoginEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
     TResult Function(CompleteForgotPasswordEvent value)? forgotPassword,
     required TResult orElse(),
   }) {
-    if (login != null) {
-      return login(this);
+    if (loginWithPhone != null) {
+      return loginWithPhone(this);
     }
     return orElse();
   }
 }
 
-abstract class LoginEvent implements AuthEvent {
-  const factory LoginEvent({required final LoginType? loginType}) =
-      _$LoginEvent;
+abstract class LoginWithPhoneEvent implements AuthEvent {
+  const factory LoginWithPhoneEvent({required final LoginType? loginType}) =
+      _$LoginWithPhoneEvent;
 
   LoginType? get loginType;
   @JsonKey(ignore: true)
-  _$$LoginEventCopyWith<_$LoginEvent> get copyWith =>
+  _$$LoginWithPhoneEventCopyWith<_$LoginWithPhoneEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoginWithEmailEventCopyWith<$Res> {
+  factory _$$LoginWithEmailEventCopyWith(_$LoginWithEmailEvent value,
+          $Res Function(_$LoginWithEmailEvent) then) =
+      __$$LoginWithEmailEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({LoginType? loginType});
+}
+
+/// @nodoc
+class __$$LoginWithEmailEventCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LoginWithEmailEvent>
+    implements _$$LoginWithEmailEventCopyWith<$Res> {
+  __$$LoginWithEmailEventCopyWithImpl(
+      _$LoginWithEmailEvent _value, $Res Function(_$LoginWithEmailEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? loginType = freezed,
+  }) {
+    return _then(_$LoginWithEmailEvent(
+      loginType: freezed == loginType
+          ? _value.loginType
+          : loginType // ignore: cast_nullable_to_non_nullable
+              as LoginType?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoginWithEmailEvent implements LoginWithEmailEvent {
+  const _$LoginWithEmailEvent({required this.loginType});
+
+  @override
+  final LoginType? loginType;
+
+  @override
+  String toString() {
+    return 'AuthEvent.loginWithEmail(loginType: $loginType)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginWithEmailEvent &&
+            (identical(other.loginType, loginType) ||
+                other.loginType == loginType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, loginType);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoginWithEmailEventCopyWith<_$LoginWithEmailEvent> get copyWith =>
+      __$$LoginWithEmailEventCopyWithImpl<_$LoginWithEmailEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? value, String? countryCode) changePohone,
+    required TResult Function(
+            OtpRequestOrResendType? otpRequestOrResendTypeEnum)
+        verifyOrrequestOrResendPhoneOtp,
+    required TResult Function() updateUserProfile,
+    required TResult Function(UserType? userType) updateUserType,
+    required TResult Function() registerPhone,
+    required TResult Function() createOrUpdateVendor,
+    required TResult Function() createOrUpdateLogisticPatner,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
+    required TResult Function() initiateForgotPassword,
+    required TResult Function() verifyResetTokenToCompleteForgotPassword,
+    required TResult Function() forgotPassword,
+  }) {
+    return loginWithEmail(loginType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? value, String? countryCode)? changePohone,
+    TResult? Function(OtpRequestOrResendType? otpRequestOrResendTypeEnum)?
+        verifyOrrequestOrResendPhoneOtp,
+    TResult? Function()? updateUserProfile,
+    TResult? Function(UserType? userType)? updateUserType,
+    TResult? Function()? registerPhone,
+    TResult? Function()? createOrUpdateVendor,
+    TResult? Function()? createOrUpdateLogisticPatner,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
+    TResult? Function()? initiateForgotPassword,
+    TResult? Function()? verifyResetTokenToCompleteForgotPassword,
+    TResult? Function()? forgotPassword,
+  }) {
+    return loginWithEmail?.call(loginType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? value, String? countryCode)? changePohone,
+    TResult Function(OtpRequestOrResendType? otpRequestOrResendTypeEnum)?
+        verifyOrrequestOrResendPhoneOtp,
+    TResult Function()? updateUserProfile,
+    TResult Function(UserType? userType)? updateUserType,
+    TResult Function()? registerPhone,
+    TResult Function()? createOrUpdateVendor,
+    TResult Function()? createOrUpdateLogisticPatner,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
+    TResult Function()? initiateForgotPassword,
+    TResult Function()? verifyResetTokenToCompleteForgotPassword,
+    TResult Function()? forgotPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithEmail != null) {
+      return loginWithEmail(loginType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PhoneEvent value) changePohone,
+    required TResult Function(RequestOrResendPhoneOtpEvent value)
+        verifyOrrequestOrResendPhoneOtp,
+    required TResult Function(UpdateUserProfileEvent value) updateUserProfile,
+    required TResult Function(UpdateUserTypeEvent value) updateUserType,
+    required TResult Function(RegisterPhone value) registerPhone,
+    required TResult Function(CreateOrUpdateVendorEvent value)
+        createOrUpdateVendor,
+    required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
+        createOrUpdateLogisticPatner,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
+    required TResult Function(InitiateForgotPasswordEvent value)
+        initiateForgotPassword,
+    required TResult Function(
+            VerifyResetTokenToCompleteForgotPasswordEvent value)
+        verifyResetTokenToCompleteForgotPassword,
+    required TResult Function(CompleteForgotPasswordEvent value) forgotPassword,
+  }) {
+    return loginWithEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PhoneEvent value)? changePohone,
+    TResult? Function(RequestOrResendPhoneOtpEvent value)?
+        verifyOrrequestOrResendPhoneOtp,
+    TResult? Function(UpdateUserProfileEvent value)? updateUserProfile,
+    TResult? Function(UpdateUserTypeEvent value)? updateUserType,
+    TResult? Function(RegisterPhone value)? registerPhone,
+    TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
+    TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
+        createOrUpdateLogisticPatner,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
+    TResult? Function(InitiateForgotPasswordEvent value)?
+        initiateForgotPassword,
+    TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
+        verifyResetTokenToCompleteForgotPassword,
+    TResult? Function(CompleteForgotPasswordEvent value)? forgotPassword,
+  }) {
+    return loginWithEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PhoneEvent value)? changePohone,
+    TResult Function(RequestOrResendPhoneOtpEvent value)?
+        verifyOrrequestOrResendPhoneOtp,
+    TResult Function(UpdateUserProfileEvent value)? updateUserProfile,
+    TResult Function(UpdateUserTypeEvent value)? updateUserType,
+    TResult Function(RegisterPhone value)? registerPhone,
+    TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
+    TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
+        createOrUpdateLogisticPatner,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
+    TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
+    TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
+        verifyResetTokenToCompleteForgotPassword,
+    TResult Function(CompleteForgotPasswordEvent value)? forgotPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithEmail != null) {
+      return loginWithEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoginWithEmailEvent implements AuthEvent {
+  const factory LoginWithEmailEvent({required final LoginType? loginType}) =
+      _$LoginWithEmailEvent;
+
+  LoginType? get loginType;
+  @JsonKey(ignore: true)
+  _$$LoginWithEmailEventCopyWith<_$LoginWithEmailEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1734,7 +2002,8 @@ class _$InitiateForgotPasswordEvent implements InitiateForgotPasswordEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -1753,7 +2022,8 @@ class _$InitiateForgotPasswordEvent implements InitiateForgotPasswordEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -1772,7 +2042,8 @@ class _$InitiateForgotPasswordEvent implements InitiateForgotPasswordEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -1797,7 +2068,8 @@ class _$InitiateForgotPasswordEvent implements InitiateForgotPasswordEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -1820,7 +2092,8 @@ class _$InitiateForgotPasswordEvent implements InitiateForgotPasswordEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -1842,7 +2115,8 @@ class _$InitiateForgotPasswordEvent implements InitiateForgotPasswordEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -1912,7 +2186,8 @@ class _$VerifyResetTokenToCompleteForgotPasswordEvent
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -1931,7 +2206,8 @@ class _$VerifyResetTokenToCompleteForgotPasswordEvent
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -1950,7 +2226,8 @@ class _$VerifyResetTokenToCompleteForgotPasswordEvent
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -1975,7 +2252,8 @@ class _$VerifyResetTokenToCompleteForgotPasswordEvent
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -1998,7 +2276,8 @@ class _$VerifyResetTokenToCompleteForgotPasswordEvent
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -2020,7 +2299,8 @@ class _$VerifyResetTokenToCompleteForgotPasswordEvent
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,
@@ -2090,7 +2370,8 @@ class _$CompleteForgotPasswordEvent implements CompleteForgotPasswordEvent {
     required TResult Function() registerPhone,
     required TResult Function() createOrUpdateVendor,
     required TResult Function() createOrUpdateLogisticPatner,
-    required TResult Function(LoginType? loginType) login,
+    required TResult Function(LoginType? loginType) loginWithPhone,
+    required TResult Function(LoginType? loginType) loginWithEmail,
     required TResult Function() initiateForgotPassword,
     required TResult Function() verifyResetTokenToCompleteForgotPassword,
     required TResult Function() forgotPassword,
@@ -2109,7 +2390,8 @@ class _$CompleteForgotPasswordEvent implements CompleteForgotPasswordEvent {
     TResult? Function()? registerPhone,
     TResult? Function()? createOrUpdateVendor,
     TResult? Function()? createOrUpdateLogisticPatner,
-    TResult? Function(LoginType? loginType)? login,
+    TResult? Function(LoginType? loginType)? loginWithPhone,
+    TResult? Function(LoginType? loginType)? loginWithEmail,
     TResult? Function()? initiateForgotPassword,
     TResult? Function()? verifyResetTokenToCompleteForgotPassword,
     TResult? Function()? forgotPassword,
@@ -2128,7 +2410,8 @@ class _$CompleteForgotPasswordEvent implements CompleteForgotPasswordEvent {
     TResult Function()? registerPhone,
     TResult Function()? createOrUpdateVendor,
     TResult Function()? createOrUpdateLogisticPatner,
-    TResult Function(LoginType? loginType)? login,
+    TResult Function(LoginType? loginType)? loginWithPhone,
+    TResult Function(LoginType? loginType)? loginWithEmail,
     TResult Function()? initiateForgotPassword,
     TResult Function()? verifyResetTokenToCompleteForgotPassword,
     TResult Function()? forgotPassword,
@@ -2153,7 +2436,8 @@ class _$CompleteForgotPasswordEvent implements CompleteForgotPasswordEvent {
         createOrUpdateVendor,
     required TResult Function(CreateOrUpdateLogisticPatnerEvent value)
         createOrUpdateLogisticPatner,
-    required TResult Function(LoginEvent value) login,
+    required TResult Function(LoginWithPhoneEvent value) loginWithPhone,
+    required TResult Function(LoginWithEmailEvent value) loginWithEmail,
     required TResult Function(InitiateForgotPasswordEvent value)
         initiateForgotPassword,
     required TResult Function(
@@ -2176,7 +2460,8 @@ class _$CompleteForgotPasswordEvent implements CompleteForgotPasswordEvent {
     TResult? Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult? Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult? Function(LoginEvent value)? login,
+    TResult? Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult? Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult? Function(InitiateForgotPasswordEvent value)?
         initiateForgotPassword,
     TResult? Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
@@ -2198,7 +2483,8 @@ class _$CompleteForgotPasswordEvent implements CompleteForgotPasswordEvent {
     TResult Function(CreateOrUpdateVendorEvent value)? createOrUpdateVendor,
     TResult Function(CreateOrUpdateLogisticPatnerEvent value)?
         createOrUpdateLogisticPatner,
-    TResult Function(LoginEvent value)? login,
+    TResult Function(LoginWithPhoneEvent value)? loginWithPhone,
+    TResult Function(LoginWithEmailEvent value)? loginWithEmail,
     TResult Function(InitiateForgotPasswordEvent value)? initiateForgotPassword,
     TResult Function(VerifyResetTokenToCompleteForgotPasswordEvent value)?
         verifyResetTokenToCompleteForgotPassword,

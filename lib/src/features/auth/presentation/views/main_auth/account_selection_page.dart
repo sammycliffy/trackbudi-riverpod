@@ -3,20 +3,47 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:formz/formz.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:trackbudi_mobile/src/config/di/provider.dart';
+import 'package:trackbudi_mobile/src/config/keys/enum_keys.dart';
 // import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
+import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_app_bar.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
 
-class AccountSelection extends HookWidget {
+class AccountSelection extends HookConsumerWidget {
   const AccountSelection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(authNotifier.select((vaue) => vaue));
+
+    ref.listen(authNotifier, (previousState, newState) {
+      if (previousState?.updateUserTypeStatus !=
+          newState.updateUserTypeStatus) {
+        if (newState.updateUserTypeStatus.isSubmissionFailure) {
+          ToastResp.toastMsgError(resp: newState.exceptionError);
+        } else if (newState.updateUserTypeStatus.isSubmissionSuccess) {
+          switch (newState.userTypeEnum) {
+            case UserType.LogisticsPartner:
+              context.router.push(CompanyRegistration());
+              break;
+
+            case UserType.vendorType:
+              context.router.push(VendorRegistration());
+              break;
+            default:
+          }
+        }
+      }
+    });
     final isLogistics = useState<bool>(false);
     final isVendor = useState<bool>(false);
     return Scaffold(
@@ -38,6 +65,9 @@ class AccountSelection extends HookWidget {
             heightSpace(3),
             GestureDetector(
               onTap: () {
+                ref
+                    .read(authNotifier.notifier)
+                    .userTypeChangeF(UserType.LogisticsPartner);
                 isLogistics.value = true;
                 isVendor.value = false;
               },
@@ -54,19 +84,24 @@ class AccountSelection extends HookWidget {
               onTap: () {
                 isLogistics.value = false;
                 isVendor.value = true;
+
+                ref
+                    .read(authNotifier.notifier)
+                    .userTypeChangeF(UserType.vendorType);
               },
             ),
             heightSpace(4),
             TrackBudiButton(
-              buttonText: 'Continue',
-              onTap: () {
-                if (isLogistics.value) {
-                  context.pushRoute(const CompanyRegistration());
-                  return;
-                }
-                context.pushRoute(const VendorRegistration());
-              },
-            )
+                buttonText: 'Continue',
+                disable: !state.displayUserTypeButton,
+                isLoading: state.updateUserTypeStatus.isSubmissionInProgress,
+                onTap: state.displayUserTypeButton
+                    ? () => ref.read(authNotifier.notifier).mapEventsToState(
+                        UpdateUserTypeEvent(
+                            userType: isVendor.value
+                                ? UserType.vendorType
+                                : UserType.LogisticsPartner))
+                    : () {}),
           ],
         ),
       )),

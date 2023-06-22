@@ -90,21 +90,27 @@ class AppRouter extends _i14.RootStackRouter {
       );
     },
     LoginView.name: (routeData) {
+      final args =
+          routeData.argsAs<LoginViewArgs>(orElse: () => const LoginViewArgs());
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i8.LoginView(),
+        child: _i8.LoginView(key: args.key),
       );
     },
     EmailLoginView.name: (routeData) {
+      final args = routeData.argsAs<EmailLoginViewArgs>(
+          orElse: () => const EmailLoginViewArgs());
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i9.EmailLoginView(),
+        child: _i9.EmailLoginView(key: args.key),
       );
     },
     ResetPasswordView.name: (routeData) {
+      final args = routeData.argsAs<ResetPasswordViewArgs>(
+          orElse: () => const ResetPasswordViewArgs());
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i10.ResetPasswordView(),
+        child: _i10.ResetPasswordView(key: args.key),
       );
     },
     VendorRegistration.name: (routeData) {
@@ -114,9 +120,11 @@ class AppRouter extends _i14.RootStackRouter {
       );
     },
     NewPasswordView.name: (routeData) {
+      final args = routeData.argsAs<NewPasswordViewArgs>(
+          orElse: () => const NewPasswordViewArgs());
       return _i14.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i12.NewPasswordView(),
+        child: _i12.NewPasswordView(key: args.key),
       );
     },
     SettingUp.name: (routeData) {
@@ -282,38 +290,74 @@ class CompanyRegistration extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.LoginView]
-class LoginView extends _i14.PageRouteInfo<void> {
-  const LoginView()
+class LoginView extends _i14.PageRouteInfo<LoginViewArgs> {
+  LoginView({_i15.Key? key})
       : super(
           LoginView.name,
           path: '/login-view',
+          args: LoginViewArgs(key: key),
         );
 
   static const String name = 'LoginView';
 }
 
+class LoginViewArgs {
+  const LoginViewArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'LoginViewArgs{key: $key}';
+  }
+}
+
 /// generated route for
 /// [_i9.EmailLoginView]
-class EmailLoginView extends _i14.PageRouteInfo<void> {
-  const EmailLoginView()
+class EmailLoginView extends _i14.PageRouteInfo<EmailLoginViewArgs> {
+  EmailLoginView({_i15.Key? key})
       : super(
           EmailLoginView.name,
           path: '/email-login-view',
+          args: EmailLoginViewArgs(key: key),
         );
 
   static const String name = 'EmailLoginView';
 }
 
+class EmailLoginViewArgs {
+  const EmailLoginViewArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'EmailLoginViewArgs{key: $key}';
+  }
+}
+
 /// generated route for
 /// [_i10.ResetPasswordView]
-class ResetPasswordView extends _i14.PageRouteInfo<void> {
-  const ResetPasswordView()
+class ResetPasswordView extends _i14.PageRouteInfo<ResetPasswordViewArgs> {
+  ResetPasswordView({_i15.Key? key})
       : super(
           ResetPasswordView.name,
           path: '/reset-password-view',
+          args: ResetPasswordViewArgs(key: key),
         );
 
   static const String name = 'ResetPasswordView';
+}
+
+class ResetPasswordViewArgs {
+  const ResetPasswordViewArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'ResetPasswordViewArgs{key: $key}';
+  }
 }
 
 /// generated route for
@@ -330,14 +374,26 @@ class VendorRegistration extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i12.NewPasswordView]
-class NewPasswordView extends _i14.PageRouteInfo<void> {
-  const NewPasswordView()
+class NewPasswordView extends _i14.PageRouteInfo<NewPasswordViewArgs> {
+  NewPasswordView({_i15.Key? key})
       : super(
           NewPasswordView.name,
           path: '/new-password-view',
+          args: NewPasswordViewArgs(key: key),
         );
 
   static const String name = 'NewPasswordView';
+}
+
+class NewPasswordViewArgs {
+  const NewPasswordViewArgs({this.key});
+
+  final _i15.Key? key;
+
+  @override
+  String toString() {
+    return 'NewPasswordViewArgs{key: $key}';
+  }
 }
 
 /// generated route for

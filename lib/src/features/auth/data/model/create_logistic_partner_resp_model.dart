@@ -1,4 +1,7 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'create_logistic_partner_resp_model.freezed.dart';
 part 'create_logistic_partner_resp_model.g.dart';
 
@@ -31,19 +34,23 @@ class CreateLogisticPartnerRespModelData
 class LogisticsPartner with _$LogisticsPartner {
   const factory LogisticsPartner({
     String? companyName,
+    Logo? logo,
     String? country,
     String? address,
     String? landmark,
     String? website,
     List<VehicleType>? vehicleTypes,
-    String? goodsType,
-    int? deliveriesPerMonth,
+    List<String>? goodsType,
+    String? deliveriesPerMonth,
     String? howDidYouHear,
     String? referralCode,
+    bool? cacRegistered,
+    bool? nipostLicensed,
+    bool? isVerified,
     List<dynamic>? operatingDays,
     String? user,
-    String? id,
-    int? v,
+    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: '_v') int? v,
   }) = _LogisticsPartner;
 
   factory LogisticsPartner.fromJson(Map<String, dynamic> json) =>
@@ -51,23 +58,22 @@ class LogisticsPartner with _$LogisticsPartner {
 }
 
 @freezed
+class Logo with _$Logo {
+  const factory Logo({
+    @JsonKey(name: '_id') String? id,
+  }) = _Logo;
+
+  factory Logo.fromJson(Map<String, dynamic> json) => _$LogoFromJson(json);
+}
+
+@freezed
 class VehicleType with _$VehicleType {
   const factory VehicleType({
     String? vehicle,
     int? quantity,
-    String? id,
+    @JsonKey(name: '_id') String? id,
   }) = _VehicleType;
 
   factory VehicleType.fromJson(Map<String, dynamic> json) =>
       _$VehicleTypeFromJson(json);
 }
-
-var createLogistPayload = {
-  'businessName': 'Sample Business',
-  'category': 'Sample Category',
-  'country': 'Sample Country',
-  'pickupAddresses': [
-    {'address': 'Sample Address 1', 'landmark': 'Sample Landmark 1'},
-    {'address': 'Sample Address 2', 'landmark': 'Sample Landmark 2'}
-  ]
-};

@@ -418,18 +418,24 @@ LogisticsPartner _$LogisticsPartnerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LogisticsPartner {
   String? get companyName => throw _privateConstructorUsedError;
+  Logo? get logo => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get landmark => throw _privateConstructorUsedError;
   String? get website => throw _privateConstructorUsedError;
   List<VehicleType>? get vehicleTypes => throw _privateConstructorUsedError;
-  String? get goodsType => throw _privateConstructorUsedError;
-  int? get deliveriesPerMonth => throw _privateConstructorUsedError;
+  List<String>? get goodsType => throw _privateConstructorUsedError;
+  String? get deliveriesPerMonth => throw _privateConstructorUsedError;
   String? get howDidYouHear => throw _privateConstructorUsedError;
   String? get referralCode => throw _privateConstructorUsedError;
+  bool? get cacRegistered => throw _privateConstructorUsedError;
+  bool? get nipostLicensed => throw _privateConstructorUsedError;
+  bool? get isVerified => throw _privateConstructorUsedError;
   List<dynamic>? get operatingDays => throw _privateConstructorUsedError;
   String? get user => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: '_v')
   int? get v => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -446,19 +452,25 @@ abstract class $LogisticsPartnerCopyWith<$Res> {
   @useResult
   $Res call(
       {String? companyName,
+      Logo? logo,
       String? country,
       String? address,
       String? landmark,
       String? website,
       List<VehicleType>? vehicleTypes,
-      String? goodsType,
-      int? deliveriesPerMonth,
+      List<String>? goodsType,
+      String? deliveriesPerMonth,
       String? howDidYouHear,
       String? referralCode,
+      bool? cacRegistered,
+      bool? nipostLicensed,
+      bool? isVerified,
       List<dynamic>? operatingDays,
       String? user,
-      String? id,
-      int? v});
+      @JsonKey(name: '_id') String? id,
+      @JsonKey(name: '_v') int? v});
+
+  $LogoCopyWith<$Res>? get logo;
 }
 
 /// @nodoc
@@ -475,6 +487,7 @@ class _$LogisticsPartnerCopyWithImpl<$Res, $Val extends LogisticsPartner>
   @override
   $Res call({
     Object? companyName = freezed,
+    Object? logo = freezed,
     Object? country = freezed,
     Object? address = freezed,
     Object? landmark = freezed,
@@ -484,6 +497,9 @@ class _$LogisticsPartnerCopyWithImpl<$Res, $Val extends LogisticsPartner>
     Object? deliveriesPerMonth = freezed,
     Object? howDidYouHear = freezed,
     Object? referralCode = freezed,
+    Object? cacRegistered = freezed,
+    Object? nipostLicensed = freezed,
+    Object? isVerified = freezed,
     Object? operatingDays = freezed,
     Object? user = freezed,
     Object? id = freezed,
@@ -494,6 +510,10 @@ class _$LogisticsPartnerCopyWithImpl<$Res, $Val extends LogisticsPartner>
           ? _value.companyName
           : companyName // ignore: cast_nullable_to_non_nullable
               as String?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as Logo?,
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -517,11 +537,11 @@ class _$LogisticsPartnerCopyWithImpl<$Res, $Val extends LogisticsPartner>
       goodsType: freezed == goodsType
           ? _value.goodsType
           : goodsType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<String>?,
       deliveriesPerMonth: freezed == deliveriesPerMonth
           ? _value.deliveriesPerMonth
           : deliveriesPerMonth // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       howDidYouHear: freezed == howDidYouHear
           ? _value.howDidYouHear
           : howDidYouHear // ignore: cast_nullable_to_non_nullable
@@ -530,6 +550,18 @@ class _$LogisticsPartnerCopyWithImpl<$Res, $Val extends LogisticsPartner>
           ? _value.referralCode
           : referralCode // ignore: cast_nullable_to_non_nullable
               as String?,
+      cacRegistered: freezed == cacRegistered
+          ? _value.cacRegistered
+          : cacRegistered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      nipostLicensed: freezed == nipostLicensed
+          ? _value.nipostLicensed
+          : nipostLicensed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isVerified: freezed == isVerified
+          ? _value.isVerified
+          : isVerified // ignore: cast_nullable_to_non_nullable
+              as bool?,
       operatingDays: freezed == operatingDays
           ? _value.operatingDays
           : operatingDays // ignore: cast_nullable_to_non_nullable
@@ -548,6 +580,18 @@ class _$LogisticsPartnerCopyWithImpl<$Res, $Val extends LogisticsPartner>
               as int?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LogoCopyWith<$Res>? get logo {
+    if (_value.logo == null) {
+      return null;
+    }
+
+    return $LogoCopyWith<$Res>(_value.logo!, (value) {
+      return _then(_value.copyWith(logo: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -560,19 +604,26 @@ abstract class _$$_LogisticsPartnerCopyWith<$Res>
   @useResult
   $Res call(
       {String? companyName,
+      Logo? logo,
       String? country,
       String? address,
       String? landmark,
       String? website,
       List<VehicleType>? vehicleTypes,
-      String? goodsType,
-      int? deliveriesPerMonth,
+      List<String>? goodsType,
+      String? deliveriesPerMonth,
       String? howDidYouHear,
       String? referralCode,
+      bool? cacRegistered,
+      bool? nipostLicensed,
+      bool? isVerified,
       List<dynamic>? operatingDays,
       String? user,
-      String? id,
-      int? v});
+      @JsonKey(name: '_id') String? id,
+      @JsonKey(name: '_v') int? v});
+
+  @override
+  $LogoCopyWith<$Res>? get logo;
 }
 
 /// @nodoc
@@ -587,6 +638,7 @@ class __$$_LogisticsPartnerCopyWithImpl<$Res>
   @override
   $Res call({
     Object? companyName = freezed,
+    Object? logo = freezed,
     Object? country = freezed,
     Object? address = freezed,
     Object? landmark = freezed,
@@ -596,6 +648,9 @@ class __$$_LogisticsPartnerCopyWithImpl<$Res>
     Object? deliveriesPerMonth = freezed,
     Object? howDidYouHear = freezed,
     Object? referralCode = freezed,
+    Object? cacRegistered = freezed,
+    Object? nipostLicensed = freezed,
+    Object? isVerified = freezed,
     Object? operatingDays = freezed,
     Object? user = freezed,
     Object? id = freezed,
@@ -606,6 +661,10 @@ class __$$_LogisticsPartnerCopyWithImpl<$Res>
           ? _value.companyName
           : companyName // ignore: cast_nullable_to_non_nullable
               as String?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as Logo?,
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -627,13 +686,13 @@ class __$$_LogisticsPartnerCopyWithImpl<$Res>
           : vehicleTypes // ignore: cast_nullable_to_non_nullable
               as List<VehicleType>?,
       goodsType: freezed == goodsType
-          ? _value.goodsType
+          ? _value._goodsType
           : goodsType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<String>?,
       deliveriesPerMonth: freezed == deliveriesPerMonth
           ? _value.deliveriesPerMonth
           : deliveriesPerMonth // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       howDidYouHear: freezed == howDidYouHear
           ? _value.howDidYouHear
           : howDidYouHear // ignore: cast_nullable_to_non_nullable
@@ -642,6 +701,18 @@ class __$$_LogisticsPartnerCopyWithImpl<$Res>
           ? _value.referralCode
           : referralCode // ignore: cast_nullable_to_non_nullable
               as String?,
+      cacRegistered: freezed == cacRegistered
+          ? _value.cacRegistered
+          : cacRegistered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      nipostLicensed: freezed == nipostLicensed
+          ? _value.nipostLicensed
+          : nipostLicensed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isVerified: freezed == isVerified
+          ? _value.isVerified
+          : isVerified // ignore: cast_nullable_to_non_nullable
+              as bool?,
       operatingDays: freezed == operatingDays
           ? _value._operatingDays
           : operatingDays // ignore: cast_nullable_to_non_nullable
@@ -667,20 +738,25 @@ class __$$_LogisticsPartnerCopyWithImpl<$Res>
 class _$_LogisticsPartner implements _LogisticsPartner {
   const _$_LogisticsPartner(
       {this.companyName,
+      this.logo,
       this.country,
       this.address,
       this.landmark,
       this.website,
       final List<VehicleType>? vehicleTypes,
-      this.goodsType,
+      final List<String>? goodsType,
       this.deliveriesPerMonth,
       this.howDidYouHear,
       this.referralCode,
+      this.cacRegistered,
+      this.nipostLicensed,
+      this.isVerified,
       final List<dynamic>? operatingDays,
       this.user,
-      this.id,
-      this.v})
+      @JsonKey(name: '_id') this.id,
+      @JsonKey(name: '_v') this.v})
       : _vehicleTypes = vehicleTypes,
+        _goodsType = goodsType,
         _operatingDays = operatingDays;
 
   factory _$_LogisticsPartner.fromJson(Map<String, dynamic> json) =>
@@ -688,6 +764,8 @@ class _$_LogisticsPartner implements _LogisticsPartner {
 
   @override
   final String? companyName;
+  @override
+  final Logo? logo;
   @override
   final String? country;
   @override
@@ -706,14 +784,28 @@ class _$_LogisticsPartner implements _LogisticsPartner {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<String>? _goodsType;
   @override
-  final String? goodsType;
+  List<String>? get goodsType {
+    final value = _goodsType;
+    if (value == null) return null;
+    if (_goodsType is EqualUnmodifiableListView) return _goodsType;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
-  final int? deliveriesPerMonth;
+  final String? deliveriesPerMonth;
   @override
   final String? howDidYouHear;
   @override
   final String? referralCode;
+  @override
+  final bool? cacRegistered;
+  @override
+  final bool? nipostLicensed;
+  @override
+  final bool? isVerified;
   final List<dynamic>? _operatingDays;
   @override
   List<dynamic>? get operatingDays {
@@ -727,13 +819,15 @@ class _$_LogisticsPartner implements _LogisticsPartner {
   @override
   final String? user;
   @override
+  @JsonKey(name: '_id')
   final String? id;
   @override
+  @JsonKey(name: '_v')
   final int? v;
 
   @override
   String toString() {
-    return 'LogisticsPartner(companyName: $companyName, country: $country, address: $address, landmark: $landmark, website: $website, vehicleTypes: $vehicleTypes, goodsType: $goodsType, deliveriesPerMonth: $deliveriesPerMonth, howDidYouHear: $howDidYouHear, referralCode: $referralCode, operatingDays: $operatingDays, user: $user, id: $id, v: $v)';
+    return 'LogisticsPartner(companyName: $companyName, logo: $logo, country: $country, address: $address, landmark: $landmark, website: $website, vehicleTypes: $vehicleTypes, goodsType: $goodsType, deliveriesPerMonth: $deliveriesPerMonth, howDidYouHear: $howDidYouHear, referralCode: $referralCode, cacRegistered: $cacRegistered, nipostLicensed: $nipostLicensed, isVerified: $isVerified, operatingDays: $operatingDays, user: $user, id: $id, v: $v)';
   }
 
   @override
@@ -743,6 +837,7 @@ class _$_LogisticsPartner implements _LogisticsPartner {
             other is _$_LogisticsPartner &&
             (identical(other.companyName, companyName) ||
                 other.companyName == companyName) &&
+            (identical(other.logo, logo) || other.logo == logo) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.landmark, landmark) ||
@@ -750,14 +845,20 @@ class _$_LogisticsPartner implements _LogisticsPartner {
             (identical(other.website, website) || other.website == website) &&
             const DeepCollectionEquality()
                 .equals(other._vehicleTypes, _vehicleTypes) &&
-            (identical(other.goodsType, goodsType) ||
-                other.goodsType == goodsType) &&
+            const DeepCollectionEquality()
+                .equals(other._goodsType, _goodsType) &&
             (identical(other.deliveriesPerMonth, deliveriesPerMonth) ||
                 other.deliveriesPerMonth == deliveriesPerMonth) &&
             (identical(other.howDidYouHear, howDidYouHear) ||
                 other.howDidYouHear == howDidYouHear) &&
             (identical(other.referralCode, referralCode) ||
                 other.referralCode == referralCode) &&
+            (identical(other.cacRegistered, cacRegistered) ||
+                other.cacRegistered == cacRegistered) &&
+            (identical(other.nipostLicensed, nipostLicensed) ||
+                other.nipostLicensed == nipostLicensed) &&
+            (identical(other.isVerified, isVerified) ||
+                other.isVerified == isVerified) &&
             const DeepCollectionEquality()
                 .equals(other._operatingDays, _operatingDays) &&
             (identical(other.user, user) || other.user == user) &&
@@ -770,15 +871,19 @@ class _$_LogisticsPartner implements _LogisticsPartner {
   int get hashCode => Object.hash(
       runtimeType,
       companyName,
+      logo,
       country,
       address,
       landmark,
       website,
       const DeepCollectionEquality().hash(_vehicleTypes),
-      goodsType,
+      const DeepCollectionEquality().hash(_goodsType),
       deliveriesPerMonth,
       howDidYouHear,
       referralCode,
+      cacRegistered,
+      nipostLicensed,
+      isVerified,
       const DeepCollectionEquality().hash(_operatingDays),
       user,
       id,
@@ -801,25 +906,31 @@ class _$_LogisticsPartner implements _LogisticsPartner {
 abstract class _LogisticsPartner implements LogisticsPartner {
   const factory _LogisticsPartner(
       {final String? companyName,
+      final Logo? logo,
       final String? country,
       final String? address,
       final String? landmark,
       final String? website,
       final List<VehicleType>? vehicleTypes,
-      final String? goodsType,
-      final int? deliveriesPerMonth,
+      final List<String>? goodsType,
+      final String? deliveriesPerMonth,
       final String? howDidYouHear,
       final String? referralCode,
+      final bool? cacRegistered,
+      final bool? nipostLicensed,
+      final bool? isVerified,
       final List<dynamic>? operatingDays,
       final String? user,
-      final String? id,
-      final int? v}) = _$_LogisticsPartner;
+      @JsonKey(name: '_id') final String? id,
+      @JsonKey(name: '_v') final int? v}) = _$_LogisticsPartner;
 
   factory _LogisticsPartner.fromJson(Map<String, dynamic> json) =
       _$_LogisticsPartner.fromJson;
 
   @override
   String? get companyName;
+  @override
+  Logo? get logo;
   @override
   String? get country;
   @override
@@ -831,25 +942,163 @@ abstract class _LogisticsPartner implements LogisticsPartner {
   @override
   List<VehicleType>? get vehicleTypes;
   @override
-  String? get goodsType;
+  List<String>? get goodsType;
   @override
-  int? get deliveriesPerMonth;
+  String? get deliveriesPerMonth;
   @override
   String? get howDidYouHear;
   @override
   String? get referralCode;
   @override
+  bool? get cacRegistered;
+  @override
+  bool? get nipostLicensed;
+  @override
+  bool? get isVerified;
+  @override
   List<dynamic>? get operatingDays;
   @override
   String? get user;
   @override
+  @JsonKey(name: '_id')
   String? get id;
   @override
+  @JsonKey(name: '_v')
   int? get v;
   @override
   @JsonKey(ignore: true)
   _$$_LogisticsPartnerCopyWith<_$_LogisticsPartner> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+Logo _$LogoFromJson(Map<String, dynamic> json) {
+  return _Logo.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Logo {
+  @JsonKey(name: '_id')
+  String? get id => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LogoCopyWith<Logo> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LogoCopyWith<$Res> {
+  factory $LogoCopyWith(Logo value, $Res Function(Logo) then) =
+      _$LogoCopyWithImpl<$Res, Logo>;
+  @useResult
+  $Res call({@JsonKey(name: '_id') String? id});
+}
+
+/// @nodoc
+class _$LogoCopyWithImpl<$Res, $Val extends Logo>
+    implements $LogoCopyWith<$Res> {
+  _$LogoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_LogoCopyWith<$Res> implements $LogoCopyWith<$Res> {
+  factory _$$_LogoCopyWith(_$_Logo value, $Res Function(_$_Logo) then) =
+      __$$_LogoCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: '_id') String? id});
+}
+
+/// @nodoc
+class __$$_LogoCopyWithImpl<$Res> extends _$LogoCopyWithImpl<$Res, _$_Logo>
+    implements _$$_LogoCopyWith<$Res> {
+  __$$_LogoCopyWithImpl(_$_Logo _value, $Res Function(_$_Logo) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_$_Logo(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Logo implements _Logo {
+  const _$_Logo({@JsonKey(name: '_id') this.id});
+
+  factory _$_Logo.fromJson(Map<String, dynamic> json) => _$$_LogoFromJson(json);
+
+  @override
+  @JsonKey(name: '_id')
+  final String? id;
+
+  @override
+  String toString() {
+    return 'Logo(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Logo &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LogoCopyWith<_$_Logo> get copyWith =>
+      __$$_LogoCopyWithImpl<_$_Logo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_LogoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Logo implements Logo {
+  const factory _Logo({@JsonKey(name: '_id') final String? id}) = _$_Logo;
+
+  factory _Logo.fromJson(Map<String, dynamic> json) = _$_Logo.fromJson;
+
+  @override
+  @JsonKey(name: '_id')
+  String? get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LogoCopyWith<_$_Logo> get copyWith => throw _privateConstructorUsedError;
 }
 
 VehicleType _$VehicleTypeFromJson(Map<String, dynamic> json) {
@@ -860,6 +1109,7 @@ VehicleType _$VehicleTypeFromJson(Map<String, dynamic> json) {
 mixin _$VehicleType {
   String? get vehicle => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -874,7 +1124,7 @@ abstract class $VehicleTypeCopyWith<$Res> {
           VehicleType value, $Res Function(VehicleType) then) =
       _$VehicleTypeCopyWithImpl<$Res, VehicleType>;
   @useResult
-  $Res call({String? vehicle, int? quantity, String? id});
+  $Res call({String? vehicle, int? quantity, @JsonKey(name: '_id') String? id});
 }
 
 /// @nodoc
@@ -919,7 +1169,7 @@ abstract class _$$_VehicleTypeCopyWith<$Res>
       __$$_VehicleTypeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? vehicle, int? quantity, String? id});
+  $Res call({String? vehicle, int? quantity, @JsonKey(name: '_id') String? id});
 }
 
 /// @nodoc
@@ -957,7 +1207,8 @@ class __$$_VehicleTypeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_VehicleType implements _VehicleType {
-  const _$_VehicleType({this.vehicle, this.quantity, this.id});
+  const _$_VehicleType(
+      {this.vehicle, this.quantity, @JsonKey(name: '_id') this.id});
 
   factory _$_VehicleType.fromJson(Map<String, dynamic> json) =>
       _$$_VehicleTypeFromJson(json);
@@ -967,6 +1218,7 @@ class _$_VehicleType implements _VehicleType {
   @override
   final int? quantity;
   @override
+  @JsonKey(name: '_id')
   final String? id;
 
   @override
@@ -1007,7 +1259,7 @@ abstract class _VehicleType implements VehicleType {
   const factory _VehicleType(
       {final String? vehicle,
       final int? quantity,
-      final String? id}) = _$_VehicleType;
+      @JsonKey(name: '_id') final String? id}) = _$_VehicleType;
 
   factory _VehicleType.fromJson(Map<String, dynamic> json) =
       _$_VehicleType.fromJson;
@@ -1017,6 +1269,7 @@ abstract class _VehicleType implements VehicleType {
   @override
   int? get quantity;
   @override
+  @JsonKey(name: '_id')
   String? get id;
   @override
   @JsonKey(ignore: true)

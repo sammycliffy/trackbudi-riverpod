@@ -16,7 +16,10 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.createOrUpdateVendor() = CreateOrUpdateVendorEvent;
   const factory AuthEvent.createOrUpdateLogisticPatner() =
       CreateOrUpdateLogisticPatnerEvent;
-  const factory AuthEvent.login({required LoginType? loginType}) = LoginEvent;
+  const factory AuthEvent.loginWithPhone({required LoginType? loginType}) =
+      LoginWithPhoneEvent;
+  const factory AuthEvent.loginWithEmail({required LoginType? loginType}) =
+      LoginWithEmailEvent;
   const factory AuthEvent.initiateForgotPassword() =
       InitiateForgotPasswordEvent;
 

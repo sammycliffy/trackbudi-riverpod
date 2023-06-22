@@ -103,7 +103,7 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
                         text: 'Login',
                         fontSize: 14,
                         textColor: AppColors.textPrimary),
-                    onTap: () => context.pushRoute(const LoginView()),
+                    onTap: () => context.pushRoute(LoginView()),
                   )
                 ],
               )

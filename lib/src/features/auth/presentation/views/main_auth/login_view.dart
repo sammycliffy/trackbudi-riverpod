@@ -1,23 +1,40 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:formz/formz.dart';
+import 'package:trackbudi_mobile/src/config/di/provider.dart';
+import 'package:trackbudi_mobile/src/config/keys/enum_keys.dart';
 import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
+import 'package:trackbudi_mobile/src/core/mixin/trackbudi_mixin.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/trackbudi_txtfield.dart';
+import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
 
-
-
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class LoginView extends ConsumerWidget with TrackBudiValidate {
+  LoginView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(authNotifier.select((vaue) => vaue));
+
+    ref.listen(authNotifier, (previousState, newState) {
+      if (previousState?.phoneStatus != newState.phoneStatus) {
+        if (newState.phoneStatus.isSubmissionFailure) {
+          ToastResp.toastMsgError(resp: newState.exceptionError);
+        } else if (newState.phoneStatus.isSubmissionSuccess) {
+          context.router.push(OTPView());
+        }
+      }
+    });
+
     return Scaffold(
       body: SingleChildScrollView(
           child: Padding(
@@ -57,20 +74,23 @@ class LoginView extends StatelessWidget {
                 textColor: AppColors.textPrimary),
             heightSpace(1),
             heightSpace(1),
-            IntlPhoneField(
-              decoration: const InputDecoration(
-                labelText: 'Phone Number',
-                isDense: true,
-                border: OutlineInputBorder(),
-              ),
-              initialCountryCode: 'NG',
-              onChanged: (phone) {
-                print(phone.completeNumber);
-              },
+            TrackBudiPhoneField(
+              enabled: !state.loginStatus.isSubmissionInProgress,
+              onChanged: (phone) => ref
+                  .read(authNotifier.notifier)
+                  .mapEventsToState(PhoneEvent(
+                      value: phone.number, countryCode: phone.countryCode)),
+              validator: (v) => phoneNumberFullValidator(v?.completeNumber),
             ),
             heightSpace(4),
             TrackBudiButton(
-                buttonText: 'Login', onTap: () => context.pushRoute(OTPView())),
+                buttonText: 'Login',
+                disable: !state.displaySignUpButton,
+                isLoading: state.phoneStatus.isSubmissionInProgress,
+                onTap: state.displaySignUpButton
+                    ? () => ref.read(authNotifier.notifier).mapEventsToState(
+                        LoginWithPhoneEvent(loginType: LoginType.phone))
+                    : () {}),
             heightSpace(3),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +105,7 @@ class LoginView extends StatelessWidget {
             ),
             heightSpace(4),
             GestureDetector(
-              onTap: () => context.pushRoute(const EmailLoginView()),
+              onTap: () => context.pushRoute(EmailLoginView()),
               child: Container(
                 padding: const EdgeInsets.only(left: 20),
                 height: 8.h,
@@ -122,7 +142,7 @@ class LoginView extends StatelessWidget {
                 bodyText(text: 'Don\'t have an account?'),
                 widthSpace(2),
                 GestureDetector(
-                  // onTap: () => context.pushRoute(LoginView()),
+                  onTap: () => context.pushRoute(SignupView()),
                   child: customText(
                       text: 'Signup',
                       fontSize: 14,

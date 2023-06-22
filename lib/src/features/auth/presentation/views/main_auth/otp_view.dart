@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
@@ -32,6 +34,13 @@ class OTPView extends ConsumerWidget {
           } else if (newState.otpRequestOrResendTypeEnum ==
               OtpRequestOrResendType.verifyOtp) {
             context.router.push(ProfileInfo());
+          } else if (newState.otpRequestOrResendTypeEnum ==
+              OtpRequestOrResendType.resetPasswordOtp) {
+            context.router.push(NewPasswordView());
+          } else if (newState.loginType == LoginType.phone ||
+              newState.otpRequestOrResendTypeEnum ==
+                  OtpRequestOrResendType.request) {
+            context.router.push(SettingUp());
           }
         }
       }
@@ -76,8 +85,7 @@ class OTPView extends ConsumerWidget {
               heightSpace(1),
               Center(
                 child: customText(
-                    text:
-                        state.userPhoneOnboardingModel?.phone ?? '894 534 6783',
+                    text: state.phoneNumber.value,
                     fontSize: 14,
                     textColor: AppColors.textPrimary),
               ),
@@ -95,10 +103,27 @@ class OTPView extends ConsumerWidget {
                   disable: !state.displayVerifyOtpButton,
                   isLoading: state.verifyOtpStatus.isSubmissionInProgress,
                   onTap: state.displayVerifyOtpButton
-                      ? () => ref.read(authNotifier.notifier).mapEventsToState(
-                          RequestOrResendPhoneOtpEvent(
-                              otpRequestOrResendTypeEnum:
-                                  OtpRequestOrResendType.verifyOtp))
+                      ? () {
+                          switch (state.otpRequestOrResendTypeEnum) {
+                            case OtpRequestOrResendType.resetPasswordOtp:
+                              ref.read(authNotifier.notifier).mapEventsToState(
+                                  VerifyResetTokenToCompleteForgotPasswordEvent());
+                              break;
+
+                            case OtpRequestOrResendType.request:
+                              log('${state.otpRequestOrResendTypeEnum}');
+                              ref.read(authNotifier.notifier).mapEventsToState(
+                                  RequestOrResendPhoneOtpEvent(
+                                      otpRequestOrResendTypeEnum:
+                                          OtpRequestOrResendType.request));
+                              break;
+                            default:
+                              ref.read(authNotifier.notifier).mapEventsToState(
+                                  RequestOrResendPhoneOtpEvent(
+                                      otpRequestOrResendTypeEnum:
+                                          OtpRequestOrResendType.verifyOtp));
+                          }
+                        }
                       : () {}),
               heightSpace(3),
               Row(
@@ -107,11 +132,12 @@ class OTPView extends ConsumerWidget {
                   bodyText(text: 'Didn\' receive code?'),
                   widthSpace(2),
                   InkWell(
-                    onTap: () => ref
-                        .read(authNotifier.notifier)
-                        .mapEventsToState(RequestOrResendPhoneOtpEvent(
-                            otpRequestOrResendTypeEnum:
-                                OtpRequestOrResendType.resend)),
+                    onTap: () {
+                      ref.read(authNotifier.notifier).mapEventsToState(
+                          RequestOrResendPhoneOtpEvent(
+                              otpRequestOrResendTypeEnum:
+                                  OtpRequestOrResendType.resend));
+                    },
                     child: customText(
                         text: 'Request again',
                         fontSize: 14,

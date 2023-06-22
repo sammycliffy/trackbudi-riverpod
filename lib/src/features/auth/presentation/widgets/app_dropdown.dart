@@ -26,7 +26,7 @@ class _TrackBudiDropdownState extends State<TrackBudiDropdown> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         customText(
-            text: widget.label, fontSize: 14, textColor: AppColors.textPrimary),
+            text: widget.label, fontSize: 11, textColor: AppColors.textPrimary),
         heightSpace(2),
         SizedBox(
             height: 57,
@@ -45,7 +45,7 @@ class _TrackBudiDropdownState extends State<TrackBudiDropdown> {
                         child: Text(
                           text.toString(),
                           style: const TextStyle(
-                              color: AppColors.textPrimary, fontSize: 14),
+                              color: AppColors.textPrimary, fontSize: 11),
                         )))
                     .toList(),
                 onChanged: widget.onChange)),
