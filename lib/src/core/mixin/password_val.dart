@@ -2,23 +2,29 @@
 
 import 'package:formz/formz.dart';
 
-enum PasswordValidationError { invalid, Required }
+enum PasswordValidationError {
+  invalid,
+  Required,
+  Short,
+}
 
 class Password extends FormzInput<String, PasswordValidationError> {
   const Password.pure() : super.pure('');
   const Password.dirty([String value = '']) : super.dirty(value);
 
   static final _passwordRegExp =
-      RegExp(r'^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*');
+      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 
   @override
-  PasswordValidationError? validator(String value) {
+  PasswordValidationError? validator(String value, [bool allowEmpty = false]) {
     if (value.isEmpty) {
       return PasswordValidationError.Required;
+    } else if (value.length < 8) {
+      return PasswordValidationError.Short;
     }
-    return _passwordRegExp.hasMatch(value) && value.length < 10
-        ? null
-        : PasswordValidationError.invalid;
+    return !_passwordRegExp.hasMatch(value) && value.length < 10
+        ? PasswordValidationError.invalid
+        : null;
   }
 }
 
@@ -27,6 +33,8 @@ extension Explanation on PasswordValidationError {
     switch (this) {
       case PasswordValidationError.invalid:
         return 'Invalid condition';
+      case PasswordValidationError.Short:
+        return 'Password is short';
       default:
         return null;
     }

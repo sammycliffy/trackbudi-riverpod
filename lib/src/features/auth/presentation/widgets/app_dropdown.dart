@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/shared/resources/app_spacer.dart';
-import '../../../../core/shared/resources/colors_tr.dart';
-import '../../../../core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_spacer.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 
 class TrackBudiDropdown extends StatefulWidget {
   final List<String>? dropdownList;

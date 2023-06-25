@@ -53,7 +53,7 @@ class _TrackBudiTextFormFieldState extends State<TrackBudiTextFormField> {
           controller: widget.textEditingController,
           obscureText: isPasswordShow ? false : widget.isPassword,
           // validator: widget.validator,
-          style: TextStyle(fontSize: 11),
+          style: TextStyle(fontSize: 12),
           decoration: InputDecoration(
               disabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColors.textformGrey),
@@ -66,7 +66,7 @@ class _TrackBudiTextFormFieldState extends State<TrackBudiTextFormField> {
               errorStyle: TextStyle(fontSize: 10),
               suffixIcon: showPasswordIcon(widget.isPassword),
               hintText: widget.hintText,
-              hintStyle: TextStyle(fontSize: 11),
+              hintStyle: TextStyle(fontSize: 12),
               prefixIcon: widget.prefixIcon,
               fillColor: AppColors.white,
               filled: true,

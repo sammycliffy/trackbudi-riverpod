@@ -4,4 +4,4 @@ enum LoginType { phone, email }
 
 enum OtpRequestOrResendType { request, resend, verifyOtp, resetPasswordOtp }
 
-enum UserType { driverType, logisticsPartner, vendorType }
+enum UserType { driverType, LogisticsPartner, vendorType }

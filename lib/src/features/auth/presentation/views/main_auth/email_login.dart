@@ -68,14 +68,14 @@ class EmailLoginView extends ConsumerWidget with TrackBudiValidate {
             TrackBudiTextFormField(
               onChanged: (val) =>
                   ref.read(authNotifier.notifier).loginEmailChanged(val),
-              error: state.email.error?.name,
+              error: state.email.invalid ? state.email.error?.name : null,
               label: 'Email address',
             ),
             heightSpace(2),
             TrackBudiTextFormField(
               onChanged: (val) =>
                   ref.read(authNotifier.notifier).loginPasswordChanged(val),
-              error: state.password.error?.name,
+              error: state.password.invalid ? state.password.error?.name : null,
               label: 'Password',
             ),
             heightSpace(2),

@@ -24,19 +24,19 @@ class TrackBudiPhoneField extends StatelessWidget {
       cursorWidth: 0.9,
       disableLengthCheck: false,
       style: TextStyle(
-          fontFamily: 'Euclad', fontSize: 12, fontWeight: FontWeight.w400),
+          fontFamily: 'Euclad', fontSize: 14, fontWeight: FontWeight.w400),
       validator: validator,
-      dropdownTextStyle: TextStyle(fontFamily: 'Euclad', fontSize: 11),
+      dropdownTextStyle: TextStyle(fontFamily: 'Euclad', fontSize: 12),
       pickerDialogStyle: PickerDialogStyle(
-          countryNameStyle: TextStyle(fontFamily: 'Euclad', fontSize: 11),
-          countryCodeStyle: TextStyle(fontFamily: 'Euclad', fontSize: 11)),
+          countryNameStyle: TextStyle(fontFamily: 'Euclad', fontSize: 12),
+          countryCodeStyle: TextStyle(fontFamily: 'Euclad', fontSize: 12)),
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.never,
         labelText: 'Phone Number',
-        helperStyle: TextStyle(fontSize: 11),
+        helperStyle: TextStyle(fontSize: 12),
         errorStyle: TextStyle(fontSize: 9),
-        labelStyle: TextStyle(fontSize: 11),
-        suffixStyle: TextStyle(fontSize: 11, fontFamily: 'Euclad'),
+        labelStyle: TextStyle(fontSize: 12),
+        suffixStyle: TextStyle(fontSize: 12, fontFamily: 'Euclad'),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.textformGrey),
             borderRadius: BorderRadius.all(Radius.circular(5))),

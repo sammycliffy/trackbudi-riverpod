@@ -32,7 +32,7 @@ class AccountSelection extends HookConsumerWidget {
           ToastResp.toastMsgError(resp: newState.exceptionError);
         } else if (newState.updateUserTypeStatus.isSubmissionSuccess) {
           switch (newState.userTypeEnum) {
-            case UserType.logisticsPartner:
+            case UserType.LogisticsPartner:
               context.router.push(CompanyRegistration());
               break;
 
@@ -67,7 +67,7 @@ class AccountSelection extends HookConsumerWidget {
               onTap: () {
                 ref
                     .read(authNotifier.notifier)
-                    .userTypeChangeF(UserType.logisticsPartner);
+                    .userTypeChangeF(UserType.LogisticsPartner);
                 isLogistics.value = true;
                 isVendor.value = false;
               },
@@ -100,7 +100,7 @@ class AccountSelection extends HookConsumerWidget {
                         UpdateUserTypeEvent(
                             userType: isVendor.value
                                 ? UserType.vendorType
-                                : UserType.logisticsPartner))
+                                : UserType.LogisticsPartner))
                     : () {}),
           ],
         ),

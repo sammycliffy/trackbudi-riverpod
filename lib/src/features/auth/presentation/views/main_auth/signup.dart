@@ -41,7 +41,7 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
           } else if (newState.userPhoneOnboardingModel?.onboarding_status ==
               4) {
             switch (newState.userTypeEnum) {
-              case UserType.logisticsPartner:
+              case UserType.LogisticsPartner:
                 context.router.push(CompanyRegistration());
                 break;
 

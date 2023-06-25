@@ -30,8 +30,6 @@ class LoginView extends ConsumerWidget with TrackBudiValidate {
         if (newState.phoneStatus.isSubmissionFailure) {
           ToastResp.toastMsgError(resp: newState.exceptionError);
         } else if (newState.phoneStatus.isSubmissionSuccess) {
-
-          
           context.router.push(OTPView());
         }
       }

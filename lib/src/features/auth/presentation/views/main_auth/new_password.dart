@@ -69,15 +69,17 @@ class NewPasswordView extends ConsumerWidget with TrackBudiValidate {
               onChanged: (val) => ref
                   .read(authNotifier.notifier)
                   .forgotPasswordEmailChanged(val),
-              error: state.email.error?.name,
+              error: state.email.invalid ? state.email.error?.name : null,
               label: 'Email address',
             ),
             heightSpace(2),
             TrackBudiTextFormField(
+              keyboardType: TextInputType.visiblePassword,
+              isPassword: true,
               onChanged: (val) => ref
                   .read(authNotifier.notifier)
                   .forgotPasswordTextChanged(val),
-              error: state.password.error?.name,
+              error: state.password.invalid ? state.password.error?.name : null,
               label: 'Password',
             ),
             heightSpace(2),

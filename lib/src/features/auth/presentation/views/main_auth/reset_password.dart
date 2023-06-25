@@ -68,7 +68,7 @@ class ResetPasswordView extends ConsumerWidget with TrackBudiValidate {
               onChanged: (val) => ref
                   .read(authNotifier.notifier)
                   .iniatietResetEmailChanged(val),
-              error: state.email.error?.name,
+              error: state.email.invalid ? state.email.error?.name : null,
               label: 'Email address',
             ),
             heightSpace(4),

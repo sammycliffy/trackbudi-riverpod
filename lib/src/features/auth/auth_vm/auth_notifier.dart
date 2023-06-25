@@ -518,8 +518,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
           case UserType.vendorType:
             payload = {'userType': 'Vendor/SMB'};
             break;
-          case UserType.logisticsPartner:
-            payload = {'userType': UserType.logisticsPartner.name};
+          case UserType.LogisticsPartner:
+            payload = {'userType': UserType.LogisticsPartner.name};
             break;
           default:
             null;
