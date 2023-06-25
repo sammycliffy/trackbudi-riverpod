@@ -1,3 +1,6 @@
+// ignore_for_file: depend_on_referenced_packages
+
+import 'package:equatable/equatable.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/custom_vendor_widget.dart';
 
 class VehicleTypeWidget {
@@ -30,11 +33,13 @@ class VehicleTypeWidget {
       };
 }
 
-class PickupAddressModel {
+class PickupAddressModel extends Equatable {
+  final String id;
   final String? address;
   final String? landmark;
 
-  PickupAddressModel({
+  const PickupAddressModel({
+    required this.id,
     this.landmark,
     this.address,
   });
@@ -44,12 +49,14 @@ class PickupAddressModel {
     String? landmark,
   }) =>
       PickupAddressModel(
+        id: id,
         address: address ?? this.address,
         landmark: landmark ?? this.landmark,
       );
 
   factory PickupAddressModel.fromMap(Map<String, dynamic> json) =>
       PickupAddressModel(
+        id: json['id'],
         address: json['address'],
         landmark: json['landmark'],
       );
@@ -58,19 +65,20 @@ class PickupAddressModel {
         'address': address,
         'landmark': landmark,
       };
+
+  @override
+  List<Object?> get props => [address, landmark];
 }
 
 List<VehicleTypeWidget> vehicleType = [
-  VehicleTypeWidget(vehicle: 'Motor bike', quantity: 3),
-  VehicleTypeWidget(vehicle: 'Car', quantity: 3),
-  VehicleTypeWidget(vehicle: 'Truck', quantity: 3),
+  VehicleTypeWidget(vehicle: 'Motor bike', quantity: 0),
+  VehicleTypeWidget(vehicle: 'Car', quantity: 0),
+  VehicleTypeWidget(vehicle: 'Truck', quantity: 0),
 ];
 
 List<CustomVendorPickAddressWidget> widgetList = [
   CustomVendorPickAddressWidget()
 ];
-
-List<PickupAddressModel> pickupAddress = [PickupAddressModel()];
 
 List<String> deliveriesPerMonth = [
   '0 - 100',

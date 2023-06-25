@@ -42,6 +42,9 @@ class Name extends FormzInput<String, NameError> {
 
   @override
   NameError? validator(String value) {
-    return value.isNotEmpty == true ? null : NameError.Required;
+    if (value.isEmpty) {
+      return NameError.Required;
+    }
+    return null;
   }
 }

@@ -2,10 +2,9 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../core/shared/resources/app_images.dart';
-import '../../../../core/shared/resources/colors_tr.dart';
-import '../../../../core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 
 class CountryWidget extends StatefulWidget {
   final Function(String?) selectCountry;
@@ -17,7 +16,7 @@ class CountryWidget extends StatefulWidget {
 }
 
 class _CountryWidgetState extends State<CountryWidget> {
-  String countryName = 'Nigeria';
+  String countryName = '';
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -65,7 +64,7 @@ class _CountryWidgetState extends State<CountryWidget> {
                 ),
               ),
               searchTextStyle: TextStyle(
-                color: AppColors.textformGrey,
+                color: AppColors.black,
                 fontSize: 11,
               ),
             ),

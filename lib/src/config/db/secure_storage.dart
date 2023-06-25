@@ -18,7 +18,7 @@ class SecureStore {
     }
   }
 
-  Future<String?> getString(String key) async {
+  getString(String key) async {
     try {
       return await storage.read(key: key);
     } catch (e) {
@@ -27,5 +27,5 @@ class SecureStore {
     }
   }
 
-  Future<void> deleteKey(String key) async => await storage.delete(key: key);
+  deleteKey(String key) async => await storage.delete(key: key);
 }

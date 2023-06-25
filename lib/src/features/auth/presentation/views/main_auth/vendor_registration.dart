@@ -1,5 +1,7 @@
-import 'dart:developer';
+// ignore_for_file: depend_on_referenced_packages
 
+import 'dart:developer';
+import 'package:uuid/uuid.dart' as uid;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
@@ -12,6 +14,7 @@ import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
 import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
+import 'package:trackbudi_mobile/src/features/auth/data/model/vehicle_type.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_app_bar.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_country_widget.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
@@ -23,7 +26,7 @@ import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbud
 final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
     GlobalKey<RefreshIndicatorState>();
 
-class VendorRegistration extends HookConsumerWidget {
+class VendorRegistration extends ConsumerWidget {
   const VendorRegistration({super.key});
 
   @override
@@ -77,6 +80,9 @@ class VendorRegistration extends HookConsumerWidget {
                 heightSpace(6),
                 TrackBudiTextFormField(
                   label: 'Business name',
+                  error: state.businessName.invalid
+                      ? state.businessName.error?.name
+                      : null,
                   onChanged: (value) =>
                       ref.read(authNotifier.notifier).businessName(value),
                 ),
@@ -109,12 +115,30 @@ class VendorRegistration extends HookConsumerWidget {
                   decoration: BoxDecoration(
                       border: Border.all(color: AppColors.textformGrey)),
                   child: Column(children: [
-                    Column(
-                      children: state.widgetList
-                          .asMap()
-                          .entries
-                          .map((e) => CustomVendorPickAddressWidget())
-                          .toList(),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.only(top: 10),
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: state.listOfpickupAddressModel.length,
+                      itemBuilder: (context, index) {
+                        var d = state.listOfpickupAddressModel[index];
+                        log('id: ${d.id}');
+                        return CustomVendorPickAddressWidget(
+                          key: ValueKey(d.id),
+                          a: state.address.invalid
+                              ? state.address.error?.name
+                              : null,
+                          l: state.landmark.invalid
+                              ? state.landmark.error?.name
+                              : null,
+                          landmark: (p0) => ref
+                              .read(authNotifier.notifier)
+                              .vendorLandmark(d.id, p0),
+                          address: (p0) => ref
+                              .read(authNotifier.notifier)
+                              .vendorPickupAdressF(d.id, p0),
+                        );
+                      },
                     ),
                     heightSpace(2),
                     Row(
@@ -122,10 +146,13 @@ class VendorRegistration extends HookConsumerWidget {
                       children: [
                         bodyText(text: 'Add another pickup address'),
                         GestureDetector(
-                          onTap: () => ref
-                              .read(authNotifier.notifier)
-                              .addMapToList(state.widgetList,
-                                  CustomVendorPickAddressWidget()),
+                          onTap: () {
+                            var id = uid.Uuid().v1();
+                            log('id ::$id');
+                            ref.read(authNotifier.notifier).addMapToList(
+                                state.listOfpickupAddressModel,
+                                PickupAddressModel(id: id));
+                          },
                           child: Container(
                               padding: const EdgeInsets.only(bottom: 2),
                               width: 25,
@@ -143,18 +170,9 @@ class VendorRegistration extends HookConsumerWidget {
                     )
                   ]),
                 ),
-                // TrackBudiDropdown(
-                //   dropdownList: category,
-                //   label: 'How did you hear about us',
-                //   onChange: onchange,
-                // ),
-                // heightSpace(2),
-                // const TrackBudiTextFormField(
-                //   label: 'Enter referral code (Optional)',
-                // ),
                 heightSpace(3),
                 TrackBudiButton(
-                    buttonText: 'I accept',
+                    buttonText: 'Confirm',
                     disable: !state.displayvendorButton,
                     isLoading: state.vendorStatus.isSubmissionInProgress,
                     onTap: state.displayvendorButton

@@ -20,11 +20,16 @@ checkbox() {
             ? const Center(
                 child: Icon(
                   Icons.check,
-                  size: 10,
+                  size: 15,
                   color: AppColors.white,
                 ),
               )
-            : const SizedBox(),
+            : Container(
+                margin: EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                ),
+              ),
       ),
     );
   });

@@ -30,6 +30,8 @@ class LoginView extends ConsumerWidget with TrackBudiValidate {
         if (newState.phoneStatus.isSubmissionFailure) {
           ToastResp.toastMsgError(resp: newState.exceptionError);
         } else if (newState.phoneStatus.isSubmissionSuccess) {
+
+          
           context.router.push(OTPView());
         }
       }
@@ -70,7 +72,7 @@ class LoginView extends ConsumerWidget with TrackBudiValidate {
             heightSpace(8),
             customText(
                 text: 'Phone number',
-                fontSize: 14,
+                fontSize: 11,
                 textColor: AppColors.textPrimary),
             heightSpace(1),
             heightSpace(1),

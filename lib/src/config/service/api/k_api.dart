@@ -10,7 +10,7 @@ class Api extends BaseApi {
   // dio instance
   static Dio? _dio;
 
-  static Future<Dio> _getInstance([bool enabledDioLogger = true]) async {
+  static _getInstance([bool enabledDioLogger = true]) async {
     final SecureStore secureStore = si<SecureStore>();
 
     String? storageToken = await secureStore.getString(PrefKeys.AUTH_TOKEN);
@@ -40,7 +40,7 @@ class Api extends BaseApi {
   }
 
   // Get:-----------------------------------------------------------------------
-  Future<Response> get(
+  get(
     String url, {
     Map<String, dynamic>? queryParameters,
     Options? options,
@@ -63,7 +63,7 @@ class Api extends BaseApi {
   }
 
   // Post:----------------------------------------------------------------------
-  Future<Response> post(
+   post(
     String uri, {
     data,
     Map<String, dynamic>? queryParameters,
@@ -90,7 +90,7 @@ class Api extends BaseApi {
   }
 
   // Put:-----------------------------------------------------------------------
-  Future<Response> put(
+  put(
     String uri, {
     data,
     Map<String, dynamic>? queryParameters,
@@ -117,7 +117,7 @@ class Api extends BaseApi {
   }
 
   // Patch:-----------------------------------------------------------------------
-  Future<Response> patch(
+patch(
     String uri, {
     data,
     Map<String, dynamic>? queryParameters,
@@ -145,7 +145,7 @@ class Api extends BaseApi {
 
   // Download:-----------------------------------------------------------------------
 
-  Future<Response> download(String url, String savePath,
+download(String url, String savePath,
       {ProgressCallback? progressCallback}) async {
     final instance = await _getInstance();
     try {
@@ -162,7 +162,7 @@ class Api extends BaseApi {
   }
 
   // Delete:--------------------------------------------------------------------
-  Future<dynamic> delete(
+   delete(
     String uri, {
     data,
     Map<String, dynamic>? queryParameters,

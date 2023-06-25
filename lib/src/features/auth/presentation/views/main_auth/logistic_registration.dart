@@ -79,7 +79,9 @@ class CompanyRegistration extends HookConsumerWidget {
                 heightSpace(6),
                 TrackBudiTextFormField(
                   label: 'Name of Company',
-                  error: state.nameOfCompany.error?.name,
+                  error: state.nameOfCompany.invalid
+                      ? state.nameOfCompany.error?.name
+                      : null,
                   onChanged: (p0) =>
                       ref.read(authNotifier.notifier).nameOfCompany(p0),
                 ),
@@ -96,14 +98,17 @@ class CompanyRegistration extends HookConsumerWidget {
                 heightSpace(2),
                 TrackBudiTextFormField(
                   label: 'Address',
-                  error: state.address.error?.name,
+                  error:
+                      state.address.invalid ? state.address.error?.name : null,
                   onChanged: (p0) =>
                       ref.read(authNotifier.notifier).addressChanged(p0),
                 ),
                 heightSpace(2),
                 TrackBudiTextFormField(
                   label: 'Landmark',
-                  error: state.landmark.error?.name,
+                  error: state.landmark.invalid
+                      ? state.landmark.error?.name
+                      : null,
                   onChanged: (p0) =>
                       ref.read(authNotifier.notifier).landmark(p0),
                 ),
@@ -192,16 +197,16 @@ class CompanyRegistration extends HookConsumerWidget {
                     'Frozen items, Perishables, or Prepared food delivery',
                     'Clothing, Accessories or Baby Products'
                   ],
-                  popupProps: const PopupPropsMultiSelection.menu(
-                    showSelectedItems: true,
 
-                    // disabledItemFn: (String s) => s.startsWith('I'),
+                  popupProps: PopupPropsMultiSelection.menu(
+                    showSelectedItems: true,
                   ),
+                  validator: (value) => (value!.isEmpty) ? 'Required' : null,
                   onChanged: (v) =>
                       ref.read(authNotifier.notifier).kindOfGoodsFunc(v),
-                  selectedItems: const [
-                    'Documents, Files, Books or Stationary'
-                  ],
+                  // selectedItems: const [
+                  //   'Documents, Files, Books or Stationary'
+                  // ],
                 ),
                 heightSpace(3),
                 TrackBudiDropdown(

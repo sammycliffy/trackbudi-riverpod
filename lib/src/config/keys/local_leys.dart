@@ -1,4 +1,3 @@
-
 // ignore_for_file: constant_identifier_names
 
 class PrefKeys {
@@ -10,7 +9,8 @@ class PrefKeys {
   static const LOCAL_AUTH_PASSWORD = 'LOCAL_AUTH_PASSWORD';
   static const PASSWORD = 'PASSWORD';
   static const USER_DATA = 'USER_DATA';
-    static const USER_PHONE = 'USER_PHONE';
+  static const USERTYPE = 'USERTYPE';
+  static const USER_PHONE = 'USER_PHONE';
   static const USER_ENABLE_2FA = 'USER_ENABLE_2FA';
   static const USER_ENABLE_2FA_FIRST_TIME = 'USER_ENABLE_2FA_FIRST_TIME';
   static const ENABLE_BIOMETRIC = 'ENABLE_BIOMETRIC';

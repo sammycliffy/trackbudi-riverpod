@@ -59,6 +59,7 @@ class AuthState with _$AuthState {
     @Default([]) List<String> listOfKindOfGoodsModel,
     @Default([]) List<String> categoryList,
     @Default([]) List<PickupAddressModel> listOfpickupAddressModel,
+    @Default([]) List<PickupAddressModel> updatedListOfpickupAddressModel,
     @Default([]) List<CustomVendorPickAddressWidget> widgetList,
     @Default([]) List<Map<String, dynamic>> listOfpickupAddressMappedModel,
     @Default([]) List<dynamic> combinatedListModel,

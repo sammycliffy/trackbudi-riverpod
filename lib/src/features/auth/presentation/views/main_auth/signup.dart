@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trackbudi_mobile/src/config/di/provider.dart';
+import 'package:trackbudi_mobile/src/config/keys/enum_keys.dart';
 import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
 import 'package:trackbudi_mobile/src/core/mixin/trackbudi_mixin.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
@@ -29,13 +30,36 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
         if (newState.phoneStatus.isSubmissionFailure) {
           ToastResp.toastMsgError(resp: newState.exceptionError);
         } else if (newState.phoneStatus.isSubmissionSuccess) {
-          context.router.push(OTPView());
+          if (newState.userPhoneOnboardingModel?.onboarding_status == 1) {
+            context.router.push(OTPView());
+          } else if (newState.userPhoneOnboardingModel?.onboarding_status ==
+              2) {
+            context.router.push(ProfileInfo());
+          } else if (newState.userPhoneOnboardingModel?.onboarding_status ==
+              3) {
+            context.router.push(AccountSelection());
+          } else if (newState.userPhoneOnboardingModel?.onboarding_status ==
+              4) {
+            switch (newState.userTypeEnum) {
+              case UserType.logisticsPartner:
+                context.router.push(CompanyRegistration());
+                break;
+
+              case UserType.vendorType:
+                context.router.push(VendorRegistration());
+                break;
+              default:
+            }
+          } else if (newState.userPhoneOnboardingModel?.onboarding_status ==
+              5) {
+            context.router.replace(SettingUp());
+          }
         }
       }
     });
 
     return AbsorbPointer(
-      absorbing: state.phoneStatus.isSubmissionInProgress,
+      absorbing: state.phoneStatus.isSubmissionInProgress ? true : false,
       child: Scaffold(
         body: SingleChildScrollView(
             child: Padding(
@@ -71,7 +95,7 @@ class SignupView extends ConsumerWidget with TrackBudiValidate {
               heightSpace(8),
               customText(
                   text: 'Phone number',
-                  fontSize: 14,
+                  fontSize: 11,
                   textColor: AppColors.textPrimary),
               heightSpace(1),
               TrackBudiPhoneField(

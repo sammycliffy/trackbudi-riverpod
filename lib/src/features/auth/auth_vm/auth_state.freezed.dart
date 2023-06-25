@@ -64,6 +64,8 @@ mixin _$AuthState {
   List<String> get categoryList => throw _privateConstructorUsedError;
   List<PickupAddressModel> get listOfpickupAddressModel =>
       throw _privateConstructorUsedError;
+  List<PickupAddressModel> get updatedListOfpickupAddressModel =>
+      throw _privateConstructorUsedError;
   List<CustomVendorPickAddressWidget> get widgetList =>
       throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get listOfpickupAddressMappedModel =>
@@ -133,6 +135,7 @@ abstract class $AuthStateCopyWith<$Res> {
       List<String> listOfKindOfGoodsModel,
       List<String> categoryList,
       List<PickupAddressModel> listOfpickupAddressModel,
+      List<PickupAddressModel> updatedListOfpickupAddressModel,
       List<CustomVendorPickAddressWidget> widgetList,
       List<Map<String, dynamic>> listOfpickupAddressMappedModel,
       List<dynamic> combinatedListModel,
@@ -209,6 +212,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? listOfKindOfGoodsModel = null,
     Object? categoryList = null,
     Object? listOfpickupAddressModel = null,
+    Object? updatedListOfpickupAddressModel = null,
     Object? widgetList = null,
     Object? listOfpickupAddressMappedModel = null,
     Object? combinatedListModel = null,
@@ -382,6 +386,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       listOfpickupAddressModel: null == listOfpickupAddressModel
           ? _value.listOfpickupAddressModel
           : listOfpickupAddressModel // ignore: cast_nullable_to_non_nullable
+              as List<PickupAddressModel>,
+      updatedListOfpickupAddressModel: null == updatedListOfpickupAddressModel
+          ? _value.updatedListOfpickupAddressModel
+          : updatedListOfpickupAddressModel // ignore: cast_nullable_to_non_nullable
               as List<PickupAddressModel>,
       widgetList: null == widgetList
           ? _value.widgetList
@@ -573,6 +581,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       List<String> listOfKindOfGoodsModel,
       List<String> categoryList,
       List<PickupAddressModel> listOfpickupAddressModel,
+      List<PickupAddressModel> updatedListOfpickupAddressModel,
       List<CustomVendorPickAddressWidget> widgetList,
       List<Map<String, dynamic>> listOfpickupAddressMappedModel,
       List<dynamic> combinatedListModel,
@@ -654,6 +663,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? listOfKindOfGoodsModel = null,
     Object? categoryList = null,
     Object? listOfpickupAddressModel = null,
+    Object? updatedListOfpickupAddressModel = null,
     Object? widgetList = null,
     Object? listOfpickupAddressMappedModel = null,
     Object? combinatedListModel = null,
@@ -828,6 +838,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value._listOfpickupAddressModel
           : listOfpickupAddressModel // ignore: cast_nullable_to_non_nullable
               as List<PickupAddressModel>,
+      updatedListOfpickupAddressModel: null == updatedListOfpickupAddressModel
+          ? _value._updatedListOfpickupAddressModel
+          : updatedListOfpickupAddressModel // ignore: cast_nullable_to_non_nullable
+              as List<PickupAddressModel>,
       widgetList: null == widgetList
           ? _value._widgetList
           : widgetList // ignore: cast_nullable_to_non_nullable
@@ -924,6 +938,7 @@ class _$_AuthState extends _AuthState {
       final List<String> listOfKindOfGoodsModel = const [],
       final List<String> categoryList = const [],
       final List<PickupAddressModel> listOfpickupAddressModel = const [],
+      final List<PickupAddressModel> updatedListOfpickupAddressModel = const [],
       final List<CustomVendorPickAddressWidget> widgetList = const [],
       final List<Map<String, dynamic>> listOfpickupAddressMappedModel =
           const [],
@@ -943,6 +958,7 @@ class _$_AuthState extends _AuthState {
         _listOfKindOfGoodsModel = listOfKindOfGoodsModel,
         _categoryList = categoryList,
         _listOfpickupAddressModel = listOfpickupAddressModel,
+        _updatedListOfpickupAddressModel = updatedListOfpickupAddressModel,
         _widgetList = widgetList,
         _listOfpickupAddressMappedModel = listOfpickupAddressMappedModel,
         _combinatedListModel = combinatedListModel,
@@ -1105,6 +1121,16 @@ class _$_AuthState extends _AuthState {
     return EqualUnmodifiableListView(_listOfpickupAddressModel);
   }
 
+  final List<PickupAddressModel> _updatedListOfpickupAddressModel;
+  @override
+  @JsonKey()
+  List<PickupAddressModel> get updatedListOfpickupAddressModel {
+    if (_updatedListOfpickupAddressModel is EqualUnmodifiableListView)
+      return _updatedListOfpickupAddressModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_updatedListOfpickupAddressModel);
+  }
+
   final List<CustomVendorPickAddressWidget> _widgetList;
   @override
   @JsonKey()
@@ -1170,7 +1196,7 @@ class _$_AuthState extends _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(businessName: $businessName, nameOfCompany: $nameOfCompany, selectedCountry: $selectedCountry, address: $address, landmark: $landmark, website: $website, otpVal: $otpVal, fname: $fname, lname: $lname, pinController: $pinController, exceptionError: $exceptionError, countryCode: $countryCode, isTermAndConditionVal: $isTermAndConditionVal, loginStatus: $loginStatus, phoneStatus: $phoneStatus, verifyOtpStatus: $verifyOtpStatus, InitiateforgotPasswordSatus: $InitiateforgotPasswordSatus, forgotPasswordSatus: $forgotPasswordSatus, updateUserTypeStatus: $updateUserTypeStatus, completeOnboardingStatus: $completeOnboardingStatus, updateProfileStatus: $updateProfileStatus, LogisticStatus: $LogisticStatus, vendorStatus: $vendorStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel, updatedUserDetails: $updatedUserDetails, userPhoneOnboardingModel: $userPhoneOnboardingModel, verifyOtpModel: $verifyOtpModel, verifyResetTokenModel: $verifyResetTokenModel, createLogisticPartnerRespModel: $createLogisticPartnerRespModel, listOfvehicleType: $listOfvehicleType, listOfdeliveriesPerMonthModel: $listOfdeliveriesPerMonthModel, listOfaboutUsModel: $listOfaboutUsModel, listOfKindOfGoodsModel: $listOfKindOfGoodsModel, categoryList: $categoryList, listOfpickupAddressModel: $listOfpickupAddressModel, widgetList: $widgetList, listOfpickupAddressMappedModel: $listOfpickupAddressMappedModel, combinatedListModel: $combinatedListModel, breakdown: $breakdown, howDidYouHearboutUS: $howDidYouHearboutUS, deliveryMethodStr: $deliveryMethodStr, selectedCategoryTxtStr: $selectedCategoryTxtStr, createVendorResponseModel: $createVendorResponseModel, loginType: $loginType, otpRequestOrResendTypeEnum: $otpRequestOrResendTypeEnum, userTypeEnum: $userTypeEnum, convertListToMap: $convertListToMap)';
+    return 'AuthState(businessName: $businessName, nameOfCompany: $nameOfCompany, selectedCountry: $selectedCountry, address: $address, landmark: $landmark, website: $website, otpVal: $otpVal, fname: $fname, lname: $lname, pinController: $pinController, exceptionError: $exceptionError, countryCode: $countryCode, isTermAndConditionVal: $isTermAndConditionVal, loginStatus: $loginStatus, phoneStatus: $phoneStatus, verifyOtpStatus: $verifyOtpStatus, InitiateforgotPasswordSatus: $InitiateforgotPasswordSatus, forgotPasswordSatus: $forgotPasswordSatus, updateUserTypeStatus: $updateUserTypeStatus, completeOnboardingStatus: $completeOnboardingStatus, updateProfileStatus: $updateProfileStatus, LogisticStatus: $LogisticStatus, vendorStatus: $vendorStatus, email: $email, password: $password, oldPassword: $oldPassword, rePassword: $rePassword, phoneNumber: $phoneNumber, registerModel: $registerModel, updatedUserDetails: $updatedUserDetails, userPhoneOnboardingModel: $userPhoneOnboardingModel, verifyOtpModel: $verifyOtpModel, verifyResetTokenModel: $verifyResetTokenModel, createLogisticPartnerRespModel: $createLogisticPartnerRespModel, listOfvehicleType: $listOfvehicleType, listOfdeliveriesPerMonthModel: $listOfdeliveriesPerMonthModel, listOfaboutUsModel: $listOfaboutUsModel, listOfKindOfGoodsModel: $listOfKindOfGoodsModel, categoryList: $categoryList, listOfpickupAddressModel: $listOfpickupAddressModel, updatedListOfpickupAddressModel: $updatedListOfpickupAddressModel, widgetList: $widgetList, listOfpickupAddressMappedModel: $listOfpickupAddressMappedModel, combinatedListModel: $combinatedListModel, breakdown: $breakdown, howDidYouHearboutUS: $howDidYouHearboutUS, deliveryMethodStr: $deliveryMethodStr, selectedCategoryTxtStr: $selectedCategoryTxtStr, createVendorResponseModel: $createVendorResponseModel, loginType: $loginType, otpRequestOrResendTypeEnum: $otpRequestOrResendTypeEnum, userTypeEnum: $userTypeEnum, convertListToMap: $convertListToMap)';
   }
 
   @override
@@ -1251,6 +1277,7 @@ class _$_AuthState extends _AuthState {
             const DeepCollectionEquality().equals(other._listOfKindOfGoodsModel, _listOfKindOfGoodsModel) &&
             const DeepCollectionEquality().equals(other._categoryList, _categoryList) &&
             const DeepCollectionEquality().equals(other._listOfpickupAddressModel, _listOfpickupAddressModel) &&
+            const DeepCollectionEquality().equals(other._updatedListOfpickupAddressModel, _updatedListOfpickupAddressModel) &&
             const DeepCollectionEquality().equals(other._widgetList, _widgetList) &&
             const DeepCollectionEquality().equals(other._listOfpickupAddressMappedModel, _listOfpickupAddressMappedModel) &&
             const DeepCollectionEquality().equals(other._combinatedListModel, _combinatedListModel) &&
@@ -1308,6 +1335,7 @@ class _$_AuthState extends _AuthState {
         const DeepCollectionEquality().hash(_listOfKindOfGoodsModel),
         const DeepCollectionEquality().hash(_categoryList),
         const DeepCollectionEquality().hash(_listOfpickupAddressModel),
+        const DeepCollectionEquality().hash(_updatedListOfpickupAddressModel),
         const DeepCollectionEquality().hash(_widgetList),
         const DeepCollectionEquality().hash(_listOfpickupAddressMappedModel),
         const DeepCollectionEquality().hash(_combinatedListModel),
@@ -1371,6 +1399,7 @@ abstract class _AuthState extends AuthState {
       final List<String> listOfKindOfGoodsModel,
       final List<String> categoryList,
       final List<PickupAddressModel> listOfpickupAddressModel,
+      final List<PickupAddressModel> updatedListOfpickupAddressModel,
       final List<CustomVendorPickAddressWidget> widgetList,
       final List<Map<String, dynamic>> listOfpickupAddressMappedModel,
       final List<dynamic> combinatedListModel,
@@ -1465,6 +1494,8 @@ abstract class _AuthState extends AuthState {
   List<String> get categoryList;
   @override
   List<PickupAddressModel> get listOfpickupAddressModel;
+  @override
+  List<PickupAddressModel> get updatedListOfpickupAddressModel;
   @override
   List<CustomVendorPickAddressWidget> get widgetList;
   @override

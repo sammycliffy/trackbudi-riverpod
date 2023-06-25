@@ -1,6 +1,9 @@
+// ignore_for_file: unrelated_type_equality_checks, depend_on_referenced_packages
+
 import 'dart:convert';
 import 'dart:developer';
-
+import 'package:enum_to_string/enum_to_string.dart';
+import 'package:uuid/uuid.dart' as uid;
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
@@ -19,7 +22,6 @@ import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_state.dart';
 import 'package:trackbudi_mobile/src/features/auth/data/model/vehicle_type.dart';
 import 'package:trackbudi_mobile/src/features/auth/data/model/verify_otp.dart';
 import 'package:trackbudi_mobile/src/features/auth/domain/usecases/auth_u.dart';
-import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/custom_vendor_widget.dart';
 
 class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier({
@@ -60,15 +62,15 @@ class AuthNotifier extends StateNotifier<AuthState> {
   final ResetPasswordUsecase resetPasswordUsecase;
   final secureStore = si<SecureStore>();
 
-  addMapToList(List<CustomVendorPickAddressWidget> cvvTxt,
-      CustomVendorPickAddressWidget c) {
+  addMapToList(List<PickupAddressModel> cvvTxt, PickupAddressModel c) {
     cvvTxt = List.from(cvvTxt)..add(c);
     log('list :$cvvTxt');
-    state = state.copyWith(widgetList: cvvTxt);
-    log('state.widgetList: ${state.widgetList}');
+    state = state.copyWith(
+        vendorStatus: Formz.validate([]), listOfpickupAddressModel: cvvTxt);
+    log('state.listOfpickupAddressModel: ${state.listOfpickupAddressModel}');
   }
 
-  void businessName(String value) {
+  businessName(String value) {
     final businessName = Name.dirty(value);
     state = state.copyWith(
       businessName: businessName,
@@ -81,7 +83,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void vendorPickupAdressF(String value) {
+  vendorPickupAdressF(id, value) {
+    log('id:$id');
     final address = Name.dirty(value);
     state = state.copyWith(
       address: address,
@@ -91,10 +94,18 @@ class AuthNotifier extends StateNotifier<AuthState> {
         address,
         state.landmark,
       ]),
+      listOfpickupAddressModel: state.listOfpickupAddressModel
+          .map((element) => element.id == id
+              ? element.copyWith(address: address.value)
+              : element)
+          .toList(),
     );
+
+    log('state.listOfpickupAddressModel ${state.listOfpickupAddressModel.map((e) => e.toMap()).toList()}');
   }
 
-  void vendorLandmark(String value) {
+  vendorLandmark(id, value) {
+    log('id:$id');
     final landmark = Name.dirty(value);
     state = state.copyWith(
       landmark: landmark,
@@ -104,7 +115,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state.address,
         landmark,
       ]),
+      listOfpickupAddressModel: state.listOfpickupAddressModel
+          .map((element) => element.id == id
+              ? element.copyWith(landmark: landmark.value)
+              : element)
+          .toList(),
     );
+    log('state.listOfpickupAddressModel ${state.listOfpickupAddressModel.map((e) => e.toMap()).toList()}');
   }
 
   howdidYouHearboutUs(String? v) async {
@@ -127,7 +144,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     log('kindOfgoods${state.listOfKindOfGoodsModel}');
   }
 
-  void nameOfCompany(String value) {
+  nameOfCompany(String value) {
     final companyName = Name.dirty(value);
     state = state.copyWith(
       nameOfCompany: companyName,
@@ -141,7 +158,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void selectedVendorCountry(String value) {
+  selectedVendorCountry(String value) {
     final selectedCountry = Name.dirty(value);
     state = state.copyWith(
       selectedCountry: selectedCountry,
@@ -156,7 +173,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     log('sss--:${state.selectedCountry.value}');
   }
 
-  void selectedCountry(String value) {
+  selectedCountry(String value) {
     final selectedCountry = Name.dirty(value);
     state = state.copyWith(
       selectedCountry: selectedCountry,
@@ -171,7 +188,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     log('sss--:${state.selectedCountry.value}');
   }
 
-  void addressChanged(String value) {
+  addressChanged(String value) {
     final address = Name.dirty(value);
     state = state.copyWith(
       address: address,
@@ -184,7 +201,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void landmark(String value) {
+  landmark(String value) {
     final landmark = Name.dirty(value);
     state = state.copyWith(
       landmark: landmark,
@@ -197,12 +214,17 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void website(String value) {
+  website(String value) {
     final websiteDta = Name.dirty(value);
     state = state.copyWith(website: websiteDta);
   }
 
   getRandyListData() async {
+    var id = uid.Uuid().v1();
+    log('gen-id ::$id');
+    List<PickupAddressModel> pickupAddress = [
+      PickupAddressModel(id: id, address: '', landmark: '')
+    ];
     state = state.copyWith(
         widgetList: widgetList,
         listOfpickupAddressModel: pickupAddress,
@@ -210,6 +232,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         listOfvehicleType: vehicleType,
         listOfdeliveriesPerMonthModel: deliveriesPerMonth,
         listOfaboutUsModel: aboutUs);
+    log('pickupAddress:${pickupAddress.map((pp) => pp.toMap()).toList()}');
   }
 
   removedata(List<VehicleTypeWidget>? list, VehicleTypeWidget d) {
@@ -269,7 +292,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }).toList());
   }
 
-  void forgotPasswordEmailChanged(String value) {
+  forgotPasswordEmailChanged(String value) {
     final email = Email.dirty(value);
     state = state.copyWith(
       email: email,
@@ -277,7 +300,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void forgotPasswordTextChanged(String value) {
+  forgotPasswordTextChanged(String value) {
     final password = Password.dirty(value);
     state = state.copyWith(
       password: password,
@@ -285,7 +308,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void iniatietResetEmailChanged(String value) {
+  iniatietResetEmailChanged(String value) {
     final email = Email.dirty(value);
     state = state.copyWith(
       email: email,
@@ -325,7 +348,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  void emailChanged(String value) {
+  emailChanged(String value) {
     final email = Email.dirty(value);
     state = state.copyWith(
       email: email,
@@ -334,7 +357,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void passwordChanged(String value) {
+  passwordChanged(String value) {
     final password = Password.dirty(value);
     state = state.copyWith(
       password: password,
@@ -343,7 +366,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void rePasswordChanged(String value) {
+  rePasswordChanged(String value) {
     final rePassword = RePassword.dirty(value);
     state = state.copyWith(
       rePassword: rePassword,
@@ -352,7 +375,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void firstNameChanged(String value) {
+  firstNameChanged(String value) {
     final fname = Name.dirty(value);
     state = state.copyWith(
       fname: fname,
@@ -361,7 +384,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  void lastNameChanged(String value) {
+  lastNameChanged(String value) {
     final lname = Name.dirty(value);
     state = state.copyWith(
       lname: lname,
@@ -401,13 +424,16 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state = state.copyWith(phoneStatus: FormzStatus.submissionInProgress);
 
         final resp = await phoneOnobardingUsecase(payload);
-
+        String? userType = await secureStore.getString(PrefKeys.USERTYPE);
+        var dar = userType?.split('.').last;
+        var result = EnumToString.fromString(UserType.values, '$dar'); //Enu
         resp.fold((l) {
           state = state.copyWith(
               phoneStatus: FormzStatus.submissionFailure,
               exceptionError: l.message);
         }, (r) {
           state = state.copyWith(
+              userTypeEnum: result,
               phoneStatus: FormzStatus.submissionSuccess,
               registerModel: r,
               userPhoneOnboardingModel: r.data?.user);
@@ -487,13 +513,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
         state = state.copyWith(
             updateUserTypeStatus: FormzStatus.submissionInProgress);
         Map<String, dynamic>? payload;
-
+        secureStore.setString(PrefKeys.USERTYPE, state.userTypeEnum.toString());
         switch (state.userTypeEnum) {
           case UserType.vendorType:
             payload = {'userType': 'Vendor/SMB'};
             break;
-          case UserType.LogisticsPartner:
-            payload = {'userType': UserType.LogisticsPartner.name};
+          case UserType.logisticsPartner:
+            payload = {'userType': UserType.logisticsPartner.name};
             break;
           default:
             null;
@@ -550,6 +576,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
       createOrUpdateVendor: (CreateOrUpdateVendorEvent value) async {
         //createVendorUsecase
 
+        // var c = state.listOfpickupAddressModel;
+        // c = List.from(c)..removeWhere((element) =);
+        // log('ccc ${c.map((pp) => pp.toMap()).toList()}');
         state = state.copyWith(
             convertListToMap:
                 convertListToMapI(state.listOfpickupAddressModel));
@@ -558,8 +587,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         var payload = {
           'businessName': state.businessName.value,
           'category': state.selectedCategoryTxtStr,
-          'address': state.address.value,
-          'landmark': state.landmark.value,
+          'country': state.selectedCountry.value,
           'pickupAddresses': state.convertListToMap,
         };
         state = state.copyWith(vendorStatus: FormzStatus.submissionInProgress);

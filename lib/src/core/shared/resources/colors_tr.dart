@@ -15,7 +15,9 @@ class AppColors {
   static const Color dividerColor = Color(0xffe7e7e7);
 
   static OutlineInputBorder errorBorder = OutlineInputBorder(
-      borderSide: BorderSide(color: red),
+      borderSide: BorderSide(
+        color: red,
+      ),
       borderRadius: BorderRadius.all(Radius.circular(5)));
   static OutlineInputBorder normalBorder = OutlineInputBorder(
       borderSide: BorderSide(color: AppColors.textformGrey),

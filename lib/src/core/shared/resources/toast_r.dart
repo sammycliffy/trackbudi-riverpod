@@ -2,33 +2,34 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
-import 'package:trackbudi_mobile/src/config/service/navigation_service/nav_service.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 
 class ToastResp {
-  static final NavigationService navigationService = NavigationService();
-  static Future<bool?> toastMsgInfo({String? resp}) {
+  static toastMsgInfo({String? resp}) {
     return Fluttertoast.showToast(
         msg: resp.toString(),
+        timeInSecForIosWeb: 4,
         backgroundColor: AppColors.darkBlue,
         textColor: Colors.white,
-        fontSize: 9.sp);
+        fontSize: 11.sp);
   }
 
-  static Future<bool?> toastMsgError({String? resp}) {
+  static toastMsgError({String? resp}) {
     return Fluttertoast.showToast(
+        timeInSecForIosWeb: 4,
         msg: resp.toString(),
         backgroundColor: AppColors.red,
         textColor: Colors.white,
-        fontSize: 9.sp);
+        fontSize: 11.sp);
   }
 
-  static Future<bool?> toastMsgSuccess({String? resp}) {
+  static toastMsgSuccess({String? resp}) {
     return Fluttertoast.showToast(
+        timeInSecForIosWeb: 4,
         msg: resp.toString(),
-        backgroundColor: AppColors.green,
+        backgroundColor: Colors.green,
         textColor: Colors.white,
-        fontSize: 9.sp);
+        fontSize: 11.sp);
   }
 }

@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../../core/shared/resources/app_images.dart';
-import '../../../../core/shared/resources/colors_tr.dart';
-import '../../../../core/shared/resources/custom_text.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/app_images.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
+import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 
 appBar() => AppBar(
       backgroundColor: AppColors.white,
@@ -29,7 +28,7 @@ class RefreshWid extends StatelessWidget {
       required this.onRefresh,
       required this.refreshIndicatorKey});
   final Widget child;
-  final Future Function() onRefresh;
+  final Future<void> Function() onRefresh;
   final GlobalKey<RefreshIndicatorState> refreshIndicatorKey;
 
   @override

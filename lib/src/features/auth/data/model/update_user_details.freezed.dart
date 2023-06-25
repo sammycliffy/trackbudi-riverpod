@@ -358,6 +358,7 @@ mixin _$UserData {
   String? get phone => throw _privateConstructorUsedError;
   String? get countryCode => throw _privateConstructorUsedError;
   bool? get phoneVerified => throw _privateConstructorUsedError;
+  int? get onboarding_status => throw _privateConstructorUsedError;
   String? get role => throw _privateConstructorUsedError;
   @JsonKey(name: '_v')
   int? get v => throw _privateConstructorUsedError;
@@ -383,6 +384,7 @@ abstract class $UserDataCopyWith<$Res> {
       String? phone,
       String? countryCode,
       bool? phoneVerified,
+      int? onboarding_status,
       String? role,
       @JsonKey(name: '_v') int? v,
       String? email,
@@ -409,6 +411,7 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
     Object? phone = freezed,
     Object? countryCode = freezed,
     Object? phoneVerified = freezed,
+    Object? onboarding_status = freezed,
     Object? role = freezed,
     Object? v = freezed,
     Object? email = freezed,
@@ -434,6 +437,10 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
           ? _value.phoneVerified
           : phoneVerified // ignore: cast_nullable_to_non_nullable
               as bool?,
+      onboarding_status: freezed == onboarding_status
+          ? _value.onboarding_status
+          : onboarding_status // ignore: cast_nullable_to_non_nullable
+              as int?,
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
@@ -478,6 +485,7 @@ abstract class _$$_UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
       String? phone,
       String? countryCode,
       bool? phoneVerified,
+      int? onboarding_status,
       String? role,
       @JsonKey(name: '_v') int? v,
       String? email,
@@ -502,6 +510,7 @@ class __$$_UserDataCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? countryCode = freezed,
     Object? phoneVerified = freezed,
+    Object? onboarding_status = freezed,
     Object? role = freezed,
     Object? v = freezed,
     Object? email = freezed,
@@ -527,6 +536,10 @@ class __$$_UserDataCopyWithImpl<$Res>
           ? _value.phoneVerified
           : phoneVerified // ignore: cast_nullable_to_non_nullable
               as bool?,
+      onboarding_status: freezed == onboarding_status
+          ? _value.onboarding_status
+          : onboarding_status // ignore: cast_nullable_to_non_nullable
+              as int?,
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
@@ -567,6 +580,7 @@ class _$_UserData implements _UserData {
       this.phone,
       this.countryCode,
       this.phoneVerified,
+      this.onboarding_status,
       this.role,
       @JsonKey(name: '_v') this.v,
       this.email,
@@ -588,6 +602,8 @@ class _$_UserData implements _UserData {
   @override
   final bool? phoneVerified;
   @override
+  final int? onboarding_status;
+  @override
   final String? role;
   @override
   @JsonKey(name: '_v')
@@ -605,7 +621,7 @@ class _$_UserData implements _UserData {
 
   @override
   String toString() {
-    return 'UserData(id: $id, phone: $phone, countryCode: $countryCode, phoneVerified: $phoneVerified, role: $role, v: $v, email: $email, firstName: $firstName, lastName: $lastName, userType: $userType, logisticsPartner: $logisticsPartner)';
+    return 'UserData(id: $id, phone: $phone, countryCode: $countryCode, phoneVerified: $phoneVerified, onboarding_status: $onboarding_status, role: $role, v: $v, email: $email, firstName: $firstName, lastName: $lastName, userType: $userType, logisticsPartner: $logisticsPartner)';
   }
 
   @override
@@ -619,6 +635,8 @@ class _$_UserData implements _UserData {
                 other.countryCode == countryCode) &&
             (identical(other.phoneVerified, phoneVerified) ||
                 other.phoneVerified == phoneVerified) &&
+            (identical(other.onboarding_status, onboarding_status) ||
+                other.onboarding_status == onboarding_status) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.v, v) || other.v == v) &&
             (identical(other.email, email) || other.email == email) &&
@@ -640,6 +658,7 @@ class _$_UserData implements _UserData {
       phone,
       countryCode,
       phoneVerified,
+      onboarding_status,
       role,
       v,
       email,
@@ -668,6 +687,7 @@ abstract class _UserData implements UserData {
       final String? phone,
       final String? countryCode,
       final bool? phoneVerified,
+      final int? onboarding_status,
       final String? role,
       @JsonKey(name: '_v') final int? v,
       final String? email,
@@ -687,6 +707,8 @@ abstract class _UserData implements UserData {
   String? get countryCode;
   @override
   bool? get phoneVerified;
+  @override
+  int? get onboarding_status;
   @override
   String? get role;
   @override

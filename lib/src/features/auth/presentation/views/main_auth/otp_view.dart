@@ -13,6 +13,7 @@ import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/custom_text.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/toast_r.dart';
 import 'package:trackbudi_mobile/src/features/auth/auth_vm/auth_event.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_app_bar.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/app_divider.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/otp_widget.dart';
 import 'package:trackbudi_mobile/src/features/auth/presentation/widgets/trackbudi_button.dart';
@@ -49,6 +50,7 @@ class OTPView extends ConsumerWidget {
     return AbsorbPointer(
       absorbing: state.verifyOtpStatus.isSubmissionInProgress,
       child: Scaffold(
+        appBar: appBar(),
         body: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),

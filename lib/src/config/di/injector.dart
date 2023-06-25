@@ -4,6 +4,9 @@ import 'injector.config.dart';
 
 final GetIt si = GetIt.I;
 
-@injectableInit
-Future<void> trackbudiDependencies(String env) async =>
-    $initGetIt(si, environment: env);
+@InjectableInit(
+  initializerName: 'init',
+  preferRelativeImports: true,
+  asExtension: true,
+)
+void trackbudiDependencies(String env) => si.init();

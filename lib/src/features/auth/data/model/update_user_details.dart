@@ -32,6 +32,7 @@ class UserData with _$UserData {
     String? phone,
     String? countryCode,
     bool? phoneVerified,
+    int? onboarding_status,
     String? role,
     @JsonKey(name: '_v') int? v,
     String? email,

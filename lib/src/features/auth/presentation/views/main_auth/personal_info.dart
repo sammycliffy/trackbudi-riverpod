@@ -68,34 +68,43 @@ class ProfileInfo extends ConsumerWidget {
                 label: 'First name',
                 onChanged: (val) =>
                     ref.read(authNotifier.notifier).firstNameChanged(val),
-                error: state.fname.error?.name,
+                error: state.fname.invalid ? state.fname.error?.name : null,
               ),
               heightSpace(2),
               TrackBudiTextFormField(
                 onChanged: (val) =>
                     ref.read(authNotifier.notifier).lastNameChanged(val),
-                error: state.lname.error?.name,
+                error: state.lname.invalid ? state.lname.error?.name : null,
                 label: 'Last name',
               ),
               heightSpace(2),
               TrackBudiTextFormField(
                 onChanged: (val) =>
                     ref.read(authNotifier.notifier).emailChanged(val),
-                error: state.email.error?.name,
+                error: state.email.invalid ? state.email.error?.name : null,
                 label: 'Email address',
               ),
               heightSpace(2),
               TrackBudiTextFormField(
                 label: 'Password',
+                isPassword: true,
+                keyboardType: TextInputType.visiblePassword,
                 onChanged: (val) =>
                     ref.read(authNotifier.notifier).passwordChanged(val),
-                error: state.password.error?.name,
+                error:
+                    state.password.invalid ? state.password.error?.name : null,
               ),
               heightSpace(2),
               TrackBudiTextFormField(
+                isPassword: true,
+                keyboardType: TextInputType.visiblePassword,
+                error: state.rePassword.invalid
+                    ? state.rePassword.error?.name
+                    : state.password.value != state.rePassword.value
+                        ? 'password not match'
+                        : null,
                 onChanged: (val) =>
                     ref.read(authNotifier.notifier).rePasswordChanged(val),
-                error: state.rePassword.error?.name,
                 label: 'Confirm Password',
               ),
               heightSpace(6),
@@ -125,7 +134,7 @@ class ProfileInfo extends ConsumerWidget {
               TrackBudiButton(
                   disable: !state.displayUpdateProfileButton,
                   isLoading: state.updateProfileStatus.isSubmissionInProgress,
-                  buttonText: 'I accept',
+                  buttonText: 'Confirm',
                   onTap: state.displayUpdateProfileButton
                       ? () => ref
                           .read(authNotifier.notifier)

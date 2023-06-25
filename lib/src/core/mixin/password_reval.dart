@@ -2,13 +2,14 @@
 
 import 'package:formz/formz.dart';
 
-enum RePasswordValidationError { invalid, Required }
+enum RePasswordValidationError { invalid, Required, mismatch }
 
 class RePassword extends FormzInput<String, RePasswordValidationError> {
   const RePassword.pure() : super.pure('');
   const RePassword.dirty([String value = '']) : super.dirty(value);
 
-  static final _rePasswordRegExp = RegExp(r'^[A-Za-z\d@$!%*?&]{8,}$');
+  static final _rePasswordRegExp =
+      RegExp(r'^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*');
 
   @override
   RePasswordValidationError? validator(String value) {
