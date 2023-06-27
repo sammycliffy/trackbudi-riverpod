@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trackbudi_mobile/src/config/di/injector.dart';
+import 'package:trackbudi_mobile/src/config/service/locator/locator.dart';
 
 import 'src/config/router/app_router.gr.dart';
 import 'src/config/themes/app_theme.dart';
@@ -17,6 +18,7 @@ void main() async {
   debugPaintSizeEnabled = false;
   WidgetsFlutterBinding.ensureInitialized();
   trackbudiDependencies(Environment.dev);
+  await setUpLocator();
   await dotenv.load(fileName: '.env');
   await device.SystemChrome.setPreferredOrientations(
       [device.DeviceOrientation.portraitUp]);

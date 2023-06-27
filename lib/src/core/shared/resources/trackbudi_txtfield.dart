@@ -7,15 +7,15 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:trackbudi_mobile/src/core/shared/resources/colors_tr.dart';
 
 class TrackBudiPhoneField extends StatelessWidget {
+  final FutureOr<String?> Function(PhoneNumber?)? validator;
+  final Function(PhoneNumber)? onChanged;
+  final bool enabled;
   const TrackBudiPhoneField({
     super.key,
     this.validator,
     this.enabled = true,
     this.onChanged,
   });
-  final FutureOr<String?> Function(PhoneNumber?)? validator;
-  final Function(PhoneNumber)? onChanged;
-  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,14 @@ class TrackBudiPhoneField extends StatelessWidget {
       style: TextStyle(
           fontFamily: 'Euclad', fontSize: 14, fontWeight: FontWeight.w400),
       validator: validator,
-      dropdownTextStyle: TextStyle(fontFamily: 'Euclad', fontSize: 12),
+      dropdownTextStyle: TextStyle(fontFamily: 'Euclad'),
       pickerDialogStyle: PickerDialogStyle(
-          countryNameStyle: TextStyle(fontFamily: 'Euclad', fontSize: 12),
-          countryCodeStyle: TextStyle(fontFamily: 'Euclad', fontSize: 12)),
+          countryNameStyle: TextStyle(
+            fontFamily: 'Euclad',
+          ),
+          countryCodeStyle: TextStyle(
+            fontFamily: 'Euclad',
+          )),
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.never,
         labelText: 'Phone Number',

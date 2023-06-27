@@ -1,12 +1,21 @@
+import 'dart:async';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:trackbudi_mobile/src/config/router/app_router.gr.dart';
 
 import '../../../../../core/shared/resources/app_spacer.dart';
 import '../../../../../core/shared/resources/colors_tr.dart';
 import '../../../../../core/shared/resources/custom_text.dart';
 
-class SettingUp extends StatelessWidget {
+class SettingUp extends StatefulWidget {
   const SettingUp({super.key});
 
+  @override
+  State<SettingUp> createState() => _SettingUpState();
+}
+
+class _SettingUpState extends State<SettingUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,5 +37,13 @@ class SettingUp extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(const Duration(seconds: 5),
+        () => context.router.replace(const CommunityGuildelinePreview()));
   }
 }

@@ -22,14 +22,14 @@ appBar() => AppBar(
     );
 
 class RefreshWid extends StatelessWidget {
+  final Widget child;
+  final Future<void> Function() onRefresh;
+  final GlobalKey<RefreshIndicatorState> refreshIndicatorKey;
   const RefreshWid(
       {super.key,
       required this.child,
       required this.onRefresh,
       required this.refreshIndicatorKey});
-  final Widget child;
-  final Future<void> Function() onRefresh;
-  final GlobalKey<RefreshIndicatorState> refreshIndicatorKey;
 
   @override
   Widget build(BuildContext context) {

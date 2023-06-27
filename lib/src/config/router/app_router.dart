@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/views/main_auth/community_guideline.dart';
+import 'package:trackbudi_mobile/src/features/auth/presentation/views/main_auth/community_guideline_pre.dart';
 
 import '../../features/auth/presentation/views/main_auth/account_selection_page.dart';
 import '../../features/auth/presentation/views/main_auth/email_login.dart';
@@ -39,6 +41,8 @@ import '../../features/auth/presentation/views/onboarding/splash_screen.dart';
   AutoRoute(page: ResetPasswordView),
   AutoRoute(page: VendorRegistration),
   AutoRoute(page: NewPasswordView),
-  AutoRoute(page: SettingUp)
+  AutoRoute(page: SettingUp),
+  AutoRoute(page: CommunityGuildelinePreview),
+  AutoRoute(page: CommunityGuideline)
 ])
 class $AppRouter {}

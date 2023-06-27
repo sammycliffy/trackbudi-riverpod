@@ -1,6 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
+final auth = _Auth();
+
 class _Auth {
+  final baseURL = 'https://app.trackbudi.com:3000/api/v1/';
   final register = 'user/register';
   final update_type = 'user/update-type';
   final signIn = 'user/login';
@@ -11,5 +14,3 @@ class _Auth {
   final updateVendor = 'vendor/update';
   final user = 'user/';
 }
-
-final auth = _Auth();

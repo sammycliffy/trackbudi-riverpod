@@ -20,4 +20,5 @@ class AppImages {
   static const String signupHeading = 'assets/images/signup-heading.png';
   static const String verifyHeading = 'assets/images/verify-heading.png';
   static const String resetHeading = 'assets/images/reset-password.png';
+  static const String gradientImage = 'assets/images/gradient-background.png';
 }

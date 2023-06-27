@@ -72,6 +72,10 @@ class $AssetsImagesGen {
   AssetGenImage get backgroundImage =>
       const AssetGenImage('assets/images/background-image.png');
 
+  /// File path: assets/images/gradient-background.png
+  AssetGenImage get gradientBackground =>
+      const AssetGenImage('assets/images/gradient-background.png');
+
   /// File path: assets/images/logistics-image.png
   AssetGenImage get logisticsImage =>
       const AssetGenImage('assets/images/logistics-image.png');
@@ -106,6 +110,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         backgroundImage,
+        gradientBackground,
         logisticsImage,
         onboardingOne,
         onboardingThree,
